@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SŪRYA-1 · The Living Model — Interactive 3D Township</title>
+<style>
+  :root{--gold:#e9b949;--teal:#6fe3c8;--dim:#a8a796;--faint:#5d6072;--line:#1d2436;
+    --mono:ui-monospace,'SF Mono',Menlo,monospace;--sans:'Inter','Avenir Next',system-ui,sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;overflow:hidden;background:#05070f;font-family:var(--sans)}
+  #scene{position:fixed;inset:0}
+  .hud{position:fixed;z-index:10;pointer-events:none}
+  .hud *{pointer-events:auto}
+  #title{top:22px;left:26px}
+  #title h1{font-family:var(--mono);font-size:20px;letter-spacing:.18em;color:var(--gold);font-weight:700}
+  #title .sub{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim);margin-top:5px}
+  #mode{top:24px;right:26px;font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--gold);
+    border:1px solid rgba(233,185,73,.35);padding:7px 14px;border-radius:99px;background:rgba(5,7,15,.55);backdrop-filter:blur(6px)}
+  #views{bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:96vw}
+  #views button{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--dim);background:rgba(10,14,26,.72);border:1px solid var(--line);border-radius:99px;
+    padding:8px 15px;cursor:pointer;backdrop-filter:blur(6px);transition:all .2s}
+  #views button:hover{color:#ece7d8;border-color:var(--gold)}
+  #views button.on{color:var(--gold);border-color:var(--gold);background:rgba(233,185,73,.1)}
+  #info{bottom:86px;left:50%;transform:translateX(-50%);text-align:center;max-width:620px;padding:0 16px}
+  #info .zname{font-family:var(--mono);font-size:13px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+  #info .zdesc{font-size:13px;color:var(--dim);margin-top:6px;line-height:1.55;text-shadow:0 1px 8px #000}
+  #hint{top:70px;left:26px;font-size:11px;color:var(--faint);letter-spacing:.08em;line-height:1.9}
+  #back{top:24px;right:170px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--dim);
+    text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:99px;background:rgba(5,7,15,.55)}
+  #back:hover{color:var(--gold);border-color:var(--gold)}
+  #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#05070f;z-index:50;
+    font-family:var(--mono);color:var(--gold);font-size:13px;letter-spacing:.3em;transition:opacity .8s}
+  @media(max-width:700px){#hint{display:none}#back{display:none}#mode{top:auto;bottom:150px;right:50%;transform:translateX(50%)}}
+</style>
+</head>
+<body>
+<div id="loading">LOADING THE LIVING MODEL …</div>
+<div id="scene"></div>
+
+<div class="hud" id="title"><h1>SŪRYA-1</h1><div class="sub">the living model · 100 acres · interactive</div></div>
+<a class="hud" id="back" href="index.html">← master document</a>
+<div class="hud" id="mode">DAY · INFERENCE</div>
+<div class="hud" id="hint">drag — orbit · scroll — zoom · right-drag — pan<br>watch one full day pass every 60 seconds</div>
+<div class="hud" id="info"><div class="zname">OVERVIEW</div><div class="zdesc">The whole forward pass at once. Sunrise enters at the solar field, food embeds at the farms, attention happens at the commons, and the day's output — time — is lived in the rings.</div></div>
+<div class="hud" id="views"></div>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+/* ───────────────────────── scene ───────────────────────── */
+const container = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x05070f, 0.00055);
+
+const camera = new THREE.PerspectiveCamera(48, innerWidth/innerHeight, 1, 6000);
+camera.position.set(430, 380, 560);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = .06;
+controls.maxPolarAngle = Math.PI*0.49; controls.minDistance = 40; controls.maxDistance = 1600;
+controls.autoRotate = true; controls.autoRotateSpeed = .35;
+controls.addEventListener('start', ()=> controls.autoRotate = false);
+
+/* lights */
+const sunLight = new THREE.DirectionalLight(0xffe9b0, 2.6);
+sunLight.castShadow = true;
+sunLight.shadow.mapSize.set(2048,2048);
+sunLight.shadow.camera.left=-450; sunLight.shadow.camera.right=450;
+sunLight.shadow.camera.top=450; sunLight.shadow.camera.bottom=-450;
+sunLight.shadow.camera.far=2200; sunLight.shadow.bias=-0.0004;
+scene.add(sunLight);
+const moonLight = new THREE.DirectionalLight(0x8fa0c8, 0); scene.add(moonLight);
+const hemi = new THREE.HemisphereLight(0xbcd2e8, 0x1a2418, .8); scene.add(hemi);
+
+/* sun + moon meshes */
+const sunMesh = new THREE.Mesh(new THREE.SphereGeometry(26,24,24),
+  new THREE.MeshBasicMaterial({color:0xffe9a3}));
+scene.add(sunMesh);
+const moonMesh = new THREE.Mesh(new THREE.SphereGeometry(14,20,20),
+  new THREE.MeshBasicMaterial({color:0xcdd7ee,transparent:true,opacity:0}));
+scene.add(moonMesh);
+
+/* stars */
+const starGeo = new THREE.BufferGeometry();
+{ const pos=[]; for(let i=0;i<900;i++){ const v=new THREE.Vector3().randomDirection().multiplyScalar(2600); if(v.y>60){pos.push(v.x,v.y,v.z);} }
+  starGeo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3)); }
+const starMat = new THREE.PointsMaterial({color:0xc9d4ea,size:2.4,transparent:true,opacity:0,sizeAttenuation:false});
+scene.add(new THREE.Points(starGeo, starMat));
+
+/* ───────────────────────── helpers ───────────────────────── */
+const M = (g,m)=>{const x=new THREE.Mesh(g,m);x.castShadow=true;x.receiveShadow=true;return x;};
+const lam = (c,e=0x000000,ei=0)=> new THREE.MeshStandardMaterial({color:c,emissive:e,emissiveIntensity:ei,roughness:.85,metalness:.05});
+const nightGlows = []; // materials whose emissive rises at night
+
+function glowMat(c, e, base=0.25, night=1.6){ const m=new THREE.MeshStandardMaterial({color:c,emissive:e,emissiveIntensity:base,roughness:.6}); nightGlows.push({m,base,night}); return m; }
+
+function label(text, color='#e9b949', size=26){
+  const pad=20, cnv=document.createElement('canvas'), c=cnv.getContext('2d');
+  c.font = `600 ${size}px ui-monospace, Menlo, monospace`;
+  const w = c.measureText(text).width;
+  cnv.width = w+pad*2; cnv.height = size+pad;
+  const c2 = cnv.getContext('2d');
+  c2.font = `600 ${size}px ui-monospace, Menlo, monospace`;
+  c2.fillStyle='rgba(5,7,15,0.55)';
+  c2.fillRect(0,0,cnv.width,cnv.height);
+  c2.fillStyle=color; c2.textBaseline='middle';
+  c2.fillText(text,pad,cnv.height/2+1);
+  const tx=new THREE.CanvasTexture(cnv); tx.anisotropy=4;
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tx,transparent:true,depthWrite:false}));
+  sp.scale.set(cnv.width*0.32, cnv.height*0.32, 1);
+  return sp;
+}
+
+function windowsTexture(cols,rows,on='#ffd76a',off='#141a28'){
+  const cnv=document.createElement('canvas'); cnv.width=cols*8; cnv.height=rows*8;
+  const c=cnv.getContext('2d'); c.fillStyle=off; c.fillRect(0,0,cnv.width,cnv.height);
+  for(let i=0;i<cols;i++)for(let j=0;j<rows;j++){ if(Math.random()<.55){c.fillStyle=on; c.fillRect(i*8+2,j*8+2,4,5);} }
+  const t=new THREE.CanvasTexture(cnv); t.magFilter=THREE.NearestFilter; return t;
+}
+
+/* ───────────────────────── terrain ───────────────────────── */
+const outer = M(new THREE.CircleGeometry(2400,64).rotateX(-Math.PI/2), lam(0x0a0f0c));
+outer.position.y=-0.4; scene.add(outer);
+
+const plot = M(new THREE.BoxGeometry(660,1.2,660), lam(0x15291b));
+plot.position.y=-0.6; scene.add(plot);
+
+/* boundary — the membrane */
+{ const g=new THREE.BoxGeometry(664,5,664), edges=new THREE.EdgesGeometry(g);
+  const line=new THREE.LineSegments(edges,new THREE.LineBasicMaterial({color:0x9c7a1f,transparent:true,opacity:.85}));
+  line.position.y=2.5; scene.add(line);
+  const bl = label('THE MEMBRANE · 100 ACRES','#9c7a1f',22); bl.position.set(0,16,-336); scene.add(bl); }
+
+/* mobility loop (ring road) */
+{ const road = M(new THREE.RingGeometry(280,294,96).rotateX(-Math.PI/2), lam(0x232a1e));
+  road.position.y=0.25; road.receiveShadow=true; scene.add(road); }
+
+/* water spine — residual stream */
+const waterMat = new THREE.MeshStandardMaterial({color:0x10434b,emissive:0x2cb39e,emissiveIntensity:.35,roughness:.25,metalness:.3,transparent:true,opacity:.92});
+nightGlows.push({m:waterMat,base:.35,night:.9});
+{ const w = M(new THREE.BoxGeometry(660,1,34), waterMat); w.position.set(0,0.3,0); scene.add(w);
+  const wl = label('WATER SPINE · RESIDUAL STREAM','#6fe3c8',20); wl.position.set(-180,14,0); scene.add(wl); }
+/* flow particles in the canal */
+const flowBits=[]; for(let i=0;i<14;i++){ const b=M(new THREE.BoxGeometry(6,.6,2.4), new THREE.MeshBasicMaterial({color:0x6fe3c8,transparent:true,opacity:.8}));
+  b.position.set(-330+i*48, 1.1, (Math.random()-.5)*20); scene.add(b); flowBits.push(b); }
+
+/* ───────────────────────── SOLAR FIELD + GPU (NW) ───────────────────────── */
+{ const pad = M(new THREE.BoxGeometry(290,1,180), lam(0x1a2113)); pad.position.set(-165,0.2,-210); scene.add(pad); }
+{ const panel = new THREE.BoxGeometry(11,.5,7);
+  const pm = new THREE.MeshStandardMaterial({color:0x12203a,emissive:0x1f3a66,emissiveIntensity:.25,roughness:.3,metalness:.7});
+  const inst = new THREE.InstancedMesh(panel, pm, 154);
+  const d=new THREE.Object3D(); let k=0;
+  for(let i=0;i<14;i++)for(let j=0;j<11;j++){
+    d.position.set(-292+i*15.5, 4.2, -286+j*14.5);
+    d.rotation.x = -0.42; d.updateMatrix(); inst.setMatrixAt(k++, d.matrix);
+  }
+  inst.castShadow=true; inst.receiveShadow=true; scene.add(inst);
+  /* posts */
+  const post=new THREE.InstancedMesh(new THREE.CylinderGeometry(.5,.5,4), lam(0x3a3f35), 154);
+  k=0; for(let i=0;i<14;i++)for(let j=0;j<11;j++){ d.position.set(-292+i*15.5,2,-286+j*14.5); d.rotation.x=0; d.updateMatrix(); post.setMatrixAt(k++,d.matrix);} scene.add(post);
+  const sl=label('SOLAR FIELD · 14 MWp','#e9b949'); sl.position.set(-165,34,-262); scene.add(sl);
+}
+/* GPU towers — the brainstem */
+const gpuMats=[];
+function gpuTower(x,z,h){
+  const tex = windowsTexture(8, Math.round(h/6));
+  const m = new THREE.MeshStandardMaterial({color:0x0d1322,emissiveMap:tex,emissive:0xffd76a,emissiveIntensity:.5,roughness:.4});
+  nightGlows.push({m,base:.5,night:2.2}); gpuMats.push(m);
+  const t = M(new THREE.BoxGeometry(34,h,34), m); t.position.set(x,h/2,z); scene.add(t);
+  const cap = M(new THREE.BoxGeometry(38,3,38), glowMat(0x9c7a1f,0xe9b949,.5,2.4)); cap.position.set(x,h+1.5,z); scene.add(cap);
+}
+gpuTower(-70,-160,72); gpuTower(-120,-160,58);
+{ const gl=label('GPU TOWERS · THE BRAINSTEM','#e9b949'); gl.position.set(-95,92,-160); scene.add(gl); }
+/* battery hall */
+{ const b = M(new THREE.BoxGeometry(70,14,40), glowMat(0x101626,0x46557e,.4,1.6)); b.position.set(-220,7,-150); scene.add(b);
+  const bl=label('BATTERY HALL · 30 MWh · SLEEP','#8fa0c8',22); bl.position.set(-220,26,-150); scene.add(bl); }
+
+/* ───────────────────────── FARMS (NE) ───────────────────────── */
+{ const field=M(new THREE.BoxGeometry(290,1,180), lam(0x1d3a22)); field.position.set(165,0.2,-210); scene.add(field);
+  /* crop rows */
+  const row=new THREE.InstancedMesh(new THREE.BoxGeometry(120,1.6,2.6), lam(0x2e6b3c,0x2e6b3c,.12), 36);
+  const d=new THREE.Object3D(); let k=0;
+  for(let s=0;s<2;s++)for(let j=0;j<18;j++){ d.position.set(95+s*140, 1.4, -292+j*9.5); d.updateMatrix(); row.setMatrixAt(k++,d.matrix);}
+  row.castShadow=true; scene.add(row);
+  /* orchard */
+  for(let i=0;i<26;i++){ const x=40+Math.random()*250, z=-300+Math.random()*60;
+    const tr=M(new THREE.CylinderGeometry(.8,1.1,7), lam(0x4a3520)); tr.position.set(x,3.5,z); scene.add(tr);
+    const fo=M(new THREE.SphereGeometry(4.5+Math.random()*2.5,10,10), lam(0x2f7c4d)); fo.position.set(x,10,z); scene.add(fo); }
+  /* vertical farm towers */
+  for(let i=0;i<4;i++){ const t=M(new THREE.BoxGeometry(16,46,16), glowMat(0x10271a,0x69d98a,.35,1.7)); t.position.set(120+i*44,23,-130); scene.add(t); }
+  const fl=label('FARMS + HERBS · EMBEDDING LAYER','#69d98a'); fl.position.set(165,60,-240); scene.add(fl);
+  const vl=label('VERTICAL FARMS','#69d98a',20); vl.position.set(186,56,-130); scene.add(vl);
+}
+
+/* ───────────────────────── LIVING RINGS (SW) ───────────────────────── */
+function ringCluster(cx,cz,r,n){
+  const ring=M(new THREE.RingGeometry(r-3,r+3,48).rotateX(-Math.PI/2), lam(0x2a2017)); ring.position.set(cx,0.35,cz); scene.add(ring);
+  for(let i=0;i<n;i++){ const a=i/n*Math.PI*2;
+    const hx=cx+Math.cos(a)*r, hz=cz+Math.sin(a)*r;
+    const h=M(new THREE.BoxGeometry(9,6+Math.random()*3,9), glowMat(0x36261a,0xf0916f,.18,1.4));
+    h.position.set(hx,3.4,hz); h.rotation.y=-a; scene.add(h);
+    const roof=M(new THREE.ConeGeometry(7,4,4), lam(0x1d2b33)); roof.position.set(hx,8.6,hz); roof.rotation.y=Math.PI/4-a; scene.add(roof); }
+  const g=M(new THREE.CircleGeometry(r-8,32).rotateX(-Math.PI/2), lam(0x1e3d26)); g.position.set(cx,0.3,cz); scene.add(g);
+}
+ringCluster(-210,110,42,12); ringCluster(-110,150,36,10); ringCluster(-205,225,38,11);
+{ const rl=label('LIVING RINGS · THE CONTEXT WINDOW','#f0916f'); rl.position.set(-170,42,170); scene.add(rl); }
+
+/* ───────────────────────── COMMONS (SE of spine) ───────────────────────── */
+{ const plaza=M(new THREE.BoxGeometry(250,0.8,150), lam(0x232017)); plaza.position.set(150,0.2,120); scene.add(plaza);
+  const names=['SCHOOL','PRANA CLINIC','24/7 KITCHEN','CLUBHOUSE'];
+  for(let i=0;i<4;i++){ const b=M(new THREE.BoxGeometry(34,16+(i%2)*6,30), glowMat(0x241c08,0xe9b949,.25,1.5));
+    b.position.set(58+i*62,8+(i%2)*3,86); scene.add(b);
+    const l=label(names[i],'#e9b949',19); l.position.set(58+i*62,26+(i%2)*6,86); scene.add(l); }
+  /* amphitheatre */
+  for(let i=0;i<4;i++){ const s=M(new THREE.RingGeometry(14+i*5,17+i*5,32,1,0,Math.PI).rotateX(-Math.PI/2), lam(0x3a2f1a));
+    s.position.set(245,0.4+i*1.4,150); scene.add(s); }
+  /* banyan grove + ramana rooms */
+  const bt=M(new THREE.CylinderGeometry(2.6,3.6,10), lam(0x4a3520)); bt.position.set(130,5,176); scene.add(bt);
+  const bf=M(new THREE.SphereGeometry(17,12,12), lam(0x24502f)); bf.position.set(130,20,176); scene.add(bf);
+  for(let i=0;i<3;i++){ const dome=M(new THREE.SphereGeometry(7,16,12,0,Math.PI*2,0,Math.PI/2), lam(0x4d4537));
+    dome.position.set(78+i*26,0.5,178); scene.add(dome); }
+  const rl=label('RAMANA ROOMS · THE STOP TOKEN','#a8a796',19); rl.position.set(104,18,196); scene.add(rl);
+  const cl=label('THE COMMONS · ATTENTION','#e9b949'); cl.position.set(150,46,60); scene.add(cl);
+}
+
+/* ───────────────────────── ANIMAL KINGDOM (S-SW) ───────────────────────── */
+{ const meadow=M(new THREE.BoxGeometry(220,0.8,90), lam(0x1f4527)); meadow.position.set(-190,0.2,287); scene.add(meadow);
+  /* gaushala + hospital */
+  const g1=M(new THREE.BoxGeometry(40,9,22), lam(0x4d3a22,0x4d3a22,.05)); g1.position.set(-272,4.5,262); scene.add(g1);
+  const g2=M(new THREE.BoxGeometry(26,8,20), glowMat(0x244033,0x69d98a,.2,1.2)); g2.position.set(-118,4,262); scene.add(g2);
+  /* wetland */
+  const pond=M(new THREE.CircleGeometry(20,24).rotateX(-Math.PI/2), waterMat); pond.position.set(-150,0.45,305); scene.add(pond);
+  /* animals: cows (white blobs) + dogs (small ochre) */
+  window.animals=[];
+  for(let i=0;i<7;i++){ const c=M(new THREE.CapsuleGeometry(2.2,4,4,8).rotateZ(Math.PI/2), lam(0xd8d2c0));
+    c.position.set(-280+Math.random()*180,2.4,250+Math.random()*70); scene.add(c); animals.push({m:c,sp:.5+Math.random()}); }
+  for(let i=0;i<6;i++){ const d=M(new THREE.CapsuleGeometry(1.1,2,4,8).rotateZ(Math.PI/2), lam(0xb98a4a));
+    d.position.set(-280+Math.random()*180,1.3,250+Math.random()*70); scene.add(d); animals.push({m:d,sp:1.4+Math.random()*1.2}); }
+  const al=label('ANIMAL KINGDOM · FROZEN WEIGHTS · 10 AC','#69d98a'); al.position.set(-190,30,287); scene.add(al);
+}
+
+/* ───────────────────────── THE FIVE LABS (S center) ───────────────────────── */
+const labDefs=[
+  {n:'FLIGHT LAB',c:0xa78bda},{n:'BATTERY LAB',c:0x8fa0c8},{n:'HEALTH LAB',c:0xf0916f},
+  {n:'FARM LAB',c:0x69d98a},{n:'ROBOTICS LAB',c:0x6fe3c8}];
+labDefs.forEach((L,i)=>{
+  const x=-20+i*42, z=287;
+  const glass=new THREE.MeshStandardMaterial({color:0x0d1626,emissive:L.c,emissiveIntensity:.3,roughness:.15,metalness:.4,transparent:true,opacity:.85});
+  nightGlows.push({m:glass,base:.3,night:1.5});
+  const b=M(new THREE.BoxGeometry(30,18,26), glass); b.position.set(x,9,z); scene.add(b);
+  const gate=M(new THREE.TorusGeometry(5,0.8,8,24).rotateX(0), glowMat(0x9c7a1f,0xe9b949,.6,2)); gate.position.set(x,5.5,z-15); scene.add(gate);
+  const l=label(L.n,'#'+L.c.toString(16).padStart(6,'0'),18); l.position.set(x,24,z); scene.add(l);
+});
+{ const ll=label('THE FIVE LABS · GATES & EXAMS','#6fe3c8'); ll.position.set(64,40,318); scene.add(ll); }
+
+/* ───────────────────────── SKYPORT (SE) ───────────────────────── */
+{ const pad=M(new THREE.CylinderGeometry(34,34,1.4,40), lam(0x202636)); pad.position.set(245,0.7,270); scene.add(pad);
+  const ring1=M(new THREE.TorusGeometry(30,0.9,8,48).rotateX(Math.PI/2), glowMat(0xa78bda,0xa78bda,.6,2.2)); ring1.position.set(245,1.6,270); scene.add(ring1);
+  const hbar1=M(new THREE.BoxGeometry(3,0.4,18), glowMat(0xe9b949,0xe9b949,.7,2.4)); hbar1.position.set(238,1.6,270); scene.add(hbar1);
+  const hbar2=hbar1.clone(); hbar2.position.x=252; scene.add(hbar2);
+  const hbar3=M(new THREE.BoxGeometry(11,0.4,3), glowMat(0xe9b949,0xe9b949,.7,2.4)); hbar3.position.set(245,1.6,270); scene.add(hbar3);
+  const tower=M(new THREE.CylinderGeometry(2.4,3,26), lam(0x2a3040)); tower.position.set(290,13,238); scene.add(tower);
+  const cab=M(new THREE.BoxGeometry(12,6,12), glowMat(0x101626,0x6fe3c8,.4,1.8)); cab.position.set(290,28,238); scene.add(cab);
+  const sl=label('SKYPORT · DRONE PORT + VERTIPORT','#a78bda'); sl.position.set(245,42,300); scene.add(sl);
+}
+
+/* ───────────────────────── SŪRYA DVĀR — the mart, outside the membrane ───────────────────────── */
+{ const road=M(new THREE.BoxGeometry(90,0.6,14), lam(0x232a1e)); road.position.set(382,0.3,0); scene.add(road);
+  const mart=M(new THREE.BoxGeometry(46,13,60), glowMat(0x241c08,0xe9b949,.35,1.8)); mart.position.set(420,6.5,0); scene.add(mart);
+  const roof=M(new THREE.BoxGeometry(52,2,66), lam(0x9c7a1f,0xe9b949,.2)); roof.position.set(420,14.5,0); scene.add(roof);
+  /* gate arch on the membrane */
+  const p1=M(new THREE.BoxGeometry(3,22,3), glowMat(0x9c7a1f,0xe9b949,.5,2)); p1.position.set(332,11,-12); scene.add(p1);
+  const p2=p1.clone(); p2.position.z=12; scene.add(p2);
+  const arc=M(new THREE.TorusGeometry(12,1.2,8,24,Math.PI).rotateY(Math.PI/2), glowMat(0x9c7a1f,0xe9b949,.5,2)); arc.position.set(332,22,0); scene.add(arc);
+  const ml=label('SŪRYA DVĀR · THE MART · THE API','#e9b949'); ml.position.set(420,28,0); scene.add(ml);
+}
+
+/* ───────────────────────── moving things ───────────────────────── */
+/* EV pods on the loop */
+const pods=[]; for(let i=0;i<7;i++){
+  const p=M(new THREE.CapsuleGeometry(2.6,7,4,10).rotateZ(Math.PI/2), glowMat(0xd8d2c0,0x6fe3c8,.25,1.6));
+  scene.add(p); pods.push({m:p,off:i/7*Math.PI*2});
+}
+/* drones */
+const drones=[]; for(let i=0;i<6;i++){
+  const g=new THREE.Group();
+  const body=M(new THREE.BoxGeometry(3.2,1.2,3.2), lam(0x2a3040));
+  g.add(body);
+  for(const [dx,dz] of [[-2.4,-2.4],[2.4,-2.4],[-2.4,2.4],[2.4,2.4]]){
+    const r=new THREE.Mesh(new THREE.CylinderGeometry(1.6,1.6,.25,10), new THREE.MeshBasicMaterial({color:0x9aa392,transparent:true,opacity:.5}));
+    r.position.set(dx,.9,dz); g.add(r);
+  }
+  const lite=new THREE.Mesh(new THREE.SphereGeometry(.55,8,8), new THREE.MeshBasicMaterial({color:i%2?0xff5a4e:0x6fe3c8}));
+  lite.position.y=-0.8; g.add(lite); g.userData.lite=lite;
+  scene.add(g); drones.push({m:g,off:i*1.13,r:120+i*32,h:34+i*7,sp:.25+i*.045});
+}
+/* eVTOL — bigger craft cycling approach to skyport */
+const evtol=new THREE.Group();
+{ const f=M(new THREE.CapsuleGeometry(3.4,10,4,10).rotateZ(Math.PI/2), lam(0xd8d2c0,0xa78bda,.15));
+  evtol.add(f);
+  const w=M(new THREE.BoxGeometry(26,.7,4), lam(0x9aa392)); w.position.y=2.4; evtol.add(w);
+  for(const dx of [-11,0,11]){ const r=new THREE.Mesh(new THREE.CylinderGeometry(3.4,3.4,.3,12), new THREE.MeshBasicMaterial({color:0xc9d4ea,transparent:true,opacity:.45})); r.position.set(dx,3.6,0); evtol.add(r);}
+  scene.add(evtol);
+}
+
+/* ───────────────────────── views / HUD ───────────────────────── */
+const VIEWS = {
+  'Overview':   {p:[430,380,560], t:[0,0,0],    d:'The whole forward pass at once. Sunrise enters at the solar field, food embeds at the farms, attention happens at the commons, and the day\'s output — time — is lived in the rings.'},
+  'Solar + GPU':{p:[-150,130,-30],t:[-165,10,-210],d:'14 MWp of panels feeding two GPU towers — the brainstem. By day the towers serve the market; by night they retrain the town on what the land did today. The battery hall is where the day is consolidated: sleep, made of lithium.'},
+  'Farms':      {p:[60,110,-90],  t:[165,5,-215], d:'The embedding layer. Crop rows, orchards and four vertical farm towers turn earth into tokens of food — with 4,000 soil probes giving ANNA the ground truth satellite models never have.'},
+  'Living Rings':{p:[-60,120,330],t:[-180,5,165], d:'The context window: courtyard homes in rings around shared gardens, 2,000 humans held in context and never truncated. Solar roofs, no fences, dogs welcome.'},
+  'The Commons':{p:[150,110,300], t:[150,8,120],  d:'Attention, all-to-all: school, PRANA clinic, the 24/7 kitchen and clubhouse around one plaza — with the banyan grove and the three domed Ramana Rooms, the only place the model does not run.'},
+  'The Labs':   {p:[64,90,420],   t:[64,8,287],   d:'Five glass model-factories — flight, battery, health, farm, robotics. The golden gate before each door is the exam: free, unlimited attempts, town-tutored. Write access must be earned. Not even the founder skips it.'},
+  'Animal Kingdom':{p:[-190,100,420],t:[-190,4,287],d:'Ten acres of frozen weights: the gaushala, dog meadows, the bird wetland. Half a billion years of pretraining the town must never fine-tune — where it keeps its source code.'},
+  'Skyport':    {p:[300,110,400], t:[245,8,270],  d:'Drone port today, vertiport tomorrow — built to DGCA\'s March 2026 eVTOL framework. Watch the deliveries fly; the white craft on approach is the 2028 air ambulance.'},
+  'Sūrya Dvār': {p:[470,80,140],  t:[400,8,0],    d:'The mart — the model\'s API, just outside the membrane. The world never enters the weights, but it can buy the outputs: provenanced food, herbs, soap and cloth at genuine price.'},
+};
+const viewsEl=document.getElementById('views'), infoName=document.querySelector('#info .zname'), infoDesc=document.querySelector('#info .zdesc');
+let camGoal=null;
+Object.keys(VIEWS).forEach((k,i)=>{
+  const b=document.createElement('button'); b.textContent=k; if(i===0)b.classList.add('on');
+  b.onclick=()=>{ document.querySelectorAll('#views button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const v=VIEWS[k]; camGoal={p:new THREE.Vector3(...v.p),t:new THREE.Vector3(...v.t)};
+    controls.autoRotate=false; infoName.textContent=k.toUpperCase(); infoDesc.textContent=v.d; };
+  viewsEl.appendChild(b);
+});
+
+/* ───────────────────────── day/night + animate ───────────────────────── */
+const DAY = 60; // seconds per full day
+const skyDay=new THREE.Color(0x32465c), skyNight=new THREE.Color(0x04050c);
+const fogDay=new THREE.Color(0x32465c), fogNight=new THREE.Color(0x04050c);
+const modeEl=document.getElementById('mode');
+const clock=new THREE.Clock();
+
+function animate(){
+  requestAnimationFrame(animate);
+  const t=clock.getElapsedTime();
+  const phase=(t%DAY)/DAY*Math.PI*2;           // 0..2π
+  const sunY=Math.sin(phase), day=THREE.MathUtils.clamp(sunY*1.6,0,1);
+
+  /* sun + moon */
+  const R=900;
+  sunLight.position.set(Math.cos(phase)*R, sunY*R*0.8, Math.sin(phase*0.5)*200+300);
+  sunMesh.position.copy(sunLight.position).multiplyScalar(1.6);
+  sunLight.intensity=2.6*day;
+  sunMesh.material.color.setHSL(.11,.9,.55+.3*day);
+  sunMesh.visible=sunY>-.12;
+  const mphase=phase+Math.PI;
+  moonLight.position.set(Math.cos(mphase)*R, Math.sin(mphase)*R*0.8, 200);
+  moonLight.intensity=.5*(1-day);
+  moonMesh.position.copy(moonLight.position).multiplyScalar(1.5);
+  moonMesh.material.opacity=(1-day)*.95;
+
+  hemi.intensity=.15+.75*day;
+  const sky=skyNight.clone().lerp(skyDay,day);
+  renderer.setClearColor(sky);
+  scene.fog.color.copy(fogNight.clone().lerp(fogDay,day));
+  starMat.opacity=(1-day)*.9;
+
+  modeEl.textContent = day>0.08 ? 'DAY · INFERENCE' : 'NIGHT · TRAINING';
+  modeEl.style.color = day>0.08 ? '#e9b949' : '#8fa0c8';
+  modeEl.style.borderColor = day>0.08 ? 'rgba(233,185,73,.35)' : 'rgba(143,160,200,.35)';
+
+  /* night glows */
+  for(const g of nightGlows) g.m.emissiveIntensity = g.base + (g.night-g.base)*(1-day);
+  /* GPU towers pulse harder at night — training */
+  const pulse=.5+.5*Math.sin(t*3);
+  for(const m of gpuMats) m.emissiveIntensity = (day>0.08? .45+.2*pulse : 1.6+.9*pulse);
+
+  /* pods on loop */
+  for(const p of pods){ const a=t*0.12*((p.off%2)?1:1.18)+p.off;
+    p.m.position.set(Math.cos(a)*287, 2.6, Math.sin(a)*287);
+    p.m.rotation.y=-a; }
+  /* drones */
+  for(const d of drones){ const a=t*d.sp+d.off;
+    d.m.position.set(Math.cos(a)*d.r+40, d.h+Math.sin(t*1.7+d.off)*4, Math.sin(a*0.8)*d.r*0.8+30);
+    d.m.rotation.y=-a; d.m.userData.lite.material.color.setHSL(0,0,0).offsetHSL(0,0,.5+.5*Math.sin(t*6+d.off));
+  }
+  /* eVTOL approach loop to skyport */
+  { const a=(t*0.07)%(Math.PI*2);
+    const r=520-380*Math.max(0,Math.sin(a));    // swings far then approaches
+    const x=245+Math.cos(a)*r*0.7, z=270+Math.sin(a)*r*0.45;
+    const h=10+Math.max(6,90*Math.abs(Math.cos(a)));
+    evtol.position.set(x,h,z); evtol.rotation.y=-a+Math.PI/2; }
+  /* canal flow */
+  for(const b of flowBits){ b.position.x+=0.7; if(b.position.x>330)b.position.x=-330; }
+  /* animals amble */
+  if(window.animals) for(const an of animals){ an.m.position.x+=Math.sin(t*0.3*an.sp+an.sp*7)*0.04;
+    an.m.position.z+=Math.cos(t*0.23*an.sp+an.sp*3)*0.03; an.m.rotation.y=Math.sin(t*0.2*an.sp)*1.2; }
+
+  /* camera fly-to */
+  if(camGoal){ camera.position.lerp(camGoal.p,0.045); controls.target.lerp(camGoal.t,0.05);
+    if(camera.position.distanceTo(camGoal.p)<1.5) camGoal=null; }
+
+  controls.update();
+  renderer.render(scene,camera);
+}
+animate();
+document.getElementById('loading').style.opacity=0;
+setTimeout(()=>document.getElementById('loading').remove(),900);
+
+addEventListener('resize',()=>{ camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth,innerHeight); });
+</script>
+</body>
+</html>
