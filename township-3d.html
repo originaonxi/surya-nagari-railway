@@ -100,8 +100,11 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
-if (new URLSearchParams(location.search).get('hud')==='min'){
-  for(const id of ['title','back','hint']) document.getElementById(id).style.display='none';
+const HERO = new URLSearchParams(location.search).get('hud')==='min';
+if (HERO){
+  // hero showcase: hide ALL chrome — just the living model + its light zone plaques
+  for(const id of ['title','back','hint','views','inside','telem','mode','info'])
+    document.getElementById(id).style.display='none';
 }
 
 /* ── renderer / scene ── */
@@ -122,8 +125,9 @@ const controls=new OrbitControls(camera,renderer.domElement);
 controls.enableDamping=true;controls.dampingFactor=.07;
 controls.rotateSpeed=.9;controls.zoomSpeed=1.1;
 controls.maxPolarAngle=Math.PI*0.495;controls.minDistance=20;controls.maxDistance=2200;
-controls.autoRotate=true;controls.autoRotateSpeed=.28;
-renderer.domElement.style.touchAction='none';
+controls.autoRotate=true;controls.autoRotateSpeed=HERO?.5:.28;
+if(HERO){controls.enabled=false;}                 // hero: auto-rotate only, never trap page scroll
+else{renderer.domElement.style.touchAction='none';}
 controls.addEventListener('start',()=>{controls.autoRotate=false;stopTour();});
 
 const sunLight=new THREE.DirectionalLight(0xffe9b0,2.6);
@@ -199,11 +203,32 @@ const P=(th,r)=>[Math.cos(th)*r,Math.sin(th)*r];
 const D2R=Math.PI/180;
 function sector(r1,r2,a1,a2,mat,y=0){const g=new THREE.RingGeometry(r1,r2,64,1,a1,a2-a1).rotateX(-Math.PI/2);g.scale(1,1,-1);
  const m=new THREE.Mesh(g,mat);m.receiveShadow=true;m.position.y=y;return m;}
-/* NO TEXT ON THE MODEL — by design. The 3D is pure visual; all naming lives in the
-   HUD info panel + view buttons. label() is a silent no-op so the ~120 call sites
-   keep working (scene.add / .position.set) but render nothing. */
+/* Plaque labels — like the little engraved name-cards on a real architect's model.
+   Light, thin, soft-shadowed; held at a near-constant on-screen size (so they never
+   balloon when you zoom); and shown only at the right distance band so the model is
+   never cluttered. tier1 = zone titles (seen across the model), tier2 = building names
+   (appear as you come close). */
 const allLabels=[];
-function label(){return new THREE.Object3D();}
+function label(text,color='#e9b949',size=26){
+  const tier=size>=22?1:2;
+  // model plaques carry only the short NAME — the poetry lives in the info panel
+  const name=text.split('·')[0].trim();
+  const fs=34, pad=10;
+  const cnv=document.createElement('canvas'),mc=cnv.getContext('2d');
+  mc.font=`500 ${fs}px ui-monospace, Menlo, monospace`;
+  const tw=mc.measureText(name).width;
+  cnv.width=Math.ceil(tw)+pad*2; cnv.height=fs+pad*2;
+  const c=cnv.getContext('2d');
+  c.font=`500 ${fs}px ui-monospace, Menlo, monospace`;
+  c.textBaseline='middle';
+  c.shadowColor='rgba(0,0,0,.95)'; c.shadowBlur=9; c.shadowOffsetY=1;
+  c.fillStyle=color; c.fillText(name,pad,cnv.height/2);
+  c.shadowBlur=0; c.fillText(name,pad,cnv.height/2);
+  const tx=new THREE.CanvasTexture(cnv); tx.anisotropy=4;
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tx,transparent:true,depthWrite:false,depthTest:false,opacity:0}));
+  sp.renderOrder=10;
+  allLabels.push({sp,tier,ar:cnv.width/cnv.height,px:tier===1?22:15});
+  return sp;}
 
 /* ════════════ THE MANDALA — ground rings ════════════ */
 const outer=M(new THREE.CircleGeometry(3000,64).rotateX(-Math.PI/2),lam(0x0a0f0c));outer.position.y=-.5;scene.add(outer);
@@ -1198,6 +1223,19 @@ function animate(){
   tGpu.textContent=Math.round(day>.08?34+8*Math.random():92+6*Math.random())+' %';
   tOut.textContent=Math.round(PEOPLE*(0.55+0.45*day));
   tDay.textContent=1+Math.floor(t/DAY);}
+
+ /* plaque labels: TRUE constant on-screen px size + distance-band fade (auto-declutter) */
+ {const vpx=renderer.domElement.clientHeight||innerHeight;
+  const f=2*Math.tan(THREE.MathUtils.degToRad(camera.fov)/2)/vpx;
+  for(const L of allLabels){
+   const d=camera.position.distanceTo(L.sp.position);
+   const h=L.px*f*d;                       // world height that renders at L.px screen pixels
+   L.sp.scale.set(h*L.ar,h,1);
+   let o;
+   if(L.tier===1) o=THREE.MathUtils.smoothstep(d,55,130)*0.72;                                  // zone titles: hide when you're inside a zone
+   else o=THREE.MathUtils.smoothstep(d,16,38)*(1-THREE.MathUtils.smoothstep(d,95,160))*0.9;      // buildings: only when close
+   L.sp.material.opacity+=(o-L.sp.material.opacity)*.16;
+   L.sp.visible=L.sp.material.opacity>0.02;}}
 
  /* cinematic tour pacing */
  if(tour.on){tour.timer+=dt;if(tour.timer>8.5)advanceTour();}
