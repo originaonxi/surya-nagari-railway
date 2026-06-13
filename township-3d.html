@@ -345,13 +345,29 @@ function commonsAt(a){return P(a*D2R,85);}
  const gr=M(new THREE.CylinderGeometry(17.4,17.4,1.4,12),greenRoof);gr.position.set(x,9.6,z);scene.add(gr);
  const gr2=M(new THREE.CylinderGeometry(11.2,11.2,1.2,12),greenRoof);gr2.position.set(x,17.6,z);scene.add(gr2);
  const l=label('UNIVERSITY','#e9b949',19);l.position.set(x,26,z);scene.add(l);}
-/* PRANA CLINIC */
-{const [x,z]=commonsAt(250);
- const sh=M(new THREE.CapsuleGeometry(9,16,4,12).rotateZ(Math.PI/2),new THREE.MeshStandardMaterial({color:0xe6e0d0,roughness:.4}));sh.position.set(x,8,z);scene.add(sh);
- const can=M(new THREE.SphereGeometry(13,16,8,0,Math.PI*2,0,Math.PI/2),glassMat(0x6fe3c8,.28));can.position.set(x,2,z);scene.add(can);
- const c1=M(new THREE.BoxGeometry(1.2,5,1.2),glowMat(0xf0916f,0xf0916f,.6,2));c1.position.set(x,19,z);scene.add(c1);
- const c2=M(new THREE.BoxGeometry(5,1.2,1.2),glowMat(0xf0916f,0xf0916f,.6,2));c2.position.set(x,19.6,z);scene.add(c2);
- const l=label('PRANA CLINIC','#6fe3c8',19);l.position.set(x,28,z);scene.add(l);}
+/* PRANA CLINIC — the health canopy, unmistakable */
+let clinicPad;
+{const [x,z]=commonsAt(250);const th=250*D2R;
+ const wt=windowsTexture(9,4,'#bfeee6');
+ const wm=new THREE.MeshStandardMaterial({color:0xe9efe9,emissiveMap:wt,emissive:0x6fe3c8,emissiveIntensity:.28,roughness:.5});
+ nightGlows.push({m:wm,base:.28,night:1.5});
+ const ward=M(new THREE.BoxGeometry(32,15,18),wm);ward.position.set(x,7.6,z);ward.rotation.y=-th;scene.add(ward);
+ const roof=M(new THREE.BoxGeometry(33,1.4,19),greenRoof);roof.position.set(x,15.5,z);roof.rotation.y=-th;scene.add(roof);
+ const [wx,wz]=P(254*D2R,93);
+ const wing=M(new THREE.SphereGeometry(11,18,9,0,Math.PI*2,0,Math.PI/2),glassMat(0x6fe3c8,.3));wing.position.set(wx,.6,wz);scene.add(wing);
+ /* the big glowing red cross — visible across the mandala */
+ const pylon=M(new THREE.BoxGeometry(2.2,11,2.2),new THREE.MeshStandardMaterial({color:0xe9efe9,roughness:.5}));pylon.position.set(x,21,z);scene.add(pylon);
+ const cv=M(new THREE.BoxGeometry(2.6,8,2.6),glowMat(0xff5a4e,0xff4438,1,2.6));cv.position.set(x,28,z);scene.add(cv);
+ const ch=M(new THREE.BoxGeometry(8,2.6,2.6),glowMat(0xff5a4e,0xff4438,1,2.6));ch.position.set(x,28,z);scene.add(ch);
+ /* air-ambulance helipad with pulsing ring */
+ const [px,pz]=P(246*D2R,73);
+ const pad=M(new THREE.CylinderGeometry(7,7,.6,24),lam(0x222a30));pad.position.set(px,.6,pz);scene.add(pad);
+ clinicPad=M(new THREE.TorusGeometry(6,.5,8,40).rotateX(Math.PI/2),new THREE.MeshStandardMaterial({color:0xff5a4e,emissive:0xff5a4e,emissiveIntensity:.7}));
+ clinicPad.position.set(px,1.2,pz);scene.add(clinicPad);
+ const hb=M(new THREE.BoxGeometry(1.6,.3,5),glowMat(0xffffff,0xffffff,.6,1.5));hb.position.set(px-2,1.3,pz);scene.add(hb);
+ const hb2=hb.clone();hb2.position.set(px+2,1.3,pz);scene.add(hb2);
+ const hb3=M(new THREE.BoxGeometry(5,.3,1.6),glowMat(0xffffff,0xffffff,.6,1.5));hb3.position.set(px,1.3,pz);scene.add(hb3);
+ const l=label('PRANA CLINIC','#6fe3c8',19);l.position.set(x,33,z);scene.add(l);}
 /* 24/7 KITCHEN */
 const kitchenPos=commonsAt(300);
 {const [x,z]=kitchenPos;
@@ -378,6 +394,33 @@ let sabhaPillar;
 {const [x,z]=commonsAt(130);
  for(let i=0;i<4;i++){const s=M(new THREE.RingGeometry(14+i*5,17+i*5,32,1,0,Math.PI).rotateX(-Math.PI/2),lam(0x3a2f1a));
   s.position.set(x,.4+i*1.4,z);scene.add(s);}}
+/* THEATER — performing arts, a golden dome with a marquee */
+{const [x,z]=commonsAt(160);
+ const base=M(new THREE.CylinderGeometry(13,14,8,24),new THREE.MeshStandardMaterial({color:0x7a2f3a,roughness:.6}));base.position.set(x,4,z);scene.add(base);
+ const dome=M(new THREE.SphereGeometry(13,24,12,0,Math.PI*2,0,Math.PI/2),new THREE.MeshStandardMaterial({color:0xc9a227,metalness:.6,roughness:.3}));dome.position.set(x,8,z);scene.add(dome);
+ const fin=M(new THREE.SphereGeometry(.7,8,8),glowMat(0xffd76a,0xffd76a,.7,2.4));fin.position.set(x,21.5,z);scene.add(fin);
+ for(let i=0;i<18;i++){const a=i/18*Math.PI*2;const b=M(new THREE.SphereGeometry(.35,6,6),glowMat(0xffd76a,0xffd76a,.6,2.4));b.position.set(x+Math.cos(a)*13.6,8.6,z+Math.sin(a)*13.6);scene.add(b);}
+ const l=label('THEATER','#f0916f',18);l.position.set(x,24,z);scene.add(l);}
+/* MANAGEMENT — operations & governance seat (mission control) */
+{const [x,z]=commonsAt(95);const th=95*D2R;
+ const wt=windowsTexture(7,7,'#6fe3c8');
+ const m=new THREE.MeshStandardMaterial({color:0x141a28,emissiveMap:wt,emissive:0x6fe3c8,emissiveIntensity:.4,roughness:.4,metalness:.3});
+ nightGlows.push({m,base:.4,night:1.9});
+ const tower=M(new THREE.BoxGeometry(15,22,15),m);tower.position.set(x,11,z);tower.rotation.y=-th;scene.add(tower);
+ const cap=M(new THREE.BoxGeometry(17,1.4,17),greenRoof);cap.position.set(x,22.4,z);cap.rotation.y=-th;scene.add(cap);
+ const ant=M(new THREE.CylinderGeometry(.18,.18,9),lam(0x9aa392));ant.position.set(x,27,z);scene.add(ant);
+ const beacon=M(new THREE.SphereGeometry(.6,8,8),glowMat(0xff5a4e,0xff5a4e,1,2));beacon.position.set(x,31.5,z);scene.add(beacon);
+ const l=label('MANAGEMENT','#6fe3c8',18);l.position.set(x,35,z);scene.add(l);}
+/* ZEN GARDEN — raked sand, stones, koi pond, meditation pavilions */
+{const [cx,cz]=commonsAt(290);
+ const sand=M(new THREE.CylinderGeometry(15,15,.5,40),new THREE.MeshStandardMaterial({color:0xd8cdb0,roughness:1}));sand.position.set(cx,.5,cz);scene.add(sand);
+ for(let r=3;r<14;r+=2.4){const rk=M(new THREE.TorusGeometry(r,.16,6,48).rotateX(-Math.PI/2),new THREE.MeshStandardMaterial({color:0xbfb091,roughness:1}));rk.position.set(cx,.75,cz);scene.add(rk);}
+ for(let i=0;i<5;i++){const a=i/5*Math.PI*2+.4;const b=M(new THREE.DodecahedronGeometry(1.3+Math.random()*0.8),lam(0x57534d));b.position.set(cx+Math.cos(a)*6.5,1,cz+Math.sin(a)*6.5);b.scale.y=.65;scene.add(b);}
+ const pond=M(new THREE.CylinderGeometry(4,4,.5,24),waterMat);pond.position.set(cx,.65,cz+10);scene.add(pond);
+ for(const pa of [278,302]){const [px,pz]=P(pa*D2R,99);
+   for(const [dx,dz] of [[-3,-3],[3,-3],[-3,3],[3,3]]){const p=M(new THREE.CylinderGeometry(.3,.3,5),woodMat);p.position.set(px+dx,2.5,pz+dz);scene.add(p);}
+   const r=M(new THREE.ConeGeometry(6,3,4),greenRoof);r.position.set(px,6.4,pz);scene.add(r);}
+ const l=label('ZEN GARDEN','#a8a796',18);l.position.set(cx,16,cz);scene.add(l);}
 {const cl=label('THE COMMONS · ATTENTION','#e9b949',22);cl.position.set(0,34,-100);scene.add(cl);}
 /* kitchen smoke */
 const smoke=[];{for(let i=0;i<10;i++){const s=new THREE.Sprite(new THREE.SpriteMaterial({color:0xc9c4b0,transparent:true,opacity:.25,depthWrite:false}));
@@ -614,6 +657,32 @@ const hangarBots=[];
   const bot=makeBot(0x6fe3c8);bot.position.set(px,0,pz);bot.rotation.y=-th+Math.PI;scene.add(bot);
   hangarBots.push({m:bot,home:new THREE.Vector2(px,pz),along,into,hx,hz,roam:i===2||i===6,ph:i*1.3});}
  const hl=label('ROBOT HANGAR · THE MACHINE WORKFORCE','#6fe3c8',20);hl.position.set(hx,30,hz);scene.add(hl);}
+
+/* ── THE MAKERS' YARD — factories that make everything the town needs, and sells ── */
+const factorySmoke=[];const yardCrates=[];
+{const yc=P(134*D2R,318);const[yx,yz]=yc;const th=134*D2R;
+ const apron=M(new THREE.CylinderGeometry(36,36,.7,10),new THREE.MeshStandardMaterial({color:0x2e2a22,roughness:.95}));apron.position.set(yx,.4,yz);scene.add(apron);
+ const tang={x:-Math.sin(th),y:Math.cos(th)};
+ const trades=[{n:'SOAP & HERBS',c:0xd87093},{n:'TEXTILES & CLOTH',c:0x8fa0c8},{n:'FOOD PROCESSING',c:0x69d98a},{n:'FURNITURE & WOOD',c:0xb05a3c},{n:'SŪRYA WORKS · DECK/DIYA',c:0xe9b949}];
+ function makeShed(c){const g=new THREE.Group();
+  const body=M(new THREE.BoxGeometry(12,7,9),new THREE.MeshStandardMaterial({color:0x6f6f72,metalness:.5,roughness:.5}));body.position.y=3.5;g.add(body);
+  for(let s=0;s<3;s++){const saw=M(new THREE.BoxGeometry(12,3.4,.7),new THREE.MeshStandardMaterial({map:panelTex,metalness:.55,roughness:.4}));
+   saw.position.set(0,7.7,-3+s*3);saw.rotation.x=-0.72;g.add(saw);}
+  const win=M(new THREE.BoxGeometry(12.1,2.2,.3),glowMat(c,c,.45,2));win.position.set(0,4.6,4.55);g.add(win);
+  const ch=M(new THREE.CylinderGeometry(.7,.8,4.5),lam(0x4a4a4a));ch.position.set(4,9.2,-2.5);g.add(ch);g.userData.chimney=ch;
+  return g;}
+ for(let i=0;i<5;i++){const off=(i-2)*14;
+  const bx=yx+tang.x*off, bz=yz+tang.y*off;
+  const shed=makeShed(trades[i].c);shed.position.set(bx,0,bz);shed.rotation.y=-th+Math.PI/2;scene.add(shed);
+  /* a little smoke/steam from each chimney */
+  const sm=new THREE.Sprite(new THREE.SpriteMaterial({color:0xc9c4b0,transparent:true,opacity:.22,depthWrite:false}));
+  sm.scale.set(3,3,1);scene.add(sm);
+  const cw=shed.localToWorld(new THREE.Vector3(4,11,-2.5));
+  factorySmoke.push({s:sm,x:cw.x,z:cw.z,base:11,off:i*.6});}
+ /* output crates riding a conveyor toward the mart (east gate) */
+ for(let i=0;i<6;i++){const cr=M(new THREE.BoxGeometry(2.4,2.2,2.4),glowMat([0xd87093,0x8fa0c8,0x69d98a,0xb05a3c,0xe9b949,0xc9b178][i],0x000000,0,0));
+  scene.add(cr);yardCrates.push({m:cr,t:i/6});}
+ const ml=label("MAKERS' YARD · MADE HERE, SOLD TO THE WORLD",'#e9b949',20);ml.position.set(yx,30,yz);scene.add(ml);}
 
 /* ════════════ SŪRYA DVĀR — outside the east gate ════════════ */
 {const road=M(new THREE.BoxGeometry(260,.6,14),new THREE.MeshStandardMaterial({map:roadTex,roughness:.95}));road.position.set(648,.3,0);scene.add(road);
@@ -1000,12 +1069,14 @@ const INTERIORS={
 const VIEWS={
  'The Mandala':{p:[620,540,820],t:[0,0,0],d:'200 acres in sacred rings: animals guard the outermost circle, a ring of water separates their kingdom from ours, ten lab-APIs orbit the seekers\' homes, and at the exact center stands the question: WHO AM I.'},
  'The Still Point':{p:[70,42,110],t:[0,10,0],d:'The center of everything: the great banyan, three earthen Ramana rooms, the morning yoga circle, one peacock. Every other city puts a monument here. This one puts silence — the stop token the whole mandala orbits.'},
- 'The Commons':{p:[120,85,-180],t:[20,5,-60],d:'The attention ring around the silence: university drums, the PRANA clinic, the glass 24/7 kitchen, the clubhouse, the Sabha with its pillar of light, the amphitheatre and fountain.'},
+ 'The Commons':{p:[18,38,72],t:[-20,9,-72],d:'The attention ring around the silence: the PRANA clinic with its red cross + air-ambulance pad, the glass 24/7 kitchen, the golden Theater, the Management/ops tower, the university drums, the Sabha pillar of light, the amphitheatre, fountain and Zen Garden.'},
  'Living Rings':{p:[150,95,250],t:[76,4,132],d:'Six clusters, three ways to own: villa estates with plunge pools, garden homes, and low-rise residences — 2,000 resident-owners averaging ₹2 Cr each, a ₹4,000 Cr pool that builds everything and endows every life. No tenants, no landlords, no resident staff — only owners, machines, and guests.'},
  'The Lab Belt':{p:[0,130,340],t:[0,8,212],d:'Ten glass biomes in a perfect orbit — flight, battery, health, farm, robotics, silicon, compute, sport, commerce, education. Every department is a lab; every lab trains a model on this land; every model is an API the world can call. Tested here, by the people who live inside it.'},
  'Olympic Ring':{p:[0,190,-110],t:[0,5,-330],d:'Stadium, 50-metre aquatics, velodrome, courts, cricket oval, akhara, archery — Olympic-grade, open to every seeker, every day. The body is also a model: the Sport Lab trains on every lap, and athletes here are seekers of the body\'s own frontier.'},
  'Farms':{p:[150,120,-130],t:[300,5,-60],d:'Food sovereignty for 2,000 + guests: four glass vertical-farm towers, five full-length glasshouse tunnels, crop arcs, herb beds, sandstone grain-silos and cold rooms — robots in the rows, ANNA reading 4,000 soil probes, harvest in the kitchen within hours.'},
  'Robot Hangar':{p:[-66,34,346],t:[-98,5,304],d:'The machine workforce docks and charges here: a steel-and-glass hangar of humanoid maintenance bots and rovers. Automation first — these run the farms, kitchens, deliveries and labs so the 2,000 owners are free to think. Two roll out on patrol; the rest charge under teal light.'},
+ 'Makers’ Yard':{p:[-168,42,168],t:[-228,10,236],d:'The factories: five sawtooth workshops making everything the town needs — soap &amp; herbs, textiles &amp; cloth, food processing, furniture &amp; wood, and Sūrya Works (the Deck &amp; Diya machines). Crates ride the conveyor out through Sūrya Dvār — made here, sold to the world.'},
+ 'Zen Garden':{p:[60,40,-150],t:[29,4,-80],d:'Stillness you can walk into: raked sand in concentric rings, standing stones, a koi pond, open meditation pavilions — and the morning yoga circle at the banyan. Beyond the Ramana Rooms (where the model never enters), this is the town’s daily zen.'},
  'Solar + GPU':{p:[-185,130,40],t:[-320,8,0],d:'The west wedge: 22 MWp of sun-tracking panels, two green-terraced GPU towers burning brighter at night when the town trains, and the battery mound — sleep, made of lithium.'},
  'Water Ring':{p:[210,80,330],t:[287,2,287],d:'A perfect circle of water around the human world — the residual stream made recurrent. Lotus on the surface, birds above, four bridges at the cardinal gates. It separates the quarters of animals and humans, and joins them.'},
  'Animal Ring':{p:[230,75,330],t:[330,2,330],d:'The outermost circle belongs entirely to them: cows, dogs, birds, butterflies, the gaushala and the animal hospital — a kingdom wrapped around the whole town. The frozen weights guard the mandala. Humans visit by bridge, as guests.'},
@@ -1213,6 +1284,17 @@ function animate(){
   evtol.position.set(x,h,z);evtol.rotation.y=-a+Math.PI/2;}
  for(const r of rovers){r.t+=r.sp*dt*r.dir;if(r.t>1){r.t=1;r.dir=-1;}if(r.t<0){r.t=0;r.dir=1;}
   r.m.position.lerpVectors(r.a,r.b,r.t);r.m.lookAt(r.dir>0?r.b:r.a);}
+ /* clinic helipad pulse + factory smoke + conveyor of finished goods to the mart */
+ if(clinicPad)clinicPad.material.emissiveIntensity=.5+.5*Math.sin(t*3.5);
+ for(const fs of factorySmoke){const ph=(t*.45+fs.off)%1;
+  fs.s.position.set(fs.x+Math.sin(t*.8+fs.off*5)*1.5, fs.base+ph*9, fs.z);
+  fs.s.material.opacity=(0.06+0.18*(1-ph))*(0.7+0.3*(1-day));const sc=2+ph*5;fs.s.scale.set(sc,sc,1);}
+ for(const c of yardCrates){c.t=(c.t+dt*0.04)%1;
+  // ride the ring road from the Makers' Yard (134°) round to the east gate, then out to the mart
+  let px,pz;
+  if(c.t<0.72){const ang=(134-(c.t/0.72)*134)*D2R;px=Math.cos(ang)*252;pz=Math.sin(ang)*252;}
+  else{const u=(c.t-0.72)/0.28;px=252+u*(600-252);pz=0;}
+  c.m.position.set(px,1.7,pz);c.m.rotation.y=t*1.4;}
  for(const fb of farmBots){const th=fb.base+Math.sin(t*fb.sp*.3+fb.off)*.22;
   const [x,z]=P(th,fb.r);fb.m.position.set(x,1.6,z);fb.m.rotation.y=-th;
   fb.m.userData.arm.rotation.x=Math.sin(t*3+fb.off)*.5;}
