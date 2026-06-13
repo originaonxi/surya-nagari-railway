@@ -49,14 +49,19 @@
   #back:hover{color:var(--gold);border-color:var(--gold)}
   #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#05070f;z-index:50;
     font-family:var(--mono);color:var(--gold);font-size:13px;letter-spacing:.3em;transition:opacity .8s}
-  @media(max-width:700px){
+  @media(max-width:820px){
     #hint,#back,#telem{display:none}
-    #mode{top:auto;bottom:214px;right:50%;transform:translateX(50%)}
-    #views,#inside{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;max-width:100vw;padding:0 12px 4px;scrollbar-width:none}
+    #title h1{font-size:16px}
+    #title .sub{font-size:9px;letter-spacing:.18em}
+    #mode{top:18px;right:16px;font-size:10px;padding:6px 11px;bottom:auto}
+    #views,#inside{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start;max-width:100vw;padding:0 14px 4px;scrollbar-width:none}
     #views::-webkit-scrollbar,#inside::-webkit-scrollbar{display:none}
-    #views button,#inside button{flex:0 0 auto;padding:9px 15px;font-size:11px}
-    #info{bottom:96px}
-    #info .zdesc{font-size:12px}
+    #views button,#inside button{flex:0 0 auto;padding:10px 16px;font-size:11px}
+    #views{bottom:max(20px,env(safe-area-inset-bottom))}
+    #inside{bottom:calc(max(20px,env(safe-area-inset-bottom)) + 52px)}
+    #info{bottom:calc(max(20px,env(safe-area-inset-bottom)) + 104px);padding:10px 16px}
+    #info .zname{font-size:11px}
+    #info .zdesc{font-size:12px;background:rgba(6,9,16,.6);border-radius:10px;padding:8px 12px;backdrop-filter:blur(4px)}
   }
 </style>
 </head>
@@ -194,27 +199,11 @@ const P=(th,r)=>[Math.cos(th)*r,Math.sin(th)*r];
 const D2R=Math.PI/180;
 function sector(r1,r2,a1,a2,mat,y=0){const g=new THREE.RingGeometry(r1,r2,64,1,a1,a2-a1).rotateX(-Math.PI/2);g.scale(1,1,-1);
  const m=new THREE.Mesh(g,mat);m.receiveShadow=true;m.position.y=y;return m;}
-/* smart labels: big titles (size>=22) show from afar and step aside up close;
-   small detail labels appear only when you fly near. registered for per-frame fading. */
+/* NO TEXT ON THE MODEL — by design. The 3D is pure visual; all naming lives in the
+   HUD info panel + view buttons. label() is a silent no-op so the ~120 call sites
+   keep working (scene.add / .position.set) but render nothing. */
 const allLabels=[];
-function label(text,color='#e9b949',size=26){
-  const pad=30,cnv=document.createElement('canvas'),c=cnv.getContext('2d');
-  c.font=`600 ${size}px ui-monospace, Menlo, monospace`;
-  const w=c.measureText(text).width;cnv.width=w+pad*2;cnv.height=size+pad+8;
-  const c2=cnv.getContext('2d');c2.font=`600 ${size}px ui-monospace, Menlo, monospace`;
-  const r=cnv.height/2;
-  c2.fillStyle='rgba(6,9,16,0.82)';
-  c2.beginPath();c2.roundRect(1,1,cnv.width-2,cnv.height-2,r);c2.fill();
-  c2.strokeStyle=color+'55';c2.lineWidth=2;
-  c2.beginPath();c2.roundRect(1,1,cnv.width-2,cnv.height-2,r);c2.stroke();
-  c2.fillStyle=color;c2.textBaseline='middle';c2.fillText(text,pad,cnv.height/2+1);
-  const tx=new THREE.CanvasTexture(cnv);tx.anisotropy=4;
-  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tx,transparent:true,depthWrite:false,opacity:0}));
-  const k=size>=22?.32:.26;
-  sp.scale.set(cnv.width*k,cnv.height*k,1);
-  sp.userData.tier=size>=22?1:2;
-  allLabels.push(sp);
-  return sp;}
+function label(){return new THREE.Object3D();}
 
 /* ════════════ THE MANDALA — ground rings ════════════ */
 const outer=M(new THREE.CircleGeometry(3000,64).rotateX(-Math.PI/2),lam(0x0a0f0c));outer.position.y=-.5;scene.add(outer);
@@ -462,6 +451,18 @@ scene.add(sector(265,385,-55*D2R,35*D2R,new THREE.MeshStandardMaterial({map:farm
   const shell=M(new THREE.CylinderGeometry(8,8,42,14,1,true),glassMat(0x69d98a,.25));shell.position.set(x,21,z);scene.add(shell);
   for(let s=0;s<6;s++){const d2=M(new THREE.CylinderGeometry(6.6,6.6,1.4,12),lam(0x2f7c4d,0x69d98a,.25));d2.position.set(x,6+s*6,z);scene.add(d2);}
   const cap=M(new THREE.SphereGeometry(8,14,8,0,Math.PI*2,0,Math.PI/2),glassMat(0x69d98a,.3));cap.position.set(x,42,z);scene.add(cap);}
+ /* full-scale glasshouse tunnels — feeding 2,000 + guests, monsoon-proof */
+ for(let i=0;i<5;i++){const th=(-46+i*19)*D2R;const r0=300;
+  const[gx,gz]=P(th,r0);
+  const tun=M(new THREE.CylinderGeometry(7,7,54,14,1,true,0,Math.PI).rotateZ(Math.PI/2),glassMat(0x9be8a0,.22));
+  tun.position.set(gx,3,gz);tun.rotation.y=-th;scene.add(tun);
+  /* rows of crops glowing inside */
+  for(let r=0;r<3;r++){const cr=M(new THREE.BoxGeometry(48,1.4,1.8),lam(0x2f7c4d,0x69d98a,.18));
+   const rr=r0+(r-1)*3;const[cx,cz]=P(th,rr);cr.position.set(cx,1.2,cz);cr.rotation.y=-th;scene.add(cr);}}
+ /* a stone grain-store + cold rooms cluster at the wedge mouth */
+ for(let i=0;i<3;i++){const[sx,sz]=P((-10+i*10)*D2R,356);
+  const silo=M(new THREE.CylinderGeometry(5,5.4,16,16),new THREE.MeshStandardMaterial({color:0xa8835a,roughness:1}));silo.position.set(sx,8,sz);scene.add(silo);
+  const dome=M(new THREE.SphereGeometry(5,14,8,0,Math.PI*2,0,Math.PI/2),new THREE.MeshStandardMaterial({color:0x9a7d5a,roughness:1}));dome.position.set(sx,16,sz);scene.add(dome);}
  const fl=label('FARMS + HERBS · EMBEDDING LAYER','#69d98a',22);fl.position.set(352,40,-30);scene.add(fl);}
 const farmBots=[];for(let i=0;i<4;i++){
  const g=new THREE.Group();
@@ -517,6 +518,36 @@ let padRing;const skyportC=P(60*D2R,322);
  const tower=M(new THREE.CylinderGeometry(2.4,3,26),lam(0x2a3040));tower.position.set(x+40,13,z-26);scene.add(tower);
  const cab=M(new THREE.SphereGeometry(7,12,8),glassMat(0x6fe3c8,.35));cab.position.set(x+40,28,z-26);scene.add(cab);
  const sl=label('SKYPORT · DRONE PORT + VERTIPORT','#a78bda',20);sl.position.set(x,40,z+30);scene.add(sl);}
+
+/* ── THE ROBOT HANGAR — the town's machine workforce docks & charges here ── */
+const hangarBots=[];
+{const hc=P(108*D2R,318);const[hx,hz]=hc;const th=108*D2R;
+ const apron=M(new THREE.CylinderGeometry(30,30,.8,32),new THREE.MeshStandardMaterial({color:0x2a2f38,roughness:.9}));apron.position.set(hx,.45,hz);scene.add(apron);
+ /* Quonset shell — steel + glass, open front */
+ const shell=M(new THREE.CylinderGeometry(15,15,46,20,1,true,0,Math.PI).rotateZ(Math.PI/2),
+   new THREE.MeshStandardMaterial({color:0x3a4250,metalness:.7,roughness:.35,side:THREE.DoubleSide}));
+ shell.position.set(hx,1,hz);shell.rotation.y=-th;scene.add(shell);
+ const ribs=new THREE.Mesh(new THREE.CylinderGeometry(15.2,15.2,46,9,4,true,0,Math.PI).rotateZ(Math.PI/2),
+   new THREE.MeshBasicMaterial({color:0x6fe3c8,wireframe:true,transparent:true,opacity:.32}));
+ ribs.position.set(hx,1,hz);ribs.rotation.y=-th;scene.add(ribs);
+ const back=M(new THREE.CircleGeometry(15,20,0,Math.PI),glassMat(0x6fe3c8,.3));
+ const bv=P(108*D2R,318);back.position.set(hx-Math.cos(th)*23,1,hz-Math.sin(th)*23);back.rotation.y=-th+Math.PI/2;scene.add(back);
+ /* a row of docked robots with charging glow + two rolling out */
+ const along=new THREE.Vector2(Math.cos(th+Math.PI/2),Math.sin(th+Math.PI/2));
+ const into=new THREE.Vector2(Math.cos(th),Math.sin(th));
+ function makeBot(charge){const g=new THREE.Group();
+  const torso=M(new THREE.CapsuleGeometry(1,2.4,3,8),lam(0xd8d2c0));torso.position.y=3.1;g.add(torso);
+  const head=M(new THREE.SphereGeometry(.85,10,10),lam(0x2a3040,charge,.5));head.position.y=5;g.add(head);
+  const eye=new THREE.Mesh(new THREE.SphereGeometry(.32,8,8),new THREE.MeshBasicMaterial({color:charge}));eye.position.set(0,5,.8);g.add(eye);
+  for(const s of [-1,1]){const arm=M(new THREE.CapsuleGeometry(.32,2,3,6),lam(0x9aa392));arm.position.set(s*1.4,3,0);g.add(arm);
+   const leg=M(new THREE.CapsuleGeometry(.4,2,3,6),lam(0x6b7280));leg.position.set(s*.6,1,0);g.add(leg);}
+  const cl=M(new THREE.TorusGeometry(1.5,.12,6,18).rotateX(-Math.PI/2),glowMat(charge,charge,.4,2));cl.position.y=.3;g.add(cl);
+  g.userData.eye=eye;return g;}
+ for(let i=0;i<9;i++){const off=(i-4)*3.6;
+  const px=hx+along.x*off-into.x*4,pz=hz+along.y*off-into.y*4;
+  const bot=makeBot(0x6fe3c8);bot.position.set(px,0,pz);bot.rotation.y=-th+Math.PI;scene.add(bot);
+  hangarBots.push({m:bot,home:new THREE.Vector2(px,pz),along,into,hx,hz,roam:i===2||i===6,ph:i*1.3});}
+ const hl=label('ROBOT HANGAR · THE MACHINE WORKFORCE','#6fe3c8',20);hl.position.set(hx,30,hz);scene.add(hl);}
 
 /* ════════════ SŪRYA DVĀR — outside the east gate ════════════ */
 {const road=M(new THREE.BoxGeometry(260,.6,14),new THREE.MeshStandardMaterial({map:roadTex,roughness:.95}));road.position.set(648,.3,0);scene.add(road);
@@ -907,7 +938,8 @@ const VIEWS={
  'Living Rings':{p:[150,95,250],t:[76,4,132],d:'Six clusters, three ways to own: villa estates with plunge pools, garden homes, and low-rise residences — 2,000 resident-owners averaging ₹2 Cr each, a ₹4,000 Cr pool that builds everything and endows every life. No tenants, no landlords, no resident staff — only owners, machines, and guests.'},
  'The Lab Belt':{p:[0,130,340],t:[0,8,212],d:'Ten glass biomes in a perfect orbit — flight, battery, health, farm, robotics, silicon, compute, sport, commerce, education. Every department is a lab; every lab trains a model on this land; every model is an API the world can call. Tested here, by the people who live inside it.'},
  'Olympic Ring':{p:[0,190,-110],t:[0,5,-330],d:'Stadium, 50-metre aquatics, velodrome, courts, cricket oval, akhara, archery — Olympic-grade, open to every seeker, every day. The body is also a model: the Sport Lab trains on every lap, and athletes here are seekers of the body\'s own frontier.'},
- 'Farms':{p:[190,120,-50],t:[320,5,-60],d:'The embedding layer fans east in a green wedge: crop arcs, herbs, four glass vertical farms, robots in the rows — ANNA\'s ground truth, harvested into the kitchen within hours.'},
+ 'Farms':{p:[150,120,-130],t:[300,5,-60],d:'Food sovereignty for 2,000 + guests: four glass vertical-farm towers, five full-length glasshouse tunnels, crop arcs, herb beds, sandstone grain-silos and cold rooms — robots in the rows, ANNA reading 4,000 soil probes, harvest in the kitchen within hours.'},
+ 'Robot Hangar':{p:[-66,34,346],t:[-98,5,304],d:'The machine workforce docks and charges here: a steel-and-glass hangar of humanoid maintenance bots and rovers. Automation first — these run the farms, kitchens, deliveries and labs so the 2,000 owners are free to think. Two roll out on patrol; the rest charge under teal light.'},
  'Solar + GPU':{p:[-185,130,40],t:[-320,8,0],d:'The west wedge: 22 MWp of sun-tracking panels, two green-terraced GPU towers burning brighter at night when the town trains, and the battery mound — sleep, made of lithium.'},
  'Water Ring':{p:[210,80,330],t:[287,2,287],d:'A perfect circle of water around the human world — the residual stream made recurrent. Lotus on the surface, birds above, four bridges at the cardinal gates. It separates the quarters of animals and humans, and joins them.'},
  'Animal Ring':{p:[230,75,330],t:[330,2,330],d:'The outermost circle belongs entirely to them: cows, dogs, birds, butterflies, the gaushala and the animal hospital — a kingdom wrapped around the whole town. The frozen weights guard the mandala. Humans visit by bridge, as guests.'},
@@ -1061,6 +1093,13 @@ function animate(){
  for(const fb of farmBots){const th=fb.base+Math.sin(t*fb.sp*.3+fb.off)*.22;
   const [x,z]=P(th,fb.r);fb.m.position.set(x,1.6,z);fb.m.rotation.y=-th;
   fb.m.userData.arm.rotation.x=Math.sin(t*3+fb.off)*.5;}
+ /* robot hangar: docked bots charge (eye pulse), two roam the apron and return */
+ for(const hb of hangarBots){
+  hb.m.userData.eye.material.color.setHSL(.45,.7,.4+.35*Math.sin(t*3+hb.ph));
+  if(hb.roam){const u=(Math.sin(t*.18+hb.ph)*.5+.5);
+   const ox=hb.into.x*(u*22),oz=hb.into.y*(u*22);
+   hb.m.position.set(hb.home.x+ox,0,hb.home.y+oz);
+   hb.m.rotation.y=Math.atan2(hb.into.x,hb.into.y)+Math.PI*(Math.cos(t*.18+hb.ph)>0?0:1);}}
  for(const c of worldCars){c.t+=c.sp*dt*c.dir;if(c.t>1){c.t=1;c.dir=-1;}if(c.t<0){c.t=0;c.dir=1;}
   c.m.position.set(530+c.t*230,1.6,(c.dir>0?-4:4));c.m.rotation.y=c.dir>0?Math.PI/2:-Math.PI/2;}
 
@@ -1159,14 +1198,6 @@ function animate(){
   tGpu.textContent=Math.round(day>.08?34+8*Math.random():92+6*Math.random())+' %';
   tOut.textContent=Math.round(PEOPLE*(0.55+0.45*day));
   tDay.textContent=1+Math.floor(t/DAY);}
-
- /* smart label fading — titles from afar, details up close, never both shouting */
- for(const L of allLabels){
-  const d=camera.position.distanceTo(L.position);
-  let o;
-  if(L.userData.tier===1) o=THREE.MathUtils.smoothstep(d,130,300);
-  else o=(1-THREE.MathUtils.smoothstep(d,300,500))*THREE.MathUtils.smoothstep(d,14,36);
-  L.material.opacity+=(o-L.material.opacity)*.12;}
 
  /* cinematic tour pacing */
  if(tour.on){tour.timer+=dt;if(tour.timer>8.5)advanceTour();}
