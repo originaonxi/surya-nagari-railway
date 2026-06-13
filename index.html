@@ -35,11 +35,13 @@
     filter:drop-shadow(0 2px 18px rgba(0,0,0,.75));}
   .h3o .claim{font-family:var(--serif);font-size:clamp(17px,2.4vw,26px);font-weight:300;font-style:italic;color:var(--ink);margin-top:8px;text-shadow:0 1px 12px #000}
   .h3o .claim b{font-weight:600;font-style:normal;color:var(--gold)}
-  .h3cue{position:absolute;bottom:14px;left:38px;z-index:5;pointer-events:none;
-    font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);
-    text-shadow:0 1px 8px #000;animation:bob3 3s ease-in-out infinite}
-  @keyframes bob3{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-  @media(max-width:800px){.hero3d{margin:0 -22px}.h3o{left:20px;top:20px}.h3cue{left:20px}}
+  .h3cue{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:6;pointer-events:auto;cursor:pointer;
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+    background:rgba(6,9,16,.7);border:1px solid var(--line);border-radius:99px;padding:10px 20px;backdrop-filter:blur(6px);
+    animation:bob3 3s ease-in-out infinite;white-space:nowrap}
+  .h3cue:hover{border-color:var(--gold);color:var(--gold)}
+  @keyframes bob3{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+  @media(max-width:800px){.hero3d{margin:0 -22px;height:86vh}.h3o{left:20px;top:20px}.h3cue{font-size:10px;letter-spacing:.1em;padding:9px 14px}}
 
   /* ── HERO ── */
   .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 70px;position:relative;
@@ -187,6 +189,16 @@
   section.rev{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
   section.rev.vis{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){section.rev{opacity:1;transform:none;transition:none}}
+  /* tables never overlap on phones — they scroll horizontally inside a neat frame */
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:22px 0;border-radius:10px}
+  .tscroll::-webkit-scrollbar{height:6px}.tscroll::-webkit-scrollbar-thumb{background:var(--gold-deep);border-radius:3px}
+  .tscroll table{margin:0;min-width:600px}
+  @media(max-width:760px){
+    body{overflow-x:hidden}
+    table{font-size:12.5px}th,td{padding:9px 10px}
+    h2{font-size:30px}.lede{font-size:17px}p{font-size:16px}
+    .tscroll table{min-width:540px}
+  }
 
   @media(max-width:800px){
     .page{padding:0 22px}
@@ -218,11 +230,11 @@
       <div class="claim">The world's first <b>living model.</b> This is it — running.</div>
       <div style="font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:12px;text-shadow:0 1px 8px #000">humanity-first · a university of the committed · humans + AI advancing civilisation together</div>
     </div>
-    <div class="h3cue">drag to orbit · fly between zones · STEP INSIDE the buildings · one day passes every 60s · scroll for the model card ↓</div>
+    <div class="h3cue" onclick="document.getElementById('modelcard').scrollIntoView({behavior:'smooth'})">spin it · pinch to zoom · it's pitching itself — tap to read the full plan ↓</div>
   </div>
 
   <!-- ═══════════════ MODEL CARD ═══════════════ -->
-  <div class="hero" style="min-height:auto;padding:90px 0 80px">
+  <div class="hero" id="modelcard" style="min-height:auto;padding:90px 0 80px">
     <div class="chips">
       <span class="chip">Class: Living Foundation Model</span>
       <span class="chip">200 acres · the mandala · owned</span>
@@ -857,6 +869,11 @@ const io = new IntersectionObserver(es => {
   for (const e of es) if (e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
 }, {threshold: .06});
 document.querySelectorAll('section').forEach(s => { s.classList.add('rev'); io.observe(s); });
+// wrap every table so it scrolls cleanly on phones instead of crushing/overlapping
+document.querySelectorAll('section table').forEach(t => {
+  const w = document.createElement('div'); w.className = 'tscroll';
+  t.parentNode.insertBefore(w, t); w.appendChild(t);
+});
 </script>
 </body>
 </html>

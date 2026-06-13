@@ -143,8 +143,8 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 const HERO = new URLSearchParams(location.search).get('hud')==='min';
 if (HERO){
-  // hero showcase: hide ALL chrome — just the living model + its light zone plaques
-  for(const id of ['title','back','hint','views','inside','telem','mode','info','vitals','pskip'])
+  // hero: a real interactive toy that pitches itself — keep vitals + caption, drop the heavy chrome
+  for(const id of ['title','back','hint','telem','mode','views','inside'])
     {const el=document.getElementById(id);if(el)el.style.display='none';}
 }
 
@@ -166,9 +166,8 @@ const controls=new OrbitControls(camera,renderer.domElement);
 controls.enableDamping=true;controls.dampingFactor=.07;
 controls.rotateSpeed=.9;controls.zoomSpeed=1.1;
 controls.maxPolarAngle=Math.PI*0.495;controls.minDistance=20;controls.maxDistance=2200;
-controls.autoRotate=true;controls.autoRotateSpeed=HERO?.5:.28;
-if(HERO){controls.enabled=false;}                 // hero: auto-rotate only, never trap page scroll
-else{renderer.domElement.style.touchAction='none';}
+controls.autoRotate=true;controls.autoRotateSpeed=HERO?.4:.28;
+renderer.domElement.style.touchAction='none';     // drag + zoom always work — hero included
 controls.addEventListener('start',()=>{controls.autoRotate=false;stopTour();if(typeof endPitch==='function')endPitch();});
 
 const sunLight=new THREE.DirectionalLight(0xffe9b0,2.6);
@@ -1086,7 +1085,8 @@ const pStat=pitchEl.querySelector('.pstat'),pTitle=pitchEl.querySelector('.ptitl
 const pitch={on:false,idx:-1,timer:0,hold:8};
 if(!HERO){const me=document.getElementById('mode');if(me)me.style.display='none';} // vitals bar shows day/night
 function setExploreUI(show){const d=show?'':'none';
- for(const id of ['vitals','views','inside','info','title','hint','back']){const el=document.getElementById(id);if(el)el.style.display=d;}}
+ const ids = HERO ? ['vitals','info'] : ['vitals','views','inside','info','title','hint','back'];
+ for(const id of ids){const el=document.getElementById(id);if(el)el.style.display=d;}}
 function pitchBeat(){
  pitch.idx++;
  if(pitch.idx>=PITCH.length){endPitch();return;}
@@ -1096,7 +1096,7 @@ function pitchBeat(){
  pTitle.textContent=b.t;pSub.textContent=b.u;
  setTimeout(()=>pitchEl.classList.add('beat'),360);
  pitch.timer=0;}
-function startPitch(){if(HERO)return;pitch.on=true;pitch.idx=-1;
+function startPitch(){pitch.on=true;pitch.idx=-1;
  controls.autoRotate=false;stopTour();setExploreUI(false);
  pitchEl.classList.add('show');pskip.style.display='block';pitchBeat();}
 function endPitch(){if(!pitch.on)return;pitch.on=false;
@@ -1122,6 +1122,7 @@ const clock=new THREE.Clock();
 let batt=72,lastTelem=0;
 const dummy=new THREE.Object3D();
 const tmpV2=new THREE.Vector2();
+const _lblV=new THREE.Vector3();
 function herd(arr,dt,t){
  for(const a of arr){
   a.timer-=dt;
@@ -1331,17 +1332,32 @@ function animate(){
   vMode.textContent=day>.08?'DAY':'NIGHT';vMode.className='vv '+(day>.08?'gold':'teal');
   vModeL.textContent=day>.08?'inference':'training';}
 
- /* plaque labels: TRUE constant on-screen px size + distance-band fade (auto-declutter) */
- {const vpx=renderer.domElement.clientHeight||innerHeight;
-  const f=2*Math.tan(THREE.MathUtils.degToRad(camera.fov)/2)/vpx;
+ /* plaque labels: constant on-screen size + SCREEN-SPACE DECLUTTER (no two ever overlap) */
+ {const vw=renderer.domElement.clientWidth||innerWidth, vh=renderer.domElement.clientHeight||innerHeight;
+  const f=2*Math.tan(THREE.MathUtils.degToRad(camera.fov)/2)/vh;
+  const cands=[];
   for(const L of allLabels){
+   L.tgt=0;
    const d=camera.position.distanceTo(L.sp.position);
-   const h=L.px*f*d;                       // world height that renders at L.px screen pixels
-   L.sp.scale.set(h*L.ar,h,1);
-   let o;
-   if(L.tier===1) o=THREE.MathUtils.smoothstep(d,55,130)*0.72;                                  // zone titles: hide when you're inside a zone
-   else o=THREE.MathUtils.smoothstep(d,16,38)*(1-THREE.MathUtils.smoothstep(d,95,160))*0.9;      // buildings: only when close
-   L.sp.material.opacity+=(o-L.sp.material.opacity)*.16;
+   const h=L.px*f*d; L.sp.scale.set(h*L.ar,h,1);     // hold a constant pixel size
+   const o = L.tier===1 ? THREE.MathUtils.smoothstep(d,55,130)*0.82
+                        : THREE.MathUtils.smoothstep(d,16,40)*(1-THREE.MathUtils.smoothstep(d,120,200))*0.92;
+   if(o<=0.02) continue;
+   _lblV.copy(L.sp.position).project(camera);
+   if(_lblV.z>1 || _lblV.x<-1.15||_lblV.x>1.15||_lblV.y<-1.15||_lblV.y>1.15) continue;  // off-screen / behind
+   cands.push({L,d,o,sx:(_lblV.x*.5+.5)*vw, sy:(-_lblV.y*.5+.5)*vh, w:L.px*L.ar*0.92, h:L.px*1.7});
+  }
+  cands.sort((a,b)=> (a.L.tier-b.L.tier) || (a.d-b.d));   // zone titles win, then nearest wins
+  const occ=[];
+  for(const c of cands){
+   const x=c.sx-c.w/2, y=c.sy-c.h/2;
+   let hit=false;
+   for(let i=0;i<occ.length;i++){const r=occ[i];
+    if(x<r.x+r.w && x+c.w>r.x && y<r.y+r.h && y+c.h>r.y){hit=true;break;}}
+   if(!hit){c.L.tgt=c.o; occ.push({x,y,w:c.w,h:c.h});}
+  }
+  for(const L of allLabels){
+   L.sp.material.opacity+=(L.tgt-L.sp.material.opacity)*.16;
    L.sp.visible=L.sp.material.opacity>0.02;}}
 
  /* cinematic tour pacing */
@@ -1358,8 +1374,8 @@ function animate(){
 animate();
 document.getElementById('loading').style.opacity=0;
 setTimeout(()=>document.getElementById('loading').remove(),900);
-/* the model pitches itself the moment it loads */
-if(!HERO) setTimeout(startPitch,1100);
+/* the model pitches itself the moment it loads — hero included */
+setTimeout(startPitch,1100);
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
 </script>
 </body>
