@@ -73,7 +73,10 @@
   .faq-list{display:flex;flex-direction:column;gap:16px;}
   .faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
   .faq-q{font-size:.95rem;font-weight:600;padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
-  .faq-a{padding:0 22px 18px;font-size:.88rem;color:var(--mid);line-height:1.7;}
+  .faq-a{display:none;padding:0 22px 18px;font-size:.88rem;color:var(--mid);line-height:1.7;}
+  .faq-item.active .faq-a{display:block;}
+  .faq-q span{transition:transform .2s;display:inline-block;}
+  .faq-item.active .faq-q span{transform:rotate(180deg);}
 
   /* CTA */
   .cta-bar{background:var(--green);color:#fff;text-align:center;padding:70px 5%;}
@@ -86,7 +89,7 @@
   footer{background:var(--dark);color:rgba(255,255,255,.4);text-align:center;padding:30px 5%;font-size:.8rem;}
   footer a{color:var(--gold2);text-decoration:none;}
 
-  @media(max-width:700px){.share-classes{grid-template-columns:1fr;}.rule-card{flex-direction:column;gap:12px;}}
+  @media(max-width:700px){.nav-links{display:none;}.share-classes{grid-template-columns:1fr;}.rule-card{flex-direction:column;gap:12px;}}
 </style>
 </head>
 <body>
@@ -103,7 +106,7 @@
 
 <div class="page-hero">
   <h1>How <em>ownership</em> works</h1>
-  <p>Sūrya Nagari is a Pvt. Ltd. company — not a housing society, not a developer project. You buy shares. You own the city.</p>
+  <p>Sūrya Nagari is a <strong>Multi-State Cooperative Society</strong> — not a housing society, not a developer project. You buy membership shares. You co-own the city.</p>
 </div>
 
 <!-- COMPANY STRUCTURE -->
@@ -114,7 +117,7 @@
     <p class="section-sub">Instead of a builder selling you a flat and keeping all the infrastructure profits, Sūrya Nagari is one company that owns everything. When you buy shares, you become a co-owner of the company — and through it, everything the city owns and earns.</p>
 
     <div class="company-box">
-      <div class="company-title">Sūrya Nagari Infrastructure &amp; Development Pvt. Ltd.</div>
+      <div class="company-title">Sūrya Nagari Infrastructure &amp; Development Co-operative (proposed)</div>
       <div style="text-align:center;font-size:.85rem;color:var(--mid);margin-bottom:24px;">Owns 100% of: 5,000 acres of land · all buildings · solar farm · GPU campus · factories · hospital · school · commercial offices</div>
       <div class="share-classes">
         <div class="share-class class-a">
@@ -267,10 +270,16 @@
 </div>
 
 <footer>
-  Sūrya Nagari Infrastructure &amp; Development Pvt. Ltd. (proposed) · India · 2026<br>
+  Sūrya Nagari Infrastructure &amp; Development Co-operative (proposed) · India · 2026<br>
   All figures are indicative pre-DPR estimates. This is not a registered securities offering.<br>
   <a href="https://github.com/originaonxi/surya-nagari-railway">Open Source on GitHub</a> · <a href="index.html">Home</a>
 </footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
+});
+</script>
 
 </body>
 </html>

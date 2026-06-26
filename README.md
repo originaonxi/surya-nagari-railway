@@ -2,7 +2,7 @@
 
 **The world's first open-source self-sufficient city blueprint.**
 
-A 5,000-acre city in India structured as a Pvt. Ltd. company where **every shareholder owns the whole city** — homes, solar farm, GPU compute campus, farms, factories, hospital, school, Olympic zone, and every rupee the city earns.
+A 5,000-acre city in India structured as a **Multi-State Cooperative Society** (like Amul, but for an entire city) where **every member owns the whole city** — homes, solar farm, GPU compute campus, farms, factories, hospital, school, Olympic zone, and every rupee the city earns.
 
 No monthly bills. No landlords. No external utilities. Owned by its people, powered by the sun, guided by AI.
 
