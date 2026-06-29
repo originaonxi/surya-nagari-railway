@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Sūrya Nagari — A civilization for humans. 10,000 people. 5,000 acres. Every child watched over. Every elder cared for. You create. You vote. The city breathes with you.">
-<meta property="og:title" content="Sūrya Nagari — This Is What Freedom Feels Like">
-<meta property="og:description" content="Imagine waking up and not worrying about a single bill. Not one. Ever again.">
-<title>Sūrya Nagari — This Is What Freedom Feels Like</title>
+<meta name="description" content="Sūrya Nagari — Live in the finest resort in the world. Forever. You own it. It pays you. Unlimited buffet. Daily housekeeping. 5-star life. ₹0 monthly bills. Annual dividends.">
+<meta property="og:title" content="Sūrya Nagari — The 5-Star Resort You Own Forever">
+<meta property="og:description" content="Unlimited buffet. Daily housekeeping. Free healthcare. Free education. ₹0 bills. You get paid ₹2.9 Lakhs every year. This is Satyug — and it starts now.">
+<title>Sūrya Nagari — The 5-Star Resort You Own Forever</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,12 +15,12 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --a:#F4F0EA;--a2:#EAE4D9;--a3:#DDD4C2;
-  --s:#3A4B53;--s2:#2B3A40;--s3:#1A2428;--s4:#0D1518;
-  --g:#C9994B;--g2:#E8B86D;--g3:#F5D98A;
-  --cu:#B87333;--r:#C06B42;
-  --t:#2B3A40;--dim:#7A8490;--w:#fff;
-  --b:rgba(58,75,83,.1);
+  --a:#FAF7F2;--a2:#F0EAE0;--a3:#E4DAC8;
+  --s:#1E2B30;--s2:#2B3A40;--s3:#162020;--s4:#0A1414;
+  --g:#C9924A;--g2:#E8AF60;--g3:#F5D08A;--g4:#FFF3D8;
+  --saf:#E86928;--saf2:#F5A050;
+  --cu:#A0501E;--warm:#8B6B4A;
+  --t:#1E2B30;--dim:#7A8490;--w:#fff;--b:rgba(30,43,48,.08);
 }
 html{scroll-behavior:smooth;}
 body{background:var(--a);color:var(--t);font-family:'Inter',sans-serif;line-height:1.6;}
@@ -29,233 +29,253 @@ ul{list-style:none;}
 img{max-width:100%;display:block;}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:200;background:rgba(244,240,234,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 5%;display:flex;align-items:center;gap:24px;height:56px;}
-.nl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--s);letter-spacing:.03em;}
+nav{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 5%;display:flex;align-items:center;gap:24px;height:56px;}
+.nl{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:600;color:var(--s);letter-spacing:.04em;}
 .nv{display:flex;gap:22px;flex:1;}
 .nv a{font-size:.72rem;font-weight:500;color:var(--dim);letter-spacing:.09em;text-transform:uppercase;transition:color .2s;}
 .nv a:hover{color:var(--s);}
-.nc{background:var(--s);color:var(--g2);padding:7px 18px;border-radius:5px;font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:background .2s;white-space:nowrap;}
-.nc:hover{background:var(--s2);}
+.nc{background:var(--g);color:var(--s4);padding:8px 20px;border-radius:6px;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:background .2s;white-space:nowrap;}
+.nc:hover{background:var(--g2);}
 
-/* HERO — IMAGINATION FIRST */
+/* HERO */
 .hero{min-height:100vh;background:var(--s4);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 5%;position:relative;overflow:hidden;}
-.hbg{position:absolute;inset:0;background:url('cover.jpeg') center/cover;opacity:.09;}
-.hstars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 15% 25%,rgba(255,255,255,.2),transparent),radial-gradient(1px 1px at 75% 10%,rgba(255,255,255,.15),transparent),radial-gradient(1px 1px at 45% 65%,rgba(255,255,255,.18),transparent),radial-gradient(1px 1px at 88% 55%,rgba(255,255,255,.12),transparent),radial-gradient(1px 1px at 8% 78%,rgba(255,255,255,.15),transparent),radial-gradient(1px 1px at 60% 35%,rgba(255,255,255,.1),transparent);}
-.horb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(201,153,75,.05) 0%,transparent 65%);pointer-events:none;}
-.heye{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:44px;position:relative;}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7.5vw,7rem);font-weight:300;line-height:1.05;color:var(--a);max-width:950px;position:relative;margin:0 auto 36px;letter-spacing:-.02em;}
+.hbg{position:absolute;inset:0;background:url('cover.jpeg') center/cover;opacity:.12;}
+.hstars{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,rgba(255,200,100,.2),transparent),radial-gradient(1px 1px at 70% 15%,rgba(255,200,100,.15),transparent),radial-gradient(1px 1px at 50% 70%,rgba(255,200,100,.18),transparent),radial-gradient(1px 1px at 85% 55%,rgba(255,200,100,.12),transparent),radial-gradient(1px 1px at 10% 80%,rgba(255,200,100,.15),transparent);}
+.hglow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(232,175,96,.07) 0%,transparent 60%);pointer-events:none;}
+.heye{font-size:.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--g2);margin-bottom:36px;position:relative;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8.5vw,7.5rem);font-weight:300;line-height:1.02;color:var(--a);max-width:960px;position:relative;margin:0 auto 28px;letter-spacing:-.02em;}
 .hero h1 em{font-style:italic;color:var(--g2);}
-.hline{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--g),transparent);margin:0 auto 36px;position:relative;opacity:.6;}
-.hscene{font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,2.2vw,1.4rem);font-weight:300;font-style:italic;color:rgba(244,240,234,.55);max-width:680px;margin:0 auto 52px;line-height:1.85;position:relative;}
+.hero h1 strong{font-weight:600;color:var(--g3);}
+.hline{width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--g),transparent);margin:0 auto 32px;position:relative;opacity:.5;}
+.hero-promise{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px;position:relative;}
+.hp{background:rgba(201,146,74,.1);border:1px solid rgba(201,146,74,.25);border-radius:6px;padding:6px 16px;font-size:.76rem;font-weight:500;color:var(--g2);letter-spacing:.04em;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;font-style:italic;color:rgba(250,247,242,.55);max-width:680px;margin:0 auto 52px;line-height:1.75;position:relative;}
 .hctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;position:relative;}
-.bp{background:var(--g);color:var(--s4);padding:13px 34px;border-radius:6px;font-weight:600;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;transition:all .2s;}
+.bp{background:var(--g);color:var(--s4);padding:14px 38px;border-radius:7px;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;}
 .bp:hover{background:var(--g2);transform:translateY(-1px);}
-.bg{background:transparent;color:rgba(244,240,234,.55);border:1px solid rgba(244,240,234,.15);padding:12px 24px;border-radius:6px;font-size:.82rem;letter-spacing:.04em;transition:all .2s;}
-.bg:hover{border-color:rgba(244,240,234,.4);color:var(--a);}
-.hscroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,240,234,.18);}
+.bg{background:transparent;color:rgba(250,247,242,.55);border:1px solid rgba(250,247,242,.15);padding:13px 26px;border-radius:7px;font-size:.82rem;letter-spacing:.04em;transition:all .2s;}
+.bg:hover{border-color:rgba(250,247,242,.4);color:var(--a);}
+.hscroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,247,242,.15);}
 
-/* COMMONS */
+/* SATYUG BAND */
+.satyug{background:var(--saf);padding:22px 5%;text-align:center;}
+.satyug-inner{max-width:900px;margin:0 auto;}
+.satyug-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3vw,2rem);font-weight:300;color:#fff;line-height:1.4;margin-bottom:6px;}
+.satyug-h em{font-style:italic;color:var(--g4);}
+.satyug-sub{font-size:.8rem;color:rgba(255,255,255,.7);letter-spacing:.04em;}
+
+/* SECTION COMMONS */
 .sec{padding:108px 5%;}
 .si{max-width:1200px;margin:0 auto;}
-.stag{font-size:.67rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:14px;}
-.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:300;line-height:1.1;color:var(--s);margin-bottom:18px;letter-spacing:-.01em;}
+.stag{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:12px;}
+.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:300;line-height:1.1;color:var(--s);margin-bottom:16px;letter-spacing:-.01em;}
 .sh em{font-style:italic;color:var(--cu);}
-.ssub{font-size:1rem;color:var(--dim);max-width:580px;line-height:1.85;margin-bottom:56px;font-weight:300;}
+.sh strong{font-weight:600;}
+.ssub{font-size:1rem;color:var(--dim);max-width:580px;line-height:1.85;margin-bottom:52px;font-weight:300;}
 
-/* A MORNING — THE SCENE-SETTING SECTION */
-.scene-bg{background:var(--s3);}
-.scene-bg .sh{color:var(--a);}
-.scene-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
-.scene-col{padding:52px 48px;background:var(--s2);}
-.scene-col:first-child{border-right:1px solid rgba(201,153,75,.08);}
-.scene-label{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:18px;}
-.scene-h{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:300;color:var(--a);line-height:1.35;margin-bottom:22px;}
-.scene-moments{display:flex;flex-direction:column;gap:18px;}
-.moment{border-left:2px solid rgba(201,153,75,.2);padding:0 0 0 18px;}
-.moment-time{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:4px;}
-.moment-text{font-size:.88rem;color:rgba(244,240,234,.65);line-height:1.75;}
-.moment-text strong{color:rgba(244,240,234,.9);}
-.scene-col.right .moment{border-left-color:rgba(201,153,75,.5);}
-.scene-col.right .moment-text{color:rgba(244,240,234,.85);}
+/* RESORT COMPARISON */
+.compare-bg{background:var(--s3);}
+.compare-bg .sh{color:var(--a);}
+.compare-bg .ssub{color:rgba(250,247,242,.4);}
+.compare-split{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.cc{padding:52px 46px;background:rgba(22,32,32,.6);}
+.cc.right{background:rgba(10,20,20,.5);}
+.cc:first-child{border-right:1px solid rgba(201,146,74,.08);}
+.cc-label{font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,247,242,.3);margin-bottom:14px;}
+.cc-h{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;margin-bottom:22px;line-height:1.3;}
+.cc.left .cc-h{color:rgba(250,247,242,.5);}
+.cc.right .cc-h{color:var(--g2);}
+.cc-rows{display:flex;flex-direction:column;gap:0;}
+.cc-row{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid rgba(201,146,74,.06);}
+.cc-row:last-child{border-bottom:none;}
+.cc-ico{font-size:1.2rem;min-width:28px;margin-top:1px;}
+.cc-text{font-size:.87rem;line-height:1.6;}
+.cc.left .cc-text{color:rgba(250,247,242,.45);}
+.cc.right .cc-text{color:rgba(250,247,242,.82);}
+.cc.right .cc-text strong{color:var(--g2);}
+.cc-amount{display:block;font-size:.72rem;font-weight:600;letter-spacing:.05em;margin-top:2px;}
+.cc.left .cc-amount{color:rgba(232,69,69,.7);}
+.cc.right .cc-amount{color:rgba(107,203,119,.8);}
 
-/* HEALTH LAKEHOUSE */
+/* RESORT SERVICES — THE BIG SECTION */
+.resort-bg{background:var(--a2);}
+.resort-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;margin-bottom:60px;}
+.resort-intro-text h3{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--s);margin-bottom:14px;line-height:1.2;}
+.resort-intro-text h3 em{font-style:italic;color:var(--cu);}
+.resort-intro-text p{font-size:.92rem;color:var(--dim);line-height:1.85;margin-bottom:12px;}
+.resort-card-feature{background:var(--s);border-radius:16px;padding:40px;}
+.rcf-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:16px;}
+.rcf-h{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--a);margin-bottom:6px;line-height:1.2;}
+.rcf-sub{font-size:.82rem;color:rgba(250,247,242,.45);margin-bottom:24px;line-height:1.7;}
+.rcf-items{display:flex;flex-direction:column;gap:10px;}
+.rcf-item{display:flex;gap:10px;align-items:flex-start;}
+.rcf-dot{color:var(--g2);font-size:.9rem;min-width:18px;margin-top:1px;}
+.rcf-text{font-size:.83rem;color:rgba(250,247,242,.7);line-height:1.6;}
+.resort-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;}
+.rcard{background:var(--w);border:1px solid var(--b);border-radius:12px;overflow:hidden;transition:box-shadow .2s,transform .2s;}
+.rcard:hover{box-shadow:0 6px 28px rgba(30,43,48,.08);transform:translateY(-2px);}
+.rcard-img{height:160px;width:100%;object-fit:cover;background:var(--a3);}
+.rcard-body{padding:20px;}
+.rcard-ico{font-size:1.6rem;margin-bottom:8px;}
+.rcard-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:6px;}
+.rcard-text{font-size:.8rem;color:var(--dim);line-height:1.7;}
+.rcard-free{display:inline-block;margin-top:8px;background:rgba(201,146,74,.1);color:var(--g);font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;}
+
+/* THE BUFFET SECTION */
+.buffet-bg{background:var(--s4);}
+.buffet-bg .sh{color:var(--a);}
+.buffet-bg .ssub{color:rgba(250,247,242,.4);}
+.buffet-spread{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:2px;background:rgba(201,146,74,.06);margin-bottom:40px;}
+.bcard{background:var(--s4);padding:28px 22px;text-align:center;}
+.bcard-ico{font-size:2.2rem;margin-bottom:10px;}
+.bcard-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--g2);margin-bottom:4px;}
+.bcard-desc{font-size:.76rem;color:rgba(250,247,242,.45);line-height:1.6;}
+.buffet-note{text-align:center;max-width:700px;margin:0 auto;}
+.buffet-note-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:300;font-style:italic;color:var(--g2);margin-bottom:10px;line-height:1.3;}
+.buffet-note-sub{font-size:.85rem;color:rgba(250,247,242,.38);line-height:1.8;}
+
+/* YOU GET PAID */
+.paid-bg{background:var(--a);}
+.paid-split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.paid-left{background:var(--s);border-radius:16px;padding:48px;}
+.paid-right{display:flex;flex-direction:column;gap:18px;}
+.paid-h{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--g2);margin-bottom:6px;line-height:1.2;}
+.paid-sub{font-size:.85rem;color:rgba(250,247,242,.5);margin-bottom:28px;line-height:1.7;}
+.paid-big{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:var(--g3);line-height:1;margin-bottom:6px;}
+.paid-big-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,247,242,.35);margin-bottom:28px;}
+.paid-rows{display:flex;flex-direction:column;gap:12px;}
+.paid-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(201,146,74,.1);}
+.paid-row-label{font-size:.82rem;color:rgba(250,247,242,.55);}
+.paid-row-val{font-size:.88rem;font-weight:600;color:var(--g2);}
+.pcard{background:var(--w);border:1px solid var(--b);border-radius:12px;padding:28px;transition:box-shadow .2s;}
+.pcard:hover{box-shadow:0 4px 18px rgba(30,43,48,.07);}
+.pcard-ico{font-size:1.8rem;margin-bottom:12px;}
+.pcard-h{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:6px;}
+.pcard-body{font-size:.81rem;color:var(--dim);line-height:1.7;}
+.pcard-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--g);margin-top:10px;}
+
+/* ONE SHARE */
+.share-bg{background:var(--a2);}
+.share-card-main{background:var(--s);border-radius:20px;padding:56px;display:grid;grid-template-columns:1fr 1.2fr;gap:52px;align-items:center;}
+.scm-price{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:var(--g2);line-height:1;margin-bottom:6px;}
+.scm-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,247,242,.35);margin-bottom:28px;}
+.scm-h{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--a);margin-bottom:14px;line-height:1.3;}
+.scm-tag{display:inline-block;background:rgba(201,146,74,.12);border:1px solid rgba(201,146,74,.25);border-radius:5px;padding:5px 12px;font-size:.67rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:24px;}
+.scm-includes{display:flex;flex-direction:column;gap:10px;}
+.sci{display:flex;gap:12px;align-items:flex-start;}
+.sci-dot{font-size:.95rem;color:var(--g);min-width:20px;}
+.sci-text{font-size:.85rem;color:rgba(250,247,242,.75);line-height:1.55;}
+.sci-text strong{color:var(--g2);}
+
+/* SATYUG SECTION */
+.saty-bg{background:var(--saf);}
+.saty-inner{text-align:center;max-width:820px;margin:0 auto;}
+.saty-label{font-size:.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px;}
+.saty-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,6vw,5rem);font-weight:300;color:#fff;line-height:1.08;margin-bottom:24px;letter-spacing:-.01em;}
+.saty-h em{font-style:italic;color:var(--g4);}
+.saty-line{width:1px;height:40px;background:rgba(255,255,255,.3);margin:0 auto 24px;}
+.saty-p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.72);max-width:680px;margin:0 auto;line-height:1.85;font-weight:300;}
+.saty-pillars{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;}
+.sp{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:22px;text-align:center;}
+.sp-ico{font-size:1.8rem;margin-bottom:10px;}
+.sp-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:4px;}
+.sp-body{font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.6;}
+
+/* HEALTH */
 .health-bg{background:var(--a2);}
-.health-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:60px;}
-.health-card-big{background:var(--s3);border-radius:16px;padding:44px;color:rgba(244,240,234,.9);}
-.health-card-big h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--g2);margin-bottom:16px;line-height:1.3;}
-.health-card-big p{font-size:.9rem;color:rgba(244,240,234,.6);line-height:1.8;margin-bottom:18px;}
-.health-ages{display:flex;gap:8px;flex-wrap:wrap;}
-.hage{background:rgba(201,153,75,.1);border:1px solid rgba(201,153,75,.2);border-radius:6px;padding:6px 12px;font-size:.72rem;color:var(--g);font-weight:500;}
-.health-text h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--s);margin-bottom:14px;line-height:1.3;}
-.health-text p{font-size:.92rem;color:var(--dim);line-height:1.85;margin-bottom:14px;}
-.health-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
-.hcard{background:var(--w);border:1px solid var(--b);border-radius:10px;padding:22px;transition:box-shadow .2s;}
-.hcard:hover{box-shadow:0 4px 18px rgba(58,75,83,.07);}
-.hcard-ico{font-size:1.7rem;margin-bottom:10px;}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;}
+.hcard{background:var(--w);border:1px solid var(--b);border-radius:10px;padding:24px;transition:box-shadow .2s;}
+.hcard:hover{box-shadow:0 4px 16px rgba(30,43,48,.06);}
+.hcard-ico{font-size:1.6rem;margin-bottom:10px;}
 .hcard-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;margin-bottom:5px;}
 .hcard-body{font-size:.79rem;color:var(--dim);line-height:1.7;}
-.hcard-note{margin-top:8px;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g);opacity:.8;}
+.hcard-note{margin-top:8px;font-size:.64rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g);}
 
-/* HUMAN CREATIVITY */
-.cr-bg{background:var(--s4);}
-.cr-bg .sh{color:var(--a);}
-.cr-bg .ssub{color:rgba(244,240,234,.4);}
-.what-humans{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:52px;}
-.wh{background:rgba(43,58,64,.7);border:1px solid rgba(201,153,75,.08);border-radius:10px;padding:24px;transition:background .2s;}
-.wh:hover{background:rgba(58,75,83,.6);}
-.wh-ico{font-size:1.6rem;margin-bottom:10px;}
-.wh-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--a);margin-bottom:5px;}
-.wh-body{font-size:.79rem;color:rgba(244,240,234,.5);line-height:1.65;}
-.cr-manifest{max-width:720px;margin:0 auto;text-align:center;padding:52px 0 0;}
-.cr-m-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:300;font-style:italic;color:var(--a);line-height:1.45;margin-bottom:16px;}
-.cr-m-sub{font-size:.85rem;color:rgba(244,240,234,.38);line-height:1.8;}
-
-/* HUMAN + AI — THE PARTNERSHIP */
-.hai-bg{background:var(--a);}
-.hai-split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
-.hai-col{background:var(--w);border:1px solid var(--b);border-radius:14px;padding:40px;}
-.hai-col.ai-col{background:var(--s3);}
-.hai-label{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;}
-.hai-col .hai-label{color:var(--cu);}
-.hai-col.ai-col .hai-label{color:var(--g);}
-.hai-h{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;margin-bottom:18px;line-height:1.3;}
-.hai-col .hai-h{color:var(--s);}
-.hai-col.ai-col .hai-h{color:var(--a);}
-.hai-items{display:flex;flex-direction:column;gap:14px;}
-.hai-item{display:flex;gap:12px;align-items:flex-start;}
-.hii-dot{font-size:1rem;min-width:20px;}
-.hii-text{font-size:.85rem;line-height:1.65;}
-.hai-col .hii-text{color:var(--t);}
-.hai-col.ai-col .hii-text{color:rgba(244,240,234,.65);}
-.hii-text strong{font-weight:600;}
-.hai-col.ai-col .hii-text strong{color:var(--g2);}
-.hai-rule{margin-top:28px;border-radius:8px;padding:16px 20px;}
-.hai-col .hai-rule{background:rgba(192,107,66,.07);border:1px solid rgba(192,107,66,.15);}
-.hai-col.ai-col .hai-rule{background:rgba(201,153,75,.07);border:1px solid rgba(201,153,75,.15);}
-.hrul-text{font-size:.82rem;line-height:1.7;}
-.hai-col .hrul-text{color:var(--cu);}
-.hai-col.ai-col .hrul-text{color:var(--g);}
-
-/* VOTE SECTION */
+/* VOTE */
 .vote-bg{background:var(--s3);}
 .vote-bg .sh{color:var(--a);}
-.vote-bg .ssub{color:rgba(244,240,234,.4);}
-.vote-flow{display:flex;flex-direction:column;gap:0;max-width:680px;}
-.vf-step{display:flex;gap:20px;align-items:flex-start;padding:26px 0;border-bottom:1px solid rgba(201,153,75,.07);}
-.vf-step:last-child{border-bottom:none;}
-.vf-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:rgba(201,153,75,.3);min-width:40px;padding-top:4px;}
-.vf-h{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--a);margin-bottom:5px;}
-.vf-body{font-size:.83rem;color:rgba(244,240,234,.5);line-height:1.7;}
-.vf-ai{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-top:6px;opacity:.7;}
-.vote-examples{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-.ve{background:rgba(43,58,64,.7);border:1px solid rgba(201,153,75,.08);border-radius:8px;padding:18px;}
-.ve-status{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
-.ve-status.open{color:#6BCB77;}
-.ve-status.passed{color:var(--g);}
-.ve-status.studying{color:#64B5F6;}
-.ve-title{font-size:.85rem;color:rgba(244,240,234,.8);line-height:1.5;margin-bottom:6px;}
-.ve-vote{font-size:.72rem;color:rgba(244,240,234,.35);}
+.vote-bg .ssub{color:rgba(250,247,242,.38);}
+.vote-steps{display:flex;flex-direction:column;gap:0;max-width:640px;}
+.vstep{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(201,146,74,.06);}
+.vstep:last-child{border-bottom:none;}
+.vstep-n{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:rgba(201,146,74,.25);min-width:36px;padding-top:4px;}
+.vstep-h{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--a);margin-bottom:4px;}
+.vstep-body{font-size:.82rem;color:rgba(250,247,242,.48);line-height:1.7;}
+.vote-examples{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.ve{background:rgba(43,58,64,.7);border:1px solid rgba(201,146,74,.08);border-radius:8px;padding:16px;}
+.ve-s{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;}
+.ve-s.open{color:#6BCB77;}.ve-s.passed{color:var(--g);}.ve-s.studying{color:#64B5F6;}
+.ve-title{font-size:.83rem;color:rgba(250,247,242,.78);line-height:1.5;margin-bottom:5px;}
+.ve-v{font-size:.7rem;color:rgba(250,247,242,.3);}
 
-/* FREE FOR LIFE */
-.free-bg{background:var(--a2);}
-.free-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;}
-.fc{background:var(--w);border:1px solid var(--b);border-radius:10px;padding:24px;transition:box-shadow .2s;}
-.fc:hover{box-shadow:0 4px 18px rgba(58,75,83,.07);}
-.fc-ico{font-size:1.7rem;margin-bottom:10px;}
-.fc-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-bottom:6px;}
-.fc-body{font-size:.8rem;color:var(--dim);line-height:1.7;}
-.fc-tag{display:inline-block;margin-top:8px;background:var(--a2);color:var(--s);font-size:.62rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:4px;}
-
-/* NUCLEAR */
-.nuke-bg{background:var(--s4);}
-.nuke-bg .sh{color:var(--a);}
-.nuke-bg .ssub{color:rgba(244,240,234,.4);}
-.nuke-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.nk{border-radius:14px;padding:40px;}
-.nk.personal{background:rgba(43,58,64,.8);border:1px solid rgba(201,153,75,.1);}
-.nk.city{background:rgba(13,21,24,.9);border:1px solid rgba(201,153,75,.07);}
-.nk-ico{font-size:2rem;margin-bottom:16px;}
-.nk-h{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--a);margin-bottom:6px;}
-.nk-sub{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);margin-bottom:18px;}
-.nk-pts{display:flex;flex-direction:column;gap:10px;}
-.nk-pt{font-size:.83rem;color:rgba(244,240,234,.6);padding-left:16px;border-left:2px solid rgba(201,153,75,.2);line-height:1.65;}
-.nk-pt strong{color:var(--g2);}
-.swiss-note{margin-top:36px;background:rgba(201,153,75,.06);border:1px solid rgba(201,153,75,.1);border-radius:12px;padding:24px 32px;display:flex;gap:20px;align-items:center;}
-.swiss-ico{font-size:1.8rem;flex-shrink:0;}
-.swiss-body{font-size:.85rem;color:rgba(244,240,234,.45);line-height:1.75;}
-.swiss-body strong{color:var(--g2);}
-
-/* ZONES */
+/* 14 ZONES */
 .zone-bg{background:var(--a);}
-.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;}
+.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;}
 .quad{background:var(--w);border:1px solid var(--b);border-radius:14px;overflow:hidden;}
 .qhdr{padding:16px 24px;display:flex;align-items:center;gap:10px;}
 .qsym{font-size:1.2rem;}
 .qnm{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;}
-.qsub{font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);margin-top:2px;}
+.qsub{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:2px;}
 .zlist{padding:0 24px 20px;display:flex;flex-direction:column;gap:10px;}
 .zrow{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:7px;border:1px solid transparent;transition:all .2s;cursor:default;}
 .zrow:hover{background:var(--a2);border-color:var(--b);}
-.zdot{width:24px;height:24px;min-width:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;margin-top:2px;}
+.zdot{width:24px;height:24px;min-width:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;margin-top:2px;}
 .znm{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:1px;}
 .zdesc{font-size:.75rem;color:var(--dim);line-height:1.6;}
-.q-a .qhdr{background:#f0f4f5;}
-.q-s .qhdr{background:#faf3e8;}
-.q-e .qhdr{background:#f3eef8;}
-.q-p .qhdr{background:#f5eded;}
+.q-a .qhdr{background:#f0f4f5;}.q-s .qhdr{background:#faf3e8;}.q-e .qhdr{background:#f3eef8;}.q-p .qhdr{background:#f5eded;}
 
-/* COIN */
-.coin-bg{background:var(--s3);}
+/* SURYA COIN */
+.coin-bg{background:var(--s4);}
 .coin-bg .sh{color:var(--a);}
-.coin-bg .ssub{color:rgba(244,240,234,.4);}
-.coin-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.coin-bg .ssub{color:rgba(250,247,242,.38);}
+.coin-split{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
 .cp{padding:46px;}
-.cp.cl{background:rgba(43,58,64,.6);border-right:1px solid rgba(201,153,75,.1);}
-.cp.cr{background:rgba(13,21,24,.8);}
-.cpl{font-size:.63rem;letter-spacing:.17em;text-transform:uppercase;color:var(--g);margin-bottom:16px;}
-.cph{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;color:var(--a);margin-bottom:24px;line-height:1.3;}
+.cp.cl{background:rgba(43,58,64,.5);border-right:1px solid rgba(201,146,74,.09);}
+.cp.cr{background:rgba(10,20,20,.7);}
+.cpl{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:14px;}
+.cph{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--a);margin-bottom:22px;line-height:1.3;}
 .citems{display:flex;flex-direction:column;gap:11px;}
 .citem{display:flex;gap:11px;align-items:flex-start;}
 .cck{font-size:.95rem;min-width:20px;color:var(--g);}
-.ctx{font-size:.83rem;color:rgba(244,240,234,.65);line-height:1.6;}
-.cearns{margin-top:26px;background:rgba(201,153,75,.06);border:1px solid rgba(201,153,75,.13);border-radius:8px;padding:16px 18px;}
-.cet{font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:7px;}
-.ceb{font-size:.81rem;color:rgba(244,240,234,.48);line-height:1.7;}
-.cquota{margin-top:12px;background:rgba(201,153,75,.04);border:1px solid rgba(201,153,75,.09);border-radius:8px;padding:14px 16px;}
+.ctx{font-size:.83rem;color:rgba(250,247,242,.65);line-height:1.6;}
+.cearns{margin-top:24px;background:rgba(201,146,74,.06);border:1px solid rgba(201,146,74,.13);border-radius:8px;padding:16px 18px;}
+.cet{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:7px;}
+.ceb{font-size:.81rem;color:rgba(250,247,242,.47);line-height:1.7;}
+.cquota{margin-top:12px;background:rgba(201,146,74,.04);border:1px solid rgba(201,146,74,.09);border-radius:8px;padding:14px 16px;}
 
 /* NUMBERS */
-.num-bg{background:var(--s4);}
+.num-bg{background:var(--s3);}
 .num-bg .sh{color:var(--a);}
-.num-bg .ssub{color:rgba(244,240,234,.35);}
-.ngrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(201,153,75,.07);}
-.nc2{background:var(--s4);padding:34px 20px;text-align:center;}
+.num-bg .ssub{color:rgba(250,247,242,.35);}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(201,146,74,.07);}
+.nc2{background:var(--s3);padding:34px 20px;text-align:center;}
 .nn{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--g2);line-height:1;margin-bottom:8px;}
-.nlb{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,234,.28);}
-.tlist{margin-top:52px;max-width:600px;}
-.titem{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid rgba(201,153,75,.06);}
-.tyear{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--g);min-width:80px;padding-top:2px;}
-.ttext{font-size:.82rem;color:rgba(244,240,234,.5);line-height:1.7;}
+.nlb{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,247,242,.28);}
+.tlist{margin-top:48px;max-width:600px;}
+.titem{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid rgba(201,146,74,.06);}
+.tyear{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--g);min-width:80px;padding-top:2px;}
+.ttext{font-size:.82rem;color:rgba(250,247,242,.48);line-height:1.7;}
 
 /* JOIN */
 .join-bg{background:var(--a2);}
 .jinr{text-align:center;max-width:600px;margin:0 auto;}
-.jh{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,5vw,3.2rem);font-weight:300;color:var(--s);margin-bottom:14px;letter-spacing:-.01em;line-height:1.15;}
+.jh{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5.5vw,3.5rem);font-weight:300;color:var(--s);margin-bottom:14px;line-height:1.15;letter-spacing:-.01em;}
 .jh em{font-style:italic;color:var(--cu);}
 .jsub{font-size:.92rem;color:var(--dim);line-height:1.85;margin-bottom:36px;font-weight:300;}
 .jform{display:flex;gap:10px;max-width:440px;margin:0 auto 12px;flex-wrap:wrap;justify-content:center;}
-.jform input{flex:1;min-width:200px;padding:12px 16px;border:1px solid var(--b);border-radius:6px;font-size:.88rem;outline:none;background:var(--w);color:var(--t);font-family:'Inter',sans-serif;transition:border-color .2s;}
+.jform input{flex:1;min-width:200px;padding:13px 16px;border:1px solid var(--b);border-radius:7px;font-size:.9rem;outline:none;background:var(--w);color:var(--t);font-family:'Inter',sans-serif;transition:border-color .2s;}
 .jform input:focus{border-color:var(--g);}
-.jform button{background:var(--s);color:var(--g2);padding:12px 24px;border-radius:6px;font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;}
-.jform button:hover{background:var(--s2);}
+.jform button{background:var(--g);color:var(--s4);padding:13px 28px;border-radius:7px;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;}
+.jform button:hover{background:var(--g2);}
 .jnote{font-size:.72rem;color:var(--dim);}
 
 /* FOOTER */
-footer{background:var(--s4);color:rgba(244,240,234,.22);text-align:center;padding:48px 5%;font-size:.75rem;line-height:2.2;}
+footer{background:var(--s4);color:rgba(250,247,242,.2);text-align:center;padding:48px 5%;font-size:.74rem;line-height:2.2;}
 footer a{color:var(--g);}
 .flinks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;}
 .flinks a:hover{color:var(--a);}
 .fbadges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
-.fb{background:rgba(244,240,234,.02);border:1px solid rgba(244,240,234,.06);border-radius:4px;padding:3px 9px;font-size:.62rem;color:rgba(244,240,234,.18);}
+.fb{background:rgba(250,247,242,.02);border:1px solid rgba(250,247,242,.05);border-radius:4px;padding:3px 9px;font-size:.62rem;color:rgba(250,247,242,.18);}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease;}
@@ -263,15 +283,15 @@ footer a{color:var(--g);}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .scene-grid,.health-intro,.hai-split,.nuke-grid,.coin-split,.quad-grid{grid-template-columns:1fr;}
-  .scene-col:first-child{border-right:none;border-bottom:1px solid rgba(201,153,75,.07);}
-  .cp.cl{border-right:none;border-bottom:1px solid rgba(201,153,75,.1);}
+  .compare-split,.resort-intro,.paid-split,.share-card-main,.coin-split,.quad-grid{grid-template-columns:1fr;}
+  .cc:first-child{border-right:none;border-bottom:1px solid rgba(201,146,74,.07);}
+  .cp.cl{border-right:none;border-bottom:1px solid rgba(201,146,74,.09);}
   .nv{display:none;}
 }
 @media(max-width:600px){
   .sec{padding:80px 5%;}
-  .hero h1{font-size:2.4rem;}
-  .cp,.scene-col,.hai-col,.nk{padding:32px;}
+  .hero h1{font-size:2.6rem;}
+  .cp,.cc,.paid-left,.share-card-main{padding:32px;}
 }
 </style>
 </head>
@@ -281,10 +301,10 @@ footer a{color:var(--g);}
 <nav>
   <div class="nl">Sūrya Nagari</div>
   <div class="nv">
-    <a href="#morning">A Morning Here</a>
-    <a href="#health">Your Health</a>
-    <a href="#creative">Human + AI</a>
-    <a href="#vote">Your Vote</a>
+    <a href="#resort">The Resort Life</a>
+    <a href="#buffet">The Buffet</a>
+    <a href="#paid">You Get Paid</a>
+    <a href="#satyug">Satyug</a>
     <a href="#zones">The Zones</a>
     <a href="prospectus.html">Prospectus</a>
   </div>
@@ -295,171 +315,263 @@ footer a{color:var(--g);}
 <header class="hero">
   <div class="hbg"></div>
   <div class="hstars"></div>
-  <div class="horb"></div>
+  <div class="hglow"></div>
 
-  <div class="heye">India · 5,000 Acres · 10,000 Families · An Open-Source Civilization · MMXXVI</div>
+  <div class="heye">India · 5,000 Acres · 10,000 Families · Satyug Begins · MMXXVI</div>
 
-  <h1>This is what<br><em>freedom</em><br>feels like.</h1>
+  <h1>The finest <em>resort</em><br>in the world.<br><strong>That you own.</strong><br>That <em>pays you.</em></h1>
 
   <div class="hline"></div>
 
-  <p class="hscene">
-    Imagine waking up and not worrying about a single bill. Not electricity. Not food. Not your child's school. Not your father's hospital. Not the house repair. Not one. Not ever again. And imagine that instead of worrying — you just create.
-  </p>
+  <div class="hero-promise">
+    <span class="hp">Unlimited Buffet · Forever</span>
+    <span class="hp">Daily Housekeeping · Forever</span>
+    <span class="hp">₹0 Monthly Bills · Forever</span>
+    <span class="hp">₹2.9 Lakhs/Year Dividend</span>
+    <span class="hp">Free Healthcare · Forever</span>
+    <span class="hp">Free Education · Forever</span>
+    <span class="hp">Olympic Pool · Forever</span>
+    <span class="hp">Nuclear Bunker in Every Home</span>
+  </div>
+
+  <p class="hero-sub">Imagine checking into the Taj. Now imagine you never check out. And every year, the Taj sends you a dividend cheque. That is Sūrya Nagari — your home, your resort, your city, your share in everything it earns.</p>
 
   <div class="hctas">
-    <a class="bp" href="#morning">See What a Morning Looks Like</a>
+    <a class="bp" href="#resort">See What Living Here Looks Like</a>
     <a class="bg" href="township-3d.html" target="_blank">Walk the 3D City →</a>
-    <a class="bg" href="Surya-Nagari-Prospectus.pdf" target="_blank">↓ Download Prospectus</a>
+    <a class="bg" href="Surya-Nagari-Prospectus.pdf" target="_blank">↓ Full Prospectus</a>
   </div>
-  <div class="hscroll">↓ scroll to imagine</div>
+  <div class="hscroll">↓ scroll</div>
 </header>
 
-<!-- A MORNING HERE -->
-<section class="sec scene-bg" id="morning">
+<!-- SATYUG BAND -->
+<div class="satyug">
+  <div class="satyug-inner">
+    <div class="satyug-h"><em>Satyug</em> — the golden age of humanity — does not come from the sky. It is built, acre by acre, by people who decide to live differently.</div>
+    <div class="satyug-sub">Sūrya Nagari is not a real estate project. It is the first city of the new age. It starts now. In India. With you.</div>
+  </div>
+</div>
+
+<!-- THE COMPARISON — WHAT CHANGES -->
+<section class="sec compare-bg">
   <div class="si">
     <div class="reveal">
-      <div class="stag">5:23am · Sūrya Nagari</div>
-      <h2 class="sh" style="color:var(--a);">Close your eyes.<br><em style="color:var(--g2);">This is tomorrow.</em></h2>
+      <div class="stag">The Life You Know vs The Life You Could Have</div>
+      <h2 class="sh" style="color:var(--a);">Same income. <em style="color:var(--g2);">Completely different life.</em></h2>
     </div>
-    <div class="scene-grid reveal">
-      <div class="scene-col">
-        <div class="scene-label">Your life today — anywhere in India</div>
-        <div class="scene-h" style="color:rgba(244,240,234,.55);">You wake up already tired of the things you have to pay for today.</div>
-        <div class="scene-moments">
-          <div class="moment"><div class="moment-time">6:00 am</div><div class="moment-text">Check the electricity bill. <strong>₹4,200 this month.</strong> The AC ran too long.</div></div>
-          <div class="moment"><div class="moment-time">7:30 am</div><div class="moment-text">Groceries are up again. <strong>₹18,000 this month</strong> for a family of four. The mango prices alone.</div></div>
-          <div class="moment"><div class="moment-time">9:00 am</div><div class="moment-text">Your son's school fees reminder. <strong>₹45,000 next quarter.</strong> You don't open the email.</div></div>
-          <div class="moment"><div class="moment-time">2:00 pm</div><div class="moment-text">Your mother's prescription. <strong>₹3,800.</strong> Insurance doesn't cover two of the drugs.</div></div>
-          <div class="moment"><div class="moment-time">Evening</div><div class="moment-text">You wanted to paint today. Or practice tabla. Or finish the book you're writing. <strong>There was no time. There is never time.</strong></div></div>
+    <div class="compare-split reveal">
+      <div class="cc left">
+        <div class="cc-label">Your life today — anywhere in India</div>
+        <div class="cc-h">Every month, the same bills. Every year, a little more.</div>
+        <div class="cc-rows">
+          <div class="cc-row"><div class="cc-ico">💡</div><div class="cc-text">Electricity<span class="cc-amount">₹3,000–8,000 every month. Forever.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🛒</div><div class="cc-text">Groceries &amp; food<span class="cc-amount">₹15,000–30,000 every month. Forever.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🏥</div><div class="cc-text">Healthcare &amp; insurance<span class="cc-amount">₹5,000–25,000 every month. More if you fall ill.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🎓</div><div class="cc-text">Children's education<span class="cc-amount">₹15,000–60,000 every month. Per child.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🔧</div><div class="cc-text">Home maintenance<span class="cc-amount">Unpredictable. Always inconvenient. Always expensive.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🌐</div><div class="cc-text">Internet &amp; transport<span class="cc-amount">₹2,000–5,000 every month. Forever.</span></div></div>
+          <div class="cc-row" style="border-bottom:none;padding-top:18px;"><div class="cc-ico">😤</div><div class="cc-text" style="font-size:.92rem;color:rgba(250,247,242,.55);">And after all this — you have whatever is left. Which is never quite enough to fully live.</div></div>
         </div>
       </div>
-      <div class="scene-col right">
-        <div class="scene-label">Your morning in Sūrya Nagari</div>
-        <div class="scene-h">You wake up. There is nothing you owe today. Nothing you owe tomorrow. Nothing you will ever owe again.</div>
-        <div class="scene-moments">
-          <div class="moment"><div class="moment-time">5:30 am</div><div class="moment-text">Your daughter slept well. The health dashboard shows <strong>her iron levels are optimal</strong> — the city kitchen added more spinach this week after AI flagged a slight dip last month. You voted to allow that intervention. You're glad you did.</div></div>
-          <div class="moment"><div class="moment-time">6:15 am</div><div class="moment-text">Morning yoga at the great banyan. <strong>Half the city is here</strong> — the software engineer from Krishna Zone, the sculptor from Osho Zone, your 74-year-old neighbour from Ramana. One city breathing together.</div></div>
-          <div class="moment"><div class="moment-time">8:00 am</div><div class="moment-text">Breakfast in the community kitchen. Organic. Grown this morning. <strong>Free. Fresh. Extraordinary.</strong> You sit next to whoever arrives. The food is always better than yesterday.</div></div>
-          <div class="moment"><div class="moment-time">9:00 am</div><div class="moment-text">You open your creative work. Music. Painting. Research. Engineering. Teaching. <strong>Three uninterrupted hours</strong> of whatever makes you most alive. This is your morning. Every morning.</div></div>
-          <div class="moment"><div class="moment-time">Evening</div><div class="moment-text">There's a vote tonight: <em>"Should we add a jazz stage to Rumi Zone?"</em> AI has shown you the data — cost, sound impact, projected usage. <strong>You vote yes. You go back to your tabla.</strong></div></div>
+      <div class="cc right">
+        <div class="cc-label">Your life in Sūrya Nagari</div>
+        <div class="cc-h">Pay once. Live forever. Get paid annually.</div>
+        <div class="cc-rows">
+          <div class="cc-row"><div class="cc-ico">☀️</div><div class="cc-text"><strong>Electricity</strong> — 200 MW solar.<span class="cc-amount">₹0 forever. City's solar generates more than it uses.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🍽️</div><div class="cc-text"><strong>Unlimited buffet</strong> — organic, vegetarian, fresh daily.<span class="cc-amount">₹0 forever. Three beautiful meals every day.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🏥</div><div class="cc-text"><strong>500-bed hospital + Ayurveda</strong> — free for your family.<span class="cc-amount">₹0 forever. No insurance needed.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🎓</div><div class="cc-text"><strong>K-12 + University on campus</strong> — for every child.<span class="cc-amount">₹0 forever. Your grandchildren too.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🔧</div><div class="cc-text"><strong>Daily housekeeping + all home maintenance</strong>.<span class="cc-amount">₹0 forever. Cleaned and maintained like a 5-star hotel.</span></div></div>
+          <div class="cc-row"><div class="cc-ico">🌐</div><div class="cc-text"><strong>1 Gbps fiber + solar EV transport</strong>.<span class="cc-amount">₹0 forever. City-owned. Always on.</span></div></div>
+          <div class="cc-row" style="border-bottom:none;padding-top:18px;"><div class="cc-ico">💰</div><div class="cc-text" style="font-size:.92rem;color:rgba(250,247,242,.85);">And after all this — <strong>you receive ₹2.9 Lakhs every year</strong> in dividends from the city's GPU revenues and commercial rents. You are the owner.</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HEALTH LAKEHOUSE — EVERYONE WATCHED OVER -->
+<!-- THE RESORT SERVICES -->
+<section class="sec resort-bg" id="resort">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">Resort-Grade Living · Every Day · For Life</div>
+      <h2 class="sh">This is not a house.<br><em>This is a 5-star life.</em></h2>
+    </div>
+    <div class="resort-intro reveal">
+      <div class="resort-intro-text">
+        <h3>The finest hotel in the world<br>gives you <em>a room.</em><br>Sūrya Nagari gives you <em>the hotel.</em></h3>
+        <p>Every service you pay for in a 5-star resort — the buffet, the housekeeping, the concierge, the pool, the spa, the gym — is yours here. Not for a weekend. Not for a vacation. Every day. For the rest of your life. For your children. For their children.</p>
+        <p>The difference: at the Taj, you are a guest. Here, you are an owner. The hotel reports to you. Your Panchayat decides how it runs. Your vote shapes what it becomes next.</p>
+      </div>
+      <div class="resort-card-feature">
+        <div class="rcf-label">Daily Resort Services — Included Forever</div>
+        <div class="rcf-h">Every single day. Automatically. ₹0.</div>
+        <div class="rcf-sub">You never request these. They are simply the standard of life here — the baseline that every resident receives as a matter of right.</div>
+        <div class="rcf-items">
+          <div class="rcf-item"><div class="rcf-dot">◈</div><div class="rcf-text">Daily housekeeping — your home cleaned like a hotel room, every morning</div></div>
+          <div class="rcf-item"><div class="rcf-dot">◈</div><div class="rcf-text">Unlimited buffet — breakfast, lunch, dinner in your zone's beautiful dining hall</div></div>
+          <div class="rcf-item"><div class="rcf-dot">◈</div><div class="rcf-text">All home maintenance — plumbing, electrical, repairs — the city's crew handles everything</div></div>
+          <div class="rcf-item"><div class="rcf-dot">◈</div><div class="rcf-text">Laundry services — available in every zone</div></div>
+          <div class="rcf-item"><div class="rcf-dot">◈</div><div class="rcf-text">EV concierge — solar cars take you anywhere in the city</div></div>
+          <div class="rcf-item"><div class="rcf-dot">◈</div><div class="rcf-text">Room service style delivery — within the city, from the mall or kitchen</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="resort-grid reveal">
+      <div class="rcard">
+        <img class="rcard-img" src="real-photos/zone-olympic.jpg" alt="Olympic Pool">
+        <div class="rcard-body"><div class="rcard-ico">🏊</div><div class="rcard-title">Olympic Pool & Spa</div><div class="rcard-text">50-metre Olympic pool. Aquatics centre. Ayurvedic spa. Steam rooms. Every resident, every day, for free. Because health is not an amenity — it is infrastructure.</div><span class="rcard-free">Free · Daily · For Life</span></div>
+      </div>
+      <div class="rcard">
+        <img class="rcard-img" src="real-photos/zone-university.jpg" alt="University">
+        <div class="rcard-body"><div class="rcard-ico">📚</div><div class="rcard-title">The Library & University</div><div class="rcard-text">A full campus library, research labs, and university. Free for every resident and every child. Knowledge without a price tag, forever. AI personalises the curriculum for each learner.</div><span class="rcard-free">Free · For Every Child · For Life</span></div>
+      </div>
+      <div class="rcard">
+        <img class="rcard-img" src="real-photos/zone-commercial.jpg" alt="Mall">
+        <div class="rcard-body"><div class="rcard-ico">🏬</div><div class="rcard-title">The Beautiful Mall</div><div class="rcard-text">All brands. All products. You shop with SūryaCoins earned by your contributions. The quota system means every resident can access luxury — not just the wealthy. Like having a personal shopping budget from the city.</div><span class="rcard-free">SūryaCoins · Quota For All</span></div>
+      </div>
+      <div class="rcard">
+        <img class="rcard-img" src="real-photos/zone-hospital.jpg" alt="Hospital">
+        <div class="rcard-body"><div class="rcard-ico">🏥</div><div class="rcard-title">500-Bed Hospital</div><div class="rcard-text">Multi-specialty modern medicine + Ayurvedic wellness centre. Every resident and their family, for life. AI monitors your health continuously. The goal: you almost never need to go.</div><span class="rcard-free">Free · Your Family · Forever</span></div>
+      </div>
+      <div class="rcard">
+        <img class="rcard-img" src="real-photos/zone-homes.jpg" alt="Your Home">
+        <div class="rcard-body"><div class="rcard-ico">🏡</div><div class="rcard-title">Your 3BHK Resort Suite</div><div class="rcard-text">A 1,500 sqft eco-built home with solar roof and rainwater harvesting. Cleaned daily by the city's housekeeping team. Maintained by AI-scheduled resident crews. Your home is your hotel room — permanently immaculate.</div><span class="rcard-free">Yours · Cleaned Daily · Maintained</span></div>
+      </div>
+      <div class="rcard">
+        <img class="rcard-img" src="real-photos/zone-forest.jpg" alt="Gardens">
+        <div class="rcard-body"><div class="rcard-ico">🌿</div><div class="rcard-title">600 Acres of Gardens & Nature</div><div class="rcard-text">Sacred groves, herb gardens, pollinator forests, animal sanctuaries, zen gardens. Walk for an hour and not see a wall. The resort's grounds are 600 acres of rewilded, living, breathing India.</div><span class="rcard-free">Open · All Residents · Forever</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE BUFFET -->
+<section class="sec buffet-bg" id="buffet">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">The Unlimited Buffet · 3 Times a Day · Pure Vegetarian · Organic</div>
+      <h2 class="sh">Food so beautiful<br><em style="color:var(--g2);">it changes your relationship with eating.</em></h2>
+      <p class="ssub">1,500 acres of organic farms grow everything the city eats. Community kitchens in every zone prepare three meals daily. It is not just free food — it is extraordinary food. The same quality a 5-star chef would be proud of. Every day.</p>
+    </div>
+    <div class="buffet-spread reveal">
+      <div class="bcard"><div class="bcard-ico">🌅</div><div class="bcard-name">Sunrise Breakfast</div><div class="bcard-desc">Hot grain porridges, fresh fruit, handmade breads, fresh-pressed juices, herb teas. Grown this morning. Served with sunrise.</div></div>
+      <div class="bcard"><div class="bcard-ico">☀️</div><div class="bcard-name">Lunch — The Grand Spread</div><div class="bcard-desc">Seasonal thali: 3 sabzis, dals, rice, rotis, raita, salad. Regional variations by zone. Every day different. Every day extraordinary.</div></div>
+      <div class="bcard"><div class="bcard-ico">🌙</div><div class="bcard-name">Evening Dinner</div><div class="bcard-desc">Lighter, warming. Soups, khichdi, fresh breads, seasonal vegetables, desserts made from city's farms. Eaten together. Unhurried.</div></div>
+      <div class="bcard"><div class="bcard-ico">🫖</div><div class="bcard-name">Tea & Snacks · All Day</div><div class="bcard-desc">Zone kitchens open continuously. Fresh herbal teas, seasonal snacks, fruits from the orchard. Come whenever. Take whatever.</div></div>
+      <div class="bcard"><div class="bcard-ico">🌾</div><div class="bcard-name">Grown Inside the City</div><div class="bcard-desc">1,300 acres of open-field organic farming + 200 acres vertical farms. Grain to plate in hours. No supply chain. No middlemen.</div></div>
+      <div class="bcard"><div class="bcard-ico">🧑‍🍳</div><div class="bcard-name">Cooked by Residents</div><div class="bcard-desc">Zone chefs are resident shareholders — paid in SūryaCoins. The most meaningful SūryaCoin contribution: feeding 10,000 people beautifully.</div></div>
+      <div class="bcard"><div class="bcard-ico">🌱</div><div class="bcard-name">100% Pure Vegetarian</div><div class="bcard-desc">No meat, no fish, no eggs — ever. Not in the kitchen, not in the city. Pure, sattvic food. What your body was always meant to eat.</div></div>
+      <div class="bcard"><div class="bcard-ico">🎉</div><div class="bcard-name">Festival Feasts</div><div class="bcard-desc">Every festival becomes a city-wide celebration. Diwali, Holi, Eid, Christmas — the buffet becomes a feast. All zones, all residents, one table.</div></div>
+    </div>
+    <div class="buffet-note reveal">
+      <div class="buffet-note-h">"You will never cook because you have to. Only because you want to."</div>
+      <div class="buffet-note-sub">The community kitchens are always open. But your own kitchen is beautiful too — for when cooking is a pleasure, not an obligation. Both are yours. Both are free.</div>
+    </div>
+  </div>
+</section>
+
+<!-- YOU GET PAID -->
+<section class="sec paid-bg" id="paid">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">The Financial Reality · ₹0 Spend + Annual Dividend</div>
+      <h2 class="sh">You don't just live here.<br><em>You get paid to.</em></h2>
+      <p class="ssub">Your ₹1.5 Cr share is not an expense. It is the one purchase in your life that eliminates all other expenses and then pays you every year for the rest of your life.</p>
+    </div>
+    <div class="paid-split reveal">
+      <div class="paid-left">
+        <div class="paid-h">Your annual financial picture</div>
+        <div class="paid-sub">As a Sūrya Nagari shareholder, this is what your year looks like — every year, from the first year to the last year of your life.</div>
+        <div class="paid-big">₹2.9 L</div>
+        <div class="paid-big-label">Annual dividend · Deposited to you every year</div>
+        <div class="paid-rows">
+          <div class="paid-row"><div class="paid-row-label">Electricity bill</div><div class="paid-row-val">₹0</div></div>
+          <div class="paid-row"><div class="paid-row-label">Food & groceries</div><div class="paid-row-val">₹0</div></div>
+          <div class="paid-row"><div class="paid-row-label">Healthcare & insurance</div><div class="paid-row-val">₹0</div></div>
+          <div class="paid-row"><div class="paid-row-label">School & university fees</div><div class="paid-row-val">₹0</div></div>
+          <div class="paid-row"><div class="paid-row-label">Home maintenance</div><div class="paid-row-val">₹0</div></div>
+          <div class="paid-row"><div class="paid-row-label">Internet & transport</div><div class="paid-row-val">₹0</div></div>
+          <div class="paid-row"><div class="paid-row-label">Housekeeping</div><div class="paid-row-val">₹0</div></div>
+          <div class="paid-row"><div class="paid-row-label">Annual dividend received</div><div class="paid-row-val" style="color:#6BCB77;">+₹2.9 Lakhs</div></div>
+        </div>
+      </div>
+      <div class="paid-right">
+        <div class="pcard"><div class="pcard-ico">🖥️</div><div class="pcard-h">GPU Compute Revenue</div><div class="pcard-body">The city's 2,048 NVIDIA H100 GPUs are leased to tech companies globally at $1.50/hr. Running at 85% utilization, this generates ₹220 Crore per year. Every shareholder gets their share.</div><div class="pcard-num">₹220 Cr/yr</div></div>
+        <div class="pcard"><div class="pcard-ico">🏢</div><div class="pcard-h">Commercial Rental Income</div><div class="pcard-body">Grade-A office towers (Gurgaon-style) inside the city, leased to MNCs and startups. 3 million sqft at ₹50–80/sqft/month. You own the buildings. You get the rent.</div><div class="pcard-num">₹300 Cr/yr</div></div>
+        <div class="pcard"><div class="pcard-ico">🌿</div><div class="pcard-h">Farm Exports + IP</div><div class="pcard-body">Premium organic produce, cold-pressed oils, and AI lab patents licensed globally. The city's surplus earns for every shareholder.</div><div class="pcard-num">₹250 Cr/yr</div></div>
+        <div class="pcard" style="background:rgba(201,146,74,.06);border-color:rgba(201,146,74,.2);"><div class="pcard-ico">📊</div><div class="pcard-h">Your Share of the Surplus</div><div class="pcard-body">₹770 Cr total revenue. ₹350 Cr city operations. ₹420 Cr surplus. 70% distributed to 10,000 shareholders equally. That's your ₹2.9 Lakhs per year — paid to you, every year, as long as the city runs.</div><div class="pcard-num" style="color:var(--saf);">₹2.9 L / year / you</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONE SHARE — WHAT YOU OWN -->
+<section class="sec share-bg" id="share">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">One Share · What ₹1.5 Crore Actually Buys</div>
+      <h2 class="sh">This is not real estate.<br><em>This is a civilization stake.</em></h2>
+    </div>
+    <div class="share-card-main reveal">
+      <div>
+        <div class="scm-price">₹1.5 Cr</div>
+        <div class="scm-label">One Class-A Share · 10,000 Total · Never More</div>
+        <div class="scm-h">One purchase.<br>One ownership stake.<br>A lifetime of abundance.</div>
+        <div class="scm-tag">Pre-launch indicative price · 2026</div>
+        <p style="font-size:.83rem;color:rgba(250,247,242,.45);line-height:1.75;margin-top:0;">Compare: A 3BHK flat in a Tier-2 city costs ₹80L–₹1.5 Cr and gives you only a flat. Your electricity, food, school fees, hospital bills, internet, transport, and maintenance keep coming — every month — for the rest of your life. Here, ₹1.5 Cr ends all of that. Forever.</p>
+      </div>
+      <div class="scm-includes">
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>Your 3BHK home</strong> — 1,500 sqft eco-built, solar-roofed, 999-year lease, cleaned daily</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>1/10,000th of 5,000 acres</strong> — you own a fraction of every farm, solar panel, GPU, factory, hospital, school, and commercial building</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>Unlimited buffet forever</strong> — 3 organic vegetarian meals daily, for life, for your family</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>Free electricity forever</strong> — 200 MW solar. Not just for you — for the factories and GPU clusters that pay your dividends</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>Free healthcare forever</strong> — 500-bed hospital, Ayurveda, diagnostics — for you and your family</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>Free education forever</strong> — K-12 through university for every child you have</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>Daily housekeeping</strong> — your home, the grounds, the public spaces — all maintained to resort standard</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>Nuclear bunker in your home</strong> — the Shanti Cellar, integrated and maintained by AI</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>One vote</strong> — every major decision, every budget, every new building, every policy — voted by all 10,000 shareholders equally</div></div>
+        <div class="sci"><div class="sci-dot">✦</div><div class="sci-text"><strong>₹2.9 Lakhs every year</strong> — your share of the city's GPU, rental, and export revenues. Deposited. Every year.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SATYUG — THE HISTORIC MOMENT -->
+<section class="sec saty-bg" id="satyug">
+  <div class="si">
+    <div class="saty-inner reveal">
+      <div class="saty-label">Satya Yuga · The Golden Age · Starting Now</div>
+      <h2 class="saty-h">This is <em>Ram Rajya</em>.<br>Not in memory.<br>In <em>reality.</em></h2>
+      <div class="saty-line"></div>
+      <p class="saty-p">Every sacred text, every spiritual teacher, every dreaming soul has spoken of an age when every person was cared for — when abundance was not a privilege but a birthright, when no one was left behind, when the king and the farmer ate the same food and drank the same water, when life itself was the temple and humans were free to seek God, beauty, and truth. We have always called this age Satyug. Ram Rajya. The Golden Era. And we have always said it was lost. We are saying something different. <br><br><strong style="color:var(--g4);">We are building it. Right now. In India. In this city.</strong></p>
+    </div>
+    <div class="saty-pillars reveal">
+      <div class="sp"><div class="sp-ico">🌿</div><div class="sp-title">Pure Vegetarian</div><div class="sp-body">No animal is harmed. No meat enters this city. The food is sattvic — pure, living, energising.</div></div>
+      <div class="sp"><div class="sp-ico">☮️</div><div class="sp-title">Ahimsa — No Violence</div><div class="sp-body">No physical violence. Any breach means your share is forfeited. Peace is the law, written into the charter.</div></div>
+      <div class="sp"><div class="sp-ico">🌞</div><div class="sp-title">Sanatan — Live &amp; Let Live</div><div class="sp-body">All faiths, all backgrounds, one culture: truth, cleanliness, non-harm, and the freedom of every being.</div></div>
+      <div class="sp"><div class="sp-ico">📖</div><div class="sp-title">Open Books</div><div class="sp-body">Every rupee the city spends is on a public blockchain that every shareholder reads. No hidden money. Ever.</div></div>
+      <div class="sp"><div class="sp-ico">🗳️</div><div class="sp-title">Direct Democracy</div><div class="sp-body">Every major decision voted by all 10,000 shareholders. No politicians. No committees. One person, one vote.</div></div>
+      <div class="sp"><div class="sp-ico">🔓</div><div class="sp-title">Open Source</div><div class="sp-body">The entire blueprint — legal, engineering, agriculture, AI, governance — published for the world. Fork it. Build yours.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH — WATCHED OVER -->
 <section class="sec health-bg" id="health">
   <div class="si">
     <div class="reveal">
-      <div class="stag">The Health Data Lakehouse · Every Resident · From Age 5 to 105</div>
+      <div class="stag">The Health Data Lake · Every Resident · Age 5 to 105</div>
       <h2 class="sh">Every person in this city<br><em>is watched over.</em></h2>
+      <p class="ssub">AI monitors the health of all 10,000 residents continuously. Doctors review the data. Families are informed. You decide what to do. The goal: you almost never need the hospital — because the system catches the early signal, every time.</p>
     </div>
-    <div class="health-intro reveal">
-      <div class="health-card-big">
-        <h3>From your youngest child to your eldest parent — no one slips through the cracks.</h3>
-        <p>The city maintains a continuous, living health picture of all 10,000 residents. Not to control — to care. AI collects the data. Doctors and families see it. You decide what to do.</p>
-        <p>It's the difference between finding out your father has a heart issue at the hospital — and knowing about it six months before, from the comfort of his home, with time to act.</p>
-        <div class="health-ages">
-          <span class="hage">Children (5+)</span>
-          <span class="hage">Teens</span>
-          <span class="hage">Adults</span>
-          <span class="hage">Elders (60+)</span>
-          <span class="hage">Chronic conditions</span>
-          <span class="hage">Post-surgery care</span>
-          <span class="hage">Mental wellness</span>
-          <span class="hage">Prenatal</span>
-        </div>
-      </div>
-      <div class="health-text">
-        <h3>AI sees the data.<br>Doctors act on it.<br>You decide.</h3>
-        <p>This is not surveillance. It is the most loving infrastructure a civilization can build. Imagine if every person in India had a doctor watching their vitals quietly — not waiting for them to collapse, but noticing the early signal.</p>
-        <p>In Sūrya Nagari, that's the baseline. The data is yours. Your family can see it. Your doctor reviews it. The city acts on it — with your consent, always.</p>
-        <p>The hospital is free. But the goal is: you almost never need to go.</p>
-      </div>
-    </div>
-    <div class="health-grid reveal">
-      <div class="hcard"><div class="hcard-ico">❤️</div><div class="hcard-title">Cardiac Monitoring</div><div class="hcard-body">Continuous rhythm tracking for all residents over 40. Anomalies flagged to the city cardiologist within 24 hours. Not after the heart attack. Before.</div><div class="hcard-note">For every elder in the city</div></div>
-      <div class="hcard"><div class="hcard-ico">🧒</div><div class="hcard-title">Child Development</div><div class="hcard-body">Growth, nutrition, cognitive and emotional development tracked from age 5. AI alerts parents to nutritional gaps — and the kitchen adjusts the city's meal plan accordingly.</div><div class="hcard-note">Every child, every week</div></div>
-      <div class="hcard"><div class="hcard-ico">🧬</div><div class="hcard-title">Chronic Disease Management</div><div class="hcard-body">Diabetes, hypertension, thyroid — managed through continuous monitoring and preventive interventions. The AI notices the trend. The doctor makes the call. You make the decision.</div><div class="hcard-note">No hidden deterioration</div></div>
-      <div class="hcard"><div class="hcard-ico">🧠</div><div class="hcard-title">Mental Wellness</div><div class="hcard-body">Sleep quality, stress markers, and mood patterns. Not as data points — as signals. When someone is struggling quietly, the city knows to offer support before a crisis arrives.</div><div class="hcard-note">With full consent and privacy</div></div>
-      <div class="hcard"><div class="hcard-ico">🌬️</div><div class="hcard-title">Air & Environment</div><div class="hcard-body">The city's air quality, water quality, and food safety monitored in real time. If something shifts in the farm output or the water system, AI flags it before any resident is affected.</div><div class="hcard-note">City-wide environmental health</div></div>
-      <div class="hcard"><div class="hcard-ico">👴</div><div class="hcard-title">Elder Independence</div><div class="hcard-body">The goal is not to move elders into care facilities. It's to keep them thriving in their own homes, in their own zone, with their own community — with invisible support behind them.</div><div class="hcard-note">Dignity through data</div></div>
-      <div class="hcard"><div class="hcard-ico">🔒</div><div class="hcard-title">Your Data. Your Control.</div><div class="hcard-body">Every resident controls their own health record. You choose who sees it. The city cannot share it without your vote. Privacy is written into the city's constitution, not just its terms of service.</div><div class="hcard-note">Written into the charter</div></div>
-      <div class="hcard"><div class="hcard-ico">🏥</div><div class="hcard-title">500-Bed Hospital — Free</div><div class="hcard-body">When you do need the hospital — surgery, emergency, specialist care — it is completely free. For you, for your children, for your parents. No bills. No insurance forms. Just care.</div><div class="hcard-note">Free for every shareholder-family</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- HUMAN CREATIVITY — WHAT PEOPLE DO -->
-<section class="sec cr-bg" id="creative">
-  <div class="si">
-    <div class="reveal">
-      <div class="stag">What Humans Actually Do</div>
-      <h2 class="sh">When survival is free,<br><em style="color:var(--g2);">humans come alive.</em></h2>
-      <p class="ssub">These are not hobbies. These are the actual occupations of 10,000 freed humans. The city's AI manages operations. Humans manage beauty.</p>
-    </div>
-    <div class="what-humans reveal">
-      <div class="wh"><div class="wh-ico">🎵</div><div class="wh-title">Music & Song</div><div class="wh-body">Compose, perform, teach, record. Sitar in Krishna Zone, Sufi in Rumi Zone, percussion in Osho, classical in the central theater. Music is a currency here — it earns SūryaCoins and fills every morning.</div></div>
-      <div class="wh"><div class="wh-ico">💃</div><div class="wh-title">Dance</div><div class="wh-body">Bharatanatyam, Sufi whirling, contemporary, folk — performed in zone-specific halls designed for the sound and movement of each tradition. Dance as prayer. Dance as work. Dance as community.</div></div>
-      <div class="wh"><div class="wh-ico">🎨</div><div class="wh-title">Painting & Sculpture</div><div class="wh-body">Full studios in every zone. Natural light, natural materials, unlimited time. Art created here is catalogued by AI, licensed to the world, and revenues flow back as SūryaCoins. Your painting earns.</div></div>
-      <div class="wh"><div class="wh-ico">⚗️</div><div class="wh-title">Science & Engineering</div><div class="wh-body">R&D labs with GPU computing, material science, biotech, clean energy engineering. Not funded by corporations — funded by the city's GPU revenue. Pure research, your direction, your curiosity.</div></div>
-      <div class="wh"><div class="wh-ico">📚</div><div class="wh-title">Teaching & Mentoring</div><div class="wh-body">The highest-paid contribution in SūryaCoins. If you know something, you teach it. The university is full of resident experts — the engineer, the farmer, the meditator, the dancer. All teachers.</div></div>
-      <div class="wh"><div class="wh-ico">🌱</div><div class="wh-title">Farming as Joy</div><div class="wh-body">AI runs the production farming. But residents who love soil are welcome in the fields — tending heirloom varieties, experimenting with permaculture, growing medicinal herbs in the Herbs Zone. Not labor. Joy.</div></div>
-      <div class="wh"><div class="wh-ico">🧘</div><div class="wh-title">Meditation & Yoga</div><div class="wh-body">Morning yoga at the banyan for the whole city. Vipassana in Buddha Zone. Self-inquiry in Ramana. Pranayama in the white domes. The body and mind as the greatest project you can work on.</div></div>
-      <div class="wh"><div class="wh-ico">🔬</div><div class="wh-title">Philosophy & Writing</div><div class="wh-body">Dialogue circles in Krishnamurti Zone. Writing rooms with silence. The city's Chronicle Guild recording the oral histories of elders into community folklore. The examined life — finally, time to examine.</div></div>
-      <div class="wh"><div class="wh-ico">🏗️</div><div class="wh-title">Building & Design</div><div class="wh-body">Propose a new pavilion. Vote it into existence. Residents with building skills contribute to zone expansions — paid in SūryaCoins. The city grows from human vision, not developer profit.</div></div>
-      <div class="wh"><div class="wh-ico">💚</div><div class="wh-title">Healing Arts</div><div class="wh-body">Ayurveda, sound healing, counselling, massage — a vast wellness economy. Every resident has the time to both give and receive deep healing. The city's healthcare is not just the hospital. It is the whole culture.</div></div>
-      <div class="wh"><div class="wh-ico">🎭</div><div class="wh-title">Theater & Film</div><div class="wh-body">A world-class theater at the mandala's heart. Resident directors, writers, actors, and musicians. The city produces culture — not just consumes it. Every performance earns SūryaCoins.</div></div>
-      <div class="wh"><div class="wh-ico">💞</div><div class="wh-title">Simply Being Present</div><div class="wh-body">Raising children with full attention. Growing old with full dignity. Building friendships without the rush. Being completely present with another human being — the rarest luxury of modern life.</div></div>
-    </div>
-    <div class="cr-manifest reveal">
-      <div class="cr-m-h">"The purpose of all this intelligence<br>is a stillness it cannot enter."</div>
-      <div class="cr-m-sub">AI handles the city. Humans handle everything that matters.</div>
-    </div>
-  </div>
-</section>
-
-<!-- HUMAN + AI — THE REAL PARTNERSHIP -->
-<section class="sec hai-bg">
-  <div class="si">
-    <div class="reveal">
-      <div class="stag">Human + AI · The Partnership</div>
-      <h2 class="sh">You decide everything.<br><em>AI shows you the truth.</em></h2>
-      <p class="ssub">This is not a city run by AI. This is a city run by 10,000 humans who have the most honest, tireless, incorruptible data system in history helping them see clearly.</p>
-    </div>
-    <div class="hai-split reveal">
-      <div class="hai-col">
-        <div class="hai-label">What Humans Do</div>
-        <div class="hai-h">Every decision. Every vote. Every value.</div>
-        <div class="hai-items">
-          <div class="hai-item"><div class="hii-dot">🗳️</div><div class="hii-text"><strong>Vote on every major decision</strong> — what gets built, what gets changed, where money goes</div></div>
-          <div class="hai-item"><div class="hii-dot">🎨</div><div class="hii-text"><strong>Choose the culture</strong> — what music fills the city, what art decorates the zones, what values are celebrated</div></div>
-          <div class="hai-item"><div class="hii-dot">💡</div><div class="hii-text"><strong>Propose new ideas</strong> — any resident can submit a proposal to change or improve anything in the city</div></div>
-          <div class="hai-item"><div class="hii-dot">🏛️</div><div class="hii-text"><strong>Elect the Panchayat</strong> — 11 council members chosen by all shareholders, serving all shareholders</div></div>
-          <div class="hai-item"><div class="hii-dot">❤️</div><div class="hii-text"><strong>Define what matters</strong> — the city's values, its culture, its future, its soul — all determined by 10,000 living humans</div></div>
-          <div class="hai-item"><div class="hii-dot">🔍</div><div class="hii-text"><strong>Override any AI recommendation</strong> — AI is advisory. Human vote is law. Always.</div></div>
-        </div>
-        <div class="hai-rule">
-          <div class="hrul-text">The city is not an AI experiment. It is a human experiment — using AI the same way a wise government uses its best scientists: ask them what is true, then decide what to do.</div>
-        </div>
-      </div>
-      <div class="hai-col ai-col">
-        <div class="hai-label">What AI Does</div>
-        <div class="hai-h">Show the data. Run the operations. Never decide.</div>
-        <div class="hai-items">
-          <div class="hai-item"><div class="hii-dot">📊</div><div class="hii-text"><strong>Shows you the real picture</strong> — energy generation vs usage, farm yields vs city needs, health trends across all 10,000 residents</div></div>
-          <div class="hai-item"><div class="hii-dot">⚡</div><div class="hii-text"><strong>Runs operations invisibly</strong> — optimising solar distribution, scheduling farm irrigation, routing EV transit — the boring essential work you never think about</div></div>
-          <div class="hai-item"><div class="hii-dot">🔬</div><div class="hii-text"><strong>Presents "what-if" simulations</strong> — if you vote to build the jazz stage, here is exactly what it costs, what it impacts, what it creates</div></div>
-          <div class="hai-item"><div class="hii-dot">💊</div><div class="hii-text"><strong>Monitors every resident's health</strong> — 10,000 people watched over, trends spotted early, anomalies flagged to doctors and families</div></div>
-          <div class="hai-item"><div class="hii-dot">📖</div><div class="hii-text"><strong>Keeps every rupee transparent</strong> — the blockchain records every SūryaCoin earned, spent, and distributed — visible to all, alterable by none</div></div>
-          <div class="hai-item"><div class="hii-dot">🚫</div><div class="hii-text"><strong>Never has an opinion</strong> — no political view, no agenda, no self-interest. Only data. Only truth.</div></div>
-        </div>
-        <div class="hai-rule">
-          <div class="hrul-text">AI is the city's data conscience. It sees everything, hides nothing, decides nothing. The most honest system in human history — in service of the most human city in human history.</div>
-        </div>
-      </div>
+    <div class="hgrid reveal">
+      <div class="hcard"><div class="hcard-ico">❤️</div><div class="hcard-title">Cardiac Monitoring</div><div class="hcard-body">Continuous heart rhythm tracking for residents 40+. Anomalies flagged to the cardiologist within hours. Not after the heart attack — before.</div><div class="hcard-note">For every elder, always</div></div>
+      <div class="hcard"><div class="hcard-ico">🧒</div><div class="hcard-title">Child Nutrition & Growth</div><div class="hcard-body">Every child's development tracked from age 5. Iron low? The kitchen adds more spinach this week. Automatically. With your permission.</div><div class="hcard-note">Every child, every week</div></div>
+      <div class="hcard"><div class="hcard-ico">🧬</div><div class="hcard-title">Chronic Disease Prevention</div><div class="hcard-body">Diabetes, hypertension, thyroid — AI watches the trend. Doctor makes the call. You make the decision. Disease caught before it becomes suffering.</div><div class="hcard-note">Early signal, always</div></div>
+      <div class="hcard"><div class="hcard-ico">🧠</div><div class="hcard-title">Mental Wellness</div><div class="hcard-body">Sleep patterns, stress markers. When someone is quietly struggling, the system knows — and offers support before the crisis arrives. With full privacy.</div><div class="hcard-note">Quiet, compassionate care</div></div>
+      <div class="hcard"><div class="hcard-ico">👴</div><div class="hcard-title">Elder Independence</div><div class="hcard-body">The goal is not to move elders to care homes. It's to keep them thriving in their zone, their community, their home — with invisible, loving support behind them.</div><div class="hcard-note">Dignity as the standard</div></div>
+      <div class="hcard"><div class="hcard-ico">🔒</div><div class="hcard-title">Your Data. Your Control.</div><div class="hcard-body">Every resident controls their health record. You choose who sees it. The city cannot share it without your explicit consent. Privacy is in the charter — not the terms of service.</div><div class="hcard-note">Your data. Always yours.</div></div>
     </div>
   </div>
 </section>
@@ -468,142 +580,76 @@ footer a{color:var(--g);}
 <section class="sec vote-bg" id="vote">
   <div class="si">
     <div class="reveal">
-      <div class="stag">Live Democracy · Your App · Every Decision</div>
-      <h2 class="sh">No politicians.<br><em style="color:var(--g2);">Just 10,000 humans and the truth.</em></h2>
-      <p class="ssub">When anything significant needs to change in the city, here is exactly what happens. It takes minutes. It is completely fair. It has never been done at this scale.</p>
+      <div class="stag">Live Democracy · Every Decision · On Your App</div>
+      <h2 class="sh">No politicians.<br><em style="color:var(--g2);">Just 10,000 people and the truth.</em></h2>
+      <p class="ssub">AI shows you the real, unbiased data picture for every decision. You vote. The result is live. The city implements it. The most honest democracy ever built — powered by data, not power.</p>
     </div>
-    <div class="vote-flow reveal">
-      <div class="vf-step"><div class="vf-num">01</div><div><div class="vf-h">Someone sees a problem or possibility</div><div class="vf-body">Any resident submits a proposal on the app — build a new pavilion, change a policy, allocate resources differently, try a new farming method. No committee approval needed to propose.</div></div></div>
-      <div class="vf-step"><div class="vf-num">02</div><div><div class="vf-h">AI prepares the honest picture</div><div class="vf-body">The AI gathers all relevant data — what it will cost in SūryaCoins, what it will impact, what similar decisions have resulted in elsewhere. It runs simulations: "If you vote yes, here is what the city looks like in 1 year, 5 years, 10 years."</div><div class="vf-ai">No AI opinion. Only data. Only simulations. Only truth.</div></div></div>
-      <div class="vf-step"><div class="vf-num">03</div><div><div class="vf-h">Every resident sees the neutral report</div><div class="vf-body">All 10,000 shareholders receive the proposal and AI's full data picture on their app. They can ask questions. The proposer can respond. The AI can be asked for more simulations. Everything is public.</div></div></div>
-      <div class="vf-step"><div class="vf-num">04</div><div><div class="vf-h">The vote</div><div class="vf-body">Every resident votes. One share, one vote — always. The founder and the newest arrival vote with equal weight. The eldest elder and the youngest adult (18+) vote together. The result is live.</div></div></div>
-      <div class="vf-step"><div class="vf-num">05</div><div><div class="vf-h">AI implements the decision</div><div class="vf-body">If the vote passes, the operational AI systems execute the decision. If it's a building project, the resources are allocated. If it's a policy change, it's encoded into the city's charter immediately. No delay. No bureaucracy.</div><div class="vf-ai">Humans decide. AI builds. The cycle closes in days, not years.</div></div></div>
+    <div class="vote-steps reveal">
+      <div class="vstep"><div class="vstep-n">01</div><div><div class="vstep-h">Someone proposes something</div><div class="vstep-body">Any resident submits a proposal — build a jazz stage, change a farming policy, add a new zone, allocate more GPU capacity. No gatekeeping. Any idea can be proposed.</div></div></div>
+      <div class="vstep"><div class="vstep-n">02</div><div><div class="vstep-h">AI prepares the honest picture</div><div class="vstep-body">No opinion. No recommendation. Only data: what it costs in SūryaCoins, what it impacts, what the simulations show for 1, 5, and 10 years. The most neutral briefing in human governance history.</div></div></div>
+      <div class="vstep"><div class="vstep-n">03</div><div><div class="vstep-h">All 10,000 residents vote</div><div class="vstep-body">One share, one vote. The founder and the newest arrival vote equally. The eldest and the youngest adult vote together. Results are live. Fully transparent. Immutable on the blockchain.</div></div></div>
+      <div class="vstep"><div class="vstep-n">04</div><div><div class="vstep-h">AI implements what you decided</div><div class="vstep-body">No bureaucracy. No delay. The operational systems execute the decision immediately. Humans decide. AI builds. The full cycle closes in days, not years.</div></div></div>
     </div>
-    <p class="reveal" style="margin-top:20px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:rgba(244,240,234,.35);">What democracy was always supposed to be — before it was captured by parties and power.</p>
     <div class="vote-examples reveal">
-      <div class="ve"><div class="ve-status open">● Open Vote</div><div class="ve-title">"Add a jazz stage to the Rumi Zone eastern courtyard"</div><div class="ve-vote">4,208 voted · 71% yes · 2 days remaining</div></div>
-      <div class="ve"><div class="ve-status passed">✓ Passed Last Month</div><div class="ve-title">"Expand the vertical farm towers for winter greens"</div><div class="ve-vote">8,844 voted · 89% yes · Implemented</div></div>
-      <div class="ve"><div class="ve-status open">● Open Vote</div><div class="ve-title">"Allow one non-vegetarian restaurant in the commercial zone (for visitors only)"</div><div class="ve-vote">5,102 voted · 12% yes · Unlikely to pass</div></div>
-      <div class="ve"><div class="ve-status passed">✓ Passed</div><div class="ve-title">"Increase elder home-visit frequency from weekly to daily"</div><div class="ve-vote">9,441 voted · 96% yes · Active</div></div>
-      <div class="ve"><div class="ve-status studying">◎ AI Preparing Data</div><div class="ve-title">"Add 500 more GPU nodes to the compute campus"</div><div class="ve-vote">Projected impact simulation in progress</div></div>
-      <div class="ve"><div class="ve-status passed">✓ Passed</div><div class="ve-title">"Name the new meditation garden in Shiv Zone after Nisargadatta Maharaj"</div><div class="ve-vote">7,203 voted · 84% yes · Garden opens this week</div></div>
+      <div class="ve"><div class="ve-s open">● Open Vote</div><div class="ve-title">"Add a jazz amphitheater to Rumi Zone eastern courtyard"</div><div class="ve-v">4,208 voted · 71% yes · 2 days left</div></div>
+      <div class="ve"><div class="ve-s passed">✓ Passed</div><div class="ve-title">"Expand vertical farm towers for winter greens"</div><div class="ve-v">8,844 voted · 89% yes · Implemented</div></div>
+      <div class="ve"><div class="ve-s open">● Open Vote</div><div class="ve-title">"Allow external visitors to use the mall on Sundays"</div><div class="ve-v">5,102 voted · 67% yes · Likely to pass</div></div>
+      <div class="ve"><div class="ve-s passed">✓ Passed</div><div class="ve-title">"Daily elder home visits instead of weekly"</div><div class="ve-v">9,441 voted · 96% yes · Active</div></div>
+      <div class="ve"><div class="ve-s studying">◎ AI Preparing Data</div><div class="ve-title">"Add 500 more H100 GPUs to the compute campus"</div><div class="ve-v">Impact simulation in progress</div></div>
+      <div class="ve"><div class="ve-s passed">✓ Passed</div><div class="ve-title">"Name the new Shiv Zone garden after Nisargadatta Maharaj"</div><div class="ve-v">7,203 voted · 84% yes · Opens this week</div></div>
     </div>
   </div>
 </section>
 
-<!-- FREE FOR LIFE -->
-<section class="sec free-bg" id="free">
-  <div class="si">
-    <div class="reveal">
-      <div class="stag">The Sovereign Baseline · What Is Always Free</div>
-      <h2 class="sh">Nine things your city<br><em>gives you forever.</em></h2>
-      <p class="ssub">These are not benefits or perks. They are your birthright as a member of this civilization — permanently pre-funded by the city's physical infrastructure.</p>
-    </div>
-    <div class="free-grid reveal">
-      <div class="fc"><div class="fc-ico">☀️</div><div class="fc-title">Electricity — Free Forever</div><div class="fc-body">200 MW solar generates more power than the city uses. Every home, hospital, school, and factory — powered. Your bill: ₹0. Your grandchildren's bill: ₹0. Electricity has become air.</div><span class="fc-tag">200 MW solar · ₹3.8 Cr/MW</span></div>
-      <div class="fc"><div class="fc-ico">🌾</div><div class="fc-title">Vegetarian Food — Free Forever</div><div class="fc-body">1,500 acres of organic farms. Three fresh meals every day in the community kitchens of your zone. Pure vegetarian. Grown this morning. Cooked by your neighbours. Extraordinary food is ordinary life here.</div><span class="fc-tag">1,500 acre farms · Farm-to-plate</span></div>
-      <div class="fc"><div class="fc-ico">🏥</div><div class="fc-title">Healthcare — Free Forever</div><div class="fc-body">A 500-bed hospital, Ayurvedic wellness, and the health data lakehouse watching every resident. AI catches the early signal. Doctors act. You and your family never pay a medical bill again.</div><span class="fc-tag">500 beds · ₹450 Cr build · Free</span></div>
-      <div class="fc"><div class="fc-ico">🎓</div><div class="fc-title">Education — Free Forever</div><div class="fc-body">K-12 school and full university on campus. AI-personalised for every child. No tuition, no competition, no debt. Your child's genius has unlimited room to grow — not just the parts that score well on tests.</div><span class="fc-tag">K-12 through University</span></div>
-      <div class="fc"><div class="fc-ico">🔧</div><div class="fc-title">Home Maintenance — Free Forever</div><div class="fc-body">AI detects problems before you notice them. Resident crews fix everything — plumbing, electrical, structural. You never budget for repairs. The city maintains your home the same way it maintains the solar panels.</div><span class="fc-tag">AI-detected · Resident crews</span></div>
-      <div class="fc"><div class="fc-ico">💧</div><div class="fc-title">Clean Water — Free Forever</div><div class="fc-body">Rainwater harvesting lakes, closed-loop purification, gravity-fed supply. The city produces more clean water than it consumes. You drink it and never think about it.</div><span class="fc-tag">Zero external dependency</span></div>
-      <div class="fc"><div class="fc-ico">🌐</div><div class="fc-title">Fiber Internet — Free Forever</div><div class="fc-body">City-owned 1 Gbps fiber to every home. No provider, no bill, no throttling. Information is as essential as electricity. Both are free.</div><span class="fc-tag">1 Gbps · City-owned</span></div>
-      <div class="fc"><div class="fc-ico">🚗</div><div class="fc-title">Transport — Free Forever</div><div class="fc-body">Solar EV fleet, bike paths, pedestrian streets. AI routes the vehicles where people need them. You move anywhere in the city for free. The city is your neighborhood, not your obstacle.</div><span class="fc-tag">Solar EV · AI-routed</span></div>
-      <div class="fc"><div class="fc-ico">🏅</div><div class="fc-title">Olympic Sports Zone — Free Forever</div><div class="fc-body">50m pool, athletics track, indoor stadiums, yoga arenas, cricket oval, the akhara. Open to every resident every day. Because the body needs as much care as the mind.</div><span class="fc-tag">₹350 Cr build · ₹0 to use</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 14 ZONES — SPIRITUAL MANDALA -->
+<!-- 14 ZONES -->
 <section class="sec zone-bg" id="zones">
   <div class="si">
     <div class="reveal">
-      <div class="stag">The Living Mandala · 14 Zones · You Choose Your Frequency</div>
-      <h2 class="sh">Every master<br><em>has a home here.</em></h2>
-      <p class="ssub">The city is shaped as a sacred mandala. 14 zones, each named for a master, a path, a way of being. You choose the zone that resonates with your soul. Your neighbours walk the same frequency.</p>
+      <div class="stag">The Living Mandala · 14 Zones · Choose Your Frequency</div>
+      <h2 class="sh">14 neighbourhoods.<br><em>Each one its own world.</em></h2>
+      <p class="ssub">The city is a great mandala of zones — each named for a master, a path, a way of being. Every zone has its own architecture, spirit, daily culture, and community character. You choose your zone when you register.</p>
     </div>
     <div class="quad-grid reveal">
       <div class="quad q-a">
         <div class="qhdr"><div class="qsym">🌑</div><div><div class="qnm" style="color:#3A4B53;">Shūnya — Silence</div><div class="qsub">West · Stone &amp; Stillness · The way of no-mind</div></div></div>
         <div class="zlist">
-          <div class="zrow"><div class="zdot" style="background:#3A4B53;">☾</div><div><div class="znm" style="color:#3A4B53;">Shiv</div><div class="zdesc">Raw Himalayan silence. Granite. Cold springs. Ascetic meditation. For those who seek the absolute through stillness.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#A3C1AD;">🏔</div><div><div class="znm" style="color:#5a7060;">Ramana</div><div class="zdesc">The cave of self-inquiry. Sparse spaces. One question echoes: <em>Who am I?</em></div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#7A8B7B;">🦅</div><div><div class="znm" style="color:#5a6b5b;">Krishnamurti</div><div class="zdesc">Critical inquiry. Dialogue circles. A library in the forest canopy. Question everything.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#8aafb5; border:1px solid #ccc;">⏳</div><div><div class="znm" style="color:#4a7880;">Silence &amp; Time</div><div class="zdesc">No clocks. No schedules. Time returned to you completely. The only zone where nothing is optimised.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#3A4B53;">☾</div><div><div class="znm" style="color:#3A4B53;">Shiv</div><div class="zdesc">Raw Himalayan silence. Granite architecture, cold springs. Ascetic meditation. For those who seek the absolute through stillness.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#A3C1AD;">🏔</div><div><div class="znm" style="color:#5a7060;">Ramana</div><div class="zdesc">Cave of self-inquiry. Sparse spaces. One question: <em>Who am I?</em> Architecture that turns you inward.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#7A8B7B;">🦅</div><div><div class="znm" style="color:#5a6b5b;">Krishnamurti</div><div class="zdesc">Critical inquiry. Open-air dialogue circles. Library in the forest canopy. Question everything.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#8aafb5;border:1px solid #ccc;">⏳</div><div><div class="znm" style="color:#4a7880;">Silence &amp; Time</div><div class="zdesc">No clocks. No schedules. Time returned completely. The only zone where nothing is optimised.</div></div></div>
         </div>
       </div>
       <div class="quad q-s">
         <div class="qhdr"><div class="qsym">☀️</div><div><div class="qnm" style="color:#C86B51;">Sūryam — Devotion</div><div class="qsub">North · Sandstone &amp; Song · The way of love</div></div></div>
         <div class="zlist">
-          <div class="zrow"><div class="zdot" style="background:#C86B51;">🏹</div><div><div class="znm" style="color:#C86B51;">Ram</div><div class="zdesc">Dharma, duty, perfect order. Grand classical architecture. Civic governance. Integrity as the foundation.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#C86B51;">🏹</div><div><div class="znm" style="color:#C86B51;">Ram</div><div class="zdesc">Dharma, duty, perfect order. Grand classical architecture. The civic heart of the city. Integrity as foundation.</div></div></div>
           <div class="zrow"><div class="zdot" style="background:#1D6F7A;">🎸</div><div><div class="znm" style="color:#1D6F7A;">Krishna</div><div class="zdesc">Art, music, playfulness, dairy. Colourful buildings. Pastures where music plays to cows. Pure divine play.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#d4c070; border:1px solid #bbb;">✝</div><div><div class="znm" style="color:#8a7040;">Jesus</div><div class="zdesc">Radical love and service. Communal kitchens open to all. Every person welcomed as sacred family.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#9D6B53;">🙏</div><div><div class="znm" style="color:#9D6B53;">Mooji</div><div class="zdesc">Effortless being. Warm courtyards, spontaneous Satsang. Presence without any effort. Just arrive.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#d4c070;border:1px solid #bbb;">✝</div><div><div class="znm" style="color:#8a7040;">Jesus</div><div class="zdesc">Radical love and service. Communal kitchens open to all. Every person welcomed as sacred family.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#9D6B53;">🙏</div><div><div class="znm" style="color:#9D6B53;">Mooji</div><div class="zdesc">Effortless being. Warm courtyards, spontaneous Satsang. Presence felt without any effort. Just arrive.</div></div></div>
         </div>
       </div>
       <div class="quad q-e">
         <div class="qhdr"><div class="qsym">🌀</div><div><div class="qnm" style="color:#8C2D63;">Spanda — Expression</div><div class="qsub">East · Glass &amp; Gardens · The way of creativity</div></div></div>
         <div class="zlist">
-          <div class="zrow"><div class="zdot" style="background:#8C2D63;">🦋</div><div><div class="znm" style="color:#8C2D63;">Osho</div><div class="zdesc">Celebration, dynamic meditation. Glass pavilions for dance and debate. Zorba and Buddha in one breath.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#8C2D63;">🦋</div><div><div class="znm" style="color:#8C2D63;">Osho</div><div class="zdesc">Celebration, dynamic meditation. Glass pavilions for dance and debate. Zorba and Buddha as one.</div></div></div>
           <div class="zrow"><div class="zdot" style="background:#D37B47;">🌀</div><div><div class="znm" style="color:#D37B47;">Rumi</div><div class="zdesc">Poetry, sacred music, whirling dervishes. An acoustic dome for the ney flute. Love as the only law.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#c8c8c8; border:1px solid #aaa;">∞</div><div><div class="znm" style="color:#5a5a5a;">Yoga</div><div class="zdesc">Physical alignment, pranayama, energetic mastery. Column-free white domes. The whole city's morning home.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#c8c8c8;border:1px solid #aaa;">∞</div><div><div class="znm" style="color:#5a5a5a;">Yoga</div><div class="zdesc">Physical alignment, pranayama, energy mastery. Column-free white domes. The whole city's morning home.</div></div></div>
           <div class="zrow"><div class="zdot" style="background:#3F5E4D;">🌱</div><div><div class="znm" style="color:#3F5E4D;">Herbs &amp; Plants</div><div class="zdesc">Ayurvedic pharmacies, botanical greenhouses, healing spas. The landscape itself is the medicine.</div></div></div>
         </div>
       </div>
       <div class="quad q-p">
         <div class="qhdr"><div class="qsym">🔥</div><div><div class="qnm" style="color:#A63A2B;">Shakti — Power</div><div class="qsub">South · Fire &amp; Stone · The way of transformation</div></div></div>
         <div class="zlist">
-          <div class="zrow"><div class="zdot" style="background:#D4B26F;">🌸</div><div><div class="znm" style="color:#8a7040;">Buddha</div><div class="zdesc">Quiet mindfulness, Zen gardens, wooden pagodas. Life at a walking pace. Silent Vipassana retreats.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#2C1E21; border:1px solid #555;">⚡</div><div><div class="znm" style="color:#8C2D63;">Kali</div><div class="zdesc">Shadow work and radical transformation. Dark volcanic stone. Fire rituals. The deepest change happens in the dark.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#A63A2B;">🦁</div><div><div class="znm" style="color:#A63A2B;">Durga</div><div class="zdesc">Strength, protection, fierce love. Red sandstone walls. Martial arts. The city's protective force.</div></div></div>
-          <div class="zrow"><div class="zdot" style="background:#C9994B;">🌅</div><div><div class="znm" style="color:#C9994B;">Sūrya Central</div><div class="zdesc">The mandala's heart. The mall, the theater, the governance chamber. Where all 14 zones converge.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#D4B26F;">🌸</div><div><div class="znm" style="color:#8a7040;">Buddha</div><div class="zdesc">Quiet mindfulness, Zen gardens, wooden pagodas. Life at a walking pace. Silent Vipassana.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#2C1E21;border:1px solid #555;">⚡</div><div><div class="znm" style="color:#8C2D63;">Kali</div><div class="zdesc">Shadow work and radical transformation. Dark volcanic stone. Fire rituals. Change happens in the dark.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#A63A2B;">🦁</div><div><div class="znm" style="color:#A63A2B;">Durga</div><div class="zdesc">Strength, fierce love, protection. Red sandstone walls. Martial arts. The city's protective force.</div></div></div>
+          <div class="zrow"><div class="zdot" style="background:#C9924A;">🌅</div><div><div class="znm" style="color:#C9924A;">Sūrya Central</div><div class="zdesc">The mandala's heart. The mall, the theater, the governance chamber. Where all 14 zones converge.</div></div></div>
         </div>
       </div>
     </div>
-    <p class="reveal" style="text-align:center;font-size:.8rem;color:var(--dim);margin-top:14px;">
-      Choose your zone when you register. Architecture, neighbours, and daily culture vary completely between zones. &nbsp;
-      <a href="township-3d.html" target="_blank" style="color:var(--g);text-decoration:underline;text-underline-offset:3px;">Walk the 3D Mandala →</a>
+    <p class="reveal" style="text-align:center;font-size:.8rem;color:var(--dim);margin-top:12px;">
+      <a href="township-3d.html" target="_blank" style="color:var(--g);text-decoration:underline;text-underline-offset:3px;">Walk the 3D Mandala →</a> &nbsp;·&nbsp; Choose your zone at registration
     </p>
-  </div>
-</section>
-
-<!-- NUCLEAR SAFETY -->
-<section class="sec nuke-bg" id="safety">
-  <div class="si">
-    <div class="reveal">
-      <div class="stag">The Shanti Sanctuary · Safety for Every Resident</div>
-      <h2 class="sh">Every home<br><em style="color:var(--g2);">is a fortress.</em></h2>
-      <p class="ssub">Complete safety is not paranoia. It is the foundation that makes genuine freedom possible. We follow Switzerland's model — 100% civilian shelter coverage — reimagined as living space, not fear space.</p>
-    </div>
-    <div class="nuke-grid reveal">
-      <div class="nk personal">
-        <div class="nk-ico">🏡</div>
-        <div class="nk-h">The Shanti Cellar</div>
-        <div class="nk-sub">Personal bunker · Integrated into every home</div>
-        <div class="nk-pts">
-          <div class="nk-pt"><strong>Dual-use design</strong> — In peacetime: a soundproofed meditation room, creative studio, or library. The space lives as part of daily life. It is never a tomb.</div>
-          <div class="nk-pt"><strong>Virtual sunrise ceiling</strong> — Micro-LED skylights simulate natural light cycles. The actual sky, underground. Zero claustrophobia.</div>
-          <div class="nk-pt"><strong>Organic materials</strong> — Mycelium and local clay walls. The scent of rain-soaked earth. Warm, grounding, alive.</div>
-          <div class="nk-pt"><strong>30-day life support</strong> — AI maintains food, water, air filtration, and power reserves. Tested quarterly while you sleep. Always ready.</div>
-          <div class="nk-pt"><strong>City tunnel network</strong> — Every Shanti Cellar connects underground. During any surface emergency, you can move freely across the city below ground.</div>
-        </div>
-      </div>
-      <div class="nk city">
-        <div class="nk-ico">🌐</div>
-        <div class="nk-h">The Garbha</div>
-        <div class="nk-sub">City central sanctuary · Underground · 50,000 people</div>
-        <div class="nk-pts">
-          <div class="nk-pt"><strong>Subterranean cathedrals</strong> — Basalt-arched caverns lit by bioluminescent moss and fiber-optic solar tubes. Real sunlight, underground.</div>
-          <div class="nk-pt"><strong>Life continues below</strong> — Hot springs, theater spaces, community dining halls, and a full astronomical archive. If the world above needs time to settle, the world below flourishes.</div>
-          <div class="nk-pt"><strong>Full city capacity</strong> — All 10,000 families plus visitors. Private quarters, common spaces, essential services replicated completely underground.</div>
-          <div class="nk-pt"><strong>Independent systems</strong> — Separate power, separate water supply. Fully self-sufficient from the city above for extended periods.</div>
-          <div class="nk-pt"><strong>Graceful activation</strong> — When AI detects any global threat, the transition is calm: ambient music, clear displays, transparent status. The city moves to safety the way it moves to morning yoga.</div>
-        </div>
-      </div>
-    </div>
-    <div class="swiss-note reveal">
-      <div class="swiss-ico">🇨🇭</div>
-      <div class="swiss-body">Modelled on <strong>Switzerland</strong> — the country with 100% civilian shelter coverage for every citizen, maintained since 1963. The same country that has never been invaded. <strong>Complete safety is not a luxury. It is the foundation that makes everything else possible.</strong> You cannot truly create until you are truly safe.</div>
-    </div>
   </div>
 </section>
 
@@ -611,57 +657,57 @@ footer a{color:var(--g);}
 <section class="sec coin-bg" id="coin">
   <div class="si">
     <div class="reveal">
-      <div class="stag">The SūryaCoin Economy</div>
-      <h2 class="sh">Two layers.<br><em style="color:var(--g2);">Zero anxiety.</em></h2>
-      <p class="ssub">Everything you need is free. Everything you love — luxury, entertainment, beauty — you earn by contributing. Every transaction on a public blockchain. No secrets. No inequality.</p>
+      <div class="stag">The SūryaCoin Economy · Earn by Contributing · Spend on Everything</div>
+      <h2 class="sh">Free to live.<br><em style="color:var(--g2);">Earning to thrive.</em></h2>
+      <p class="ssub">Everything you need is free. Everything you love — mall, theater, specialty dining, luxury — you earn through your contribution to the city. Transparent blockchain. Quota for all.</p>
     </div>
     <div class="coin-split reveal">
       <div class="cp cl">
-        <div class="cpl">Layer One — Free. Always. No Coins Needed.</div>
-        <div class="cph">Everything you need.<br>Not a single coin required.</div>
+        <div class="cpl">Always Free — No Coins Ever Needed</div>
+        <div class="cph">Everything you need.<br>Not one coin required.</div>
         <div class="citems">
           <div class="citem"><span class="cck">☀️</span><span class="ctx"><strong>Electricity</strong> — 200 MW solar. Yours forever.</span></div>
-          <div class="citem"><span class="cck">🌾</span><span class="ctx"><strong>3 vegetarian meals/day</strong> — grown and cooked inside the city</span></div>
-          <div class="citem"><span class="cck">🏥</span><span class="ctx"><strong>Full healthcare</strong> — hospital, Ayurveda, diagnostics, surgery</span></div>
-          <div class="citem"><span class="cck">🎓</span><span class="ctx"><strong>Education K-University</strong> — AI-personalised, free forever</span></div>
-          <div class="citem"><span class="cck">🏠</span><span class="ctx"><strong>3BHK home</strong> — maintained by AI and resident crews</span></div>
-          <div class="citem"><span class="cck">💧</span><span class="ctx"><strong>Clean water</strong> — closed-loop, purified, always flowing</span></div>
+          <div class="citem"><span class="cck">🍽️</span><span class="ctx"><strong>Unlimited buffet</strong> — 3 meals daily, organic, vegetarian</span></div>
+          <div class="citem"><span class="cck">🏥</span><span class="ctx"><strong>Full healthcare</strong> — hospital, Ayurveda, diagnostics</span></div>
+          <div class="citem"><span class="cck">🎓</span><span class="ctx"><strong>Education K-University</strong> — AI-personalised, free</span></div>
+          <div class="citem"><span class="cck">🏠</span><span class="ctx"><strong>3BHK home + daily housekeeping</strong></span></div>
+          <div class="citem"><span class="cck">💧</span><span class="ctx"><strong>Clean water</strong> — closed-loop, always flowing</span></div>
           <div class="citem"><span class="cck">🌐</span><span class="ctx"><strong>1 Gbps internet</strong> — city fiber, always on</span></div>
-          <div class="citem"><span class="cck">🚗</span><span class="ctx"><strong>City transport</strong> — solar EVs, AI-routed, silent</span></div>
-          <div class="citem"><span class="cck">🏅</span><span class="ctx"><strong>Olympic zone</strong> — pool, track, yoga, every day</span></div>
-          <div class="citem"><span class="cck">🏡</span><span class="ctx"><strong>Nuclear bunker</strong> — Shanti Cellar in every home</span></div>
+          <div class="citem"><span class="cck">🚗</span><span class="ctx"><strong>Solar EV transport</strong> — anywhere in the city</span></div>
+          <div class="citem"><span class="cck">🏅</span><span class="ctx"><strong>Olympic pool, gym, yoga</strong> — open daily</span></div>
+          <div class="citem"><span class="cck">🏡</span><span class="ctx"><strong>Nuclear Shanti Cellar</strong> — in your home</span></div>
         </div>
       </div>
       <div class="cp cr">
-        <div class="cpl">Layer Two — SūryaCoins (Earn by Contributing)</div>
-        <div class="cph">Work. Contribute. Earn.<br>Spend on everything beautiful.</div>
+        <div class="cpl">SūryaCoins — Earn by Giving · Spend on Everything Beautiful</div>
+        <div class="cph">The mall. The theater.<br>The specialty restaurant.<br>All yours — earned.</div>
         <div class="citems">
           <div class="citem"><span class="cck">🏬</span><span class="ctx"><strong>The Mall</strong> — all brands, all products, all luxury</span></div>
-          <div class="citem"><span class="cck">🎬</span><span class="ctx"><strong>The Great Theater</strong> — front row at concerts, films, events</span></div>
+          <div class="citem"><span class="cck">🎬</span><span class="ctx"><strong>The Great Theater</strong> — front row at concerts and films</span></div>
           <div class="citem"><span class="cck">☕</span><span class="ctx"><strong>Specialty Cafes</strong> — artisanal, gourmet, private dining</span></div>
-          <div class="citem"><span class="cck">🎨</span><span class="ctx"><strong>Advanced Studios</strong> — specialty equipment, imported materials</span></div>
-          <div class="citem"><span class="cck">💆</span><span class="ctx"><strong>Premium Wellness</strong> — private Ayurvedic sessions, luxury spas</span></div>
-          <div class="citem"><span class="cck">✈️</span><span class="ctx"><strong>Specialty Imports</strong> — goods from outside the city</span></div>
+          <div class="citem"><span class="cck">💆</span><span class="ctx"><strong>Premium Ayurvedic spa</strong> — private luxury wellness</span></div>
+          <div class="citem"><span class="cck">🎨</span><span class="ctx"><strong>Advanced studio access</strong> — specialty equipment, imports</span></div>
+          <div class="citem"><span class="cck">✈️</span><span class="ctx"><strong>Specialty goods</strong> from outside the city</span></div>
         </div>
         <div class="cearns">
           <div class="cet">How You Earn SūryaCoins</div>
-          <div class="ceb">Teaching. Medical work. Research. Farming by choice. Building. Creating art that the city licenses. Governance participation. Every contribution recorded on the public blockchain. Vital roles — nursing, teaching, soil-building — are the highest paid. You earn by giving. The blockchain makes sure no one is forgotten.</div>
+          <div class="ceb">Teach. Heal. Build. Farm for joy. Create art. Participate in governance. Every contribution recorded on the public blockchain. Vital roles — nursing, teaching, soil-building — are the highest paid. The more you give to the city, the more the city gives back.</div>
         </div>
         <div class="cquota">
-          <div class="cet" style="color:var(--g);">The Quota System — Luxury for All</div>
-          <div class="ceb" style="color:rgba(244,240,234,.4);">Every resident receives a guaranteed monthly luxury allotment. No one buys out the theater. The richest and the quietest sit side by side at the concert. Abundance here is not a competition.</div>
+          <div class="cet" style="color:var(--g);">The Quota System — Luxury for All, Not Just the Rich</div>
+          <div class="ceb" style="color:rgba(250,247,242,.38);">Every resident gets a guaranteed monthly luxury allotment regardless of their coin balance. No one buys out the theater. The richest and the quietest sit side by side. Abundance is not a competition here. It is a right.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE NUMBERS -->
+<!-- NUMBERS -->
 <section class="sec num-bg">
   <div class="si">
     <div class="reveal">
-      <div class="stag">The Arithmetic · Every Rupee Sourced · 2026 India Prices</div>
-      <h2 class="sh">Built on reality,<br><em style="color:var(--g2);">not on dreams alone.</em></h2>
+      <div class="stag">The Arithmetic · 2026 India Prices · Every Rupee Sourced</div>
+      <h2 class="sh">Built on numbers,<br><em style="color:var(--g2);">not on dreams alone.</em></h2>
       <p class="ssub">Sources: InfraLens, MGetEnergy, JLL India, AgriJob.in, NVIDIA, IREDA 2026</p>
     </div>
     <div class="ngrid reveal">
@@ -670,18 +716,17 @@ footer a{color:var(--g);}
       <div class="nc2"><div class="nn">₹770 Cr</div><div class="nlb">Annual Revenue</div></div>
       <div class="nc2"><div class="nn">₹2.9 L/yr</div><div class="nlb">Your Annual Dividend</div></div>
       <div class="nc2"><div class="nn">14</div><div class="nlb">Spiritual Zones</div></div>
+      <div class="nc2"><div class="nn">₹0 / mo</div><div class="nlb">Your Monthly Bills</div></div>
       <div class="nc2"><div class="nn">100%</div><div class="nlb">Bunker Coverage</div></div>
-      <div class="nc2"><div class="nn">10,000</div><div class="nlb">Families · No More Ever</div></div>
       <div class="nc2"><div class="nn">10 Yrs</div><div class="nlb">Full City Complete</div></div>
     </div>
     <div class="tlist reveal">
-      <div class="titem"><div class="tyear">Year 1–2</div><div class="ttext">Land acquired (Rajasthan/MP). Cooperative formed. First 2,000 founders selected. Farming begins. Solar installed. Shanti Cellar design finalised. Health monitoring system deployed.</div></div>
-      <div class="titem"><div class="tyear">Year 2–4</div><div class="ttext">First 3,000 homes complete. Community kitchens open. Hospital Phase 1. 4 zones built. AI health lakehouse covers all 3,000 residents. Voting app live.</div></div>
-      <div class="titem"><div class="tyear">Year 4–6</div><div class="ttext">All 14 zones. GPU campus revenue. University open. SūryaCoin blockchain live. Mall opens. Health monitoring for all 10,000 residents active.</div></div>
-      <div class="titem"><div class="tyear">Year 6–8</div><div class="ttext">All 10,000 homes. Full Garbha underground sanctuary operational. 200 MW solar complete. Complete food and energy self-sufficiency achieved.</div></div>
-      <div class="titem"><div class="tyear">Year 8–10</div><div class="ttext">The full civilization. Dividends flowing. Democracy mature. Blueprints open-sourced. The first fork city somewhere in the world begins planning.</div></div>
+      <div class="titem"><div class="tyear">Year 1–2</div><div class="ttext">Land acquired. Cooperative formed. First 2,000 founders. Farming begins. Solar starts. Shanti Cellar design finalised. Health AI deployed.</div></div>
+      <div class="titem"><div class="tyear">Year 2–4</div><div class="ttext">3,000 homes. Buffet kitchens open. Hospital Phase 1. 4 zones. Voting app live. Health monitoring for all residents active.</div></div>
+      <div class="titem"><div class="tyear">Year 4–6</div><div class="ttext">All 14 zones. GPU campus — revenue begins. University open. SūryaCoin blockchain live. Mall opens. Full buffet operations.</div></div>
+      <div class="titem"><div class="tyear">Year 6–8</div><div class="ttext">All 10,000 homes. Full Garbha underground sanctuary. 200 MW solar complete. Complete self-sufficiency in food and energy.</div></div>
+      <div class="titem"><div class="tyear">Year 8–10</div><div class="ttext">The full civilization. Satyug operational. Dividends flowing. First fork city somewhere in the world begins planning.</div></div>
     </div>
-    <p class="reveal" style="margin-top:24px;font-size:.72rem;color:rgba(244,240,234,.2);line-height:1.7;">InfraLens India Construction 2026 · MGetEnergy Solar EPC Apr 2026 · JLL India Report 2026 · AgriJob.in Farmland 2026 · NVIDIA H100 2026 · All figures indicative pre-DPR estimates. Not a registered securities offering.</p>
   </div>
 </section>
 
@@ -689,18 +734,18 @@ footer a{color:var(--g);}
 <section class="sec join-bg" id="join">
   <div class="si">
     <div class="jinr reveal">
-      <div class="stag" style="color:var(--g);">Become a Founding Citizen</div>
-      <h2 class="jh">10,000 places.<br><em>No more.</em><br>You either came early, or you wished you had.</h2>
-      <p class="jsub">We are not looking for investors. We are looking for builders, healers, dancers, scientists, engineers, teachers, seekers, and artists who understand that the purpose of creating a perfect city is to create a more perfect human. No payment now. Just your name and your yes.</p>
+      <div class="stag" style="color:var(--g);">Become a Founding Citizen · 10,000 Places Only</div>
+      <h2 class="jh">You either came early,<br>or you spent the rest of your life<br><em>wishing you had.</em></h2>
+      <p class="jsub">No payment now. Register your intention. When the founding window opens, those who are already here — in heart and in name — will be the first invited. We are selecting founders: builders, healers, teachers, engineers, artists, musicians, scientists, seekers, and parents who want a different world for their children.</p>
       <form class="jform" onsubmit="handleJoin(event)">
         <input type="email" placeholder="your@email.com" required>
-        <button type="submit">I'm Ready →</button>
+        <button type="submit">I Want This Life →</button>
       </form>
-      <p id="join-msg" style="margin-top:14px;font-size:.85rem;color:var(--g);display:none;font-weight:500;">✓ Registered. We will reach you when the founding window opens.</p>
+      <p id="join-msg" style="margin-top:14px;font-size:.85rem;color:var(--g);display:none;font-weight:500;">✓ Registered. We'll reach you when the founding window opens.</p>
       <p class="jnote" style="margin-top:14px;">
         <a href="share-structure.html" style="color:var(--g);text-decoration:underline;text-underline-offset:3px;">How Shares Work</a> ·
         <a href="founding-charter.html" style="color:var(--g);text-decoration:underline;text-underline-offset:3px;">The Founding Charter</a> ·
-        <a href="prospectus.html" style="color:var(--g);text-decoration:underline;text-underline-offset:3px;">Full Prospectus</a> ·
+        <a href="prospectus.html" style="color:var(--g);text-decoration:underline;text-underline-offset:3px;">Full Prospectus PDF</a> ·
         <a href="https://github.com/originaonxi/surya-nagari-railway" style="color:var(--g);text-decoration:underline;text-underline-offset:3px;">Open Source</a>
       </p>
     </div>
@@ -720,30 +765,30 @@ footer a{color:var(--g);}
     <span class="fb">AGPL-3.0 · Software</span>
     <span class="fb">CC BY-SA 4.0 · Documents</span>
     <span class="fb">CERN-OHL-S · Hardware</span>
-    <span class="fb">Human + AI · Open Civilization</span>
+    <span class="fb">Satyug · Open Civilization</span>
   </div>
   <div style="margin-top:20px;">
     Sūrya Nagari Infrastructure &amp; Development Co-operative (proposed) · India · 2026<br>
     All figures are indicative pre-DPR estimates · Not a registered securities offering<br>
-    <span style="color:rgba(244,240,234,.1);">Designed by Anmol · Built with Claude &amp; Gemini · Humans decide. AI shows the truth.</span>
+    <span style="color:rgba(250,247,242,.1);">Designed by Anmol · Built with Claude &amp; Gemini · Satyug begins now.</span>
   </div>
 </footer>
 
 <script>
-// Reveal on scroll
+// Reveal
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.06 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Join form
+// Join
 function handleJoin(e) {
   e.preventDefault();
   document.getElementById('join-msg').style.display = 'block';
   e.target.reset();
 }
 
-// Zone row accent
+// Zone hover
 document.querySelectorAll('.zrow').forEach(row => {
   const dot = row.querySelector('.zdot');
   if (!dot) return;
