@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sūrya Nagari 500 — The living prototype. 500 acres. 1,000 families. Solar, lake, farms, wellness, GPU compute. The first Collective. Proof that Satyug works.">
+<title>Sūrya Nagari 500 — The Living Prototype · The First Collective</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cr:#F2F7F4;--cr2:#E4EEE8;--cr3:#D0E3D6;
+  --forest:#1E3B2B;--forest2:#2B5040;--forest3:#163020;
+  --gold:#C9924A;--gold2:#E8AF60;--gold3:#F5D08A;
+  --lake:#3B7EA1;--lake2:#5AABCB;--lake3:#A8D8EA;
+  --earth:#7A5C3A;--earth2:#B08060;
+  --t:#1E3B2B;--dim:#6B8070;--w:#fff;--b:rgba(30,59,43,.08);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cr);color:var(--t);font-family:'Inter',sans-serif;line-height:1.65;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(242,247,244,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 5%;display:flex;align-items:center;gap:24px;height:56px;}
+.nl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--forest);letter-spacing:.04em;}
+.nv{display:flex;gap:20px;flex:1;}
+.nv a{font-size:.72rem;font-weight:500;color:var(--dim);letter-spacing:.09em;text-transform:uppercase;transition:color .2s;}
+.nv a:hover{color:var(--forest);}
+.nc{background:var(--forest);color:var(--gold2);padding:8px 18px;border-radius:6px;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:background .2s;white-space:nowrap;}
+.nc:hover{background:var(--forest2);}
+.nback{font-size:.72rem;color:var(--dim);letter-spacing:.06em;}
+.nback:hover{color:var(--forest);}
+@media(max-width:800px){.nv{display:none;}}
+
+/* PROTOTYPE BAND */
+.proto-band{background:var(--forest);padding:10px 5%;text-align:center;font-size:.75rem;color:rgba(255,255,255,.55);letter-spacing:.07em;}
+.proto-band a{color:var(--gold2);text-underline-offset:3px;text-decoration:underline;}
+
+/* HERO */
+.hero{min-height:94vh;background:var(--forest3);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 5%;position:relative;overflow:hidden;}
+.hero-lake{position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to top,rgba(59,126,161,.18),transparent);pointer-events:none;}
+.hero-glow{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(90,171,203,.06) 0%,transparent 65%);pointer-events:none;}
+.heye{font-size:.63rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--lake2);margin-bottom:32px;position:relative;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,6.5rem);font-weight:300;line-height:1.04;color:var(--cr);max-width:880px;margin:0 auto 24px;letter-spacing:-.02em;position:relative;}
+.hero h1 em{font-style:italic;color:var(--gold2);}
+.hero h1 strong{font-weight:600;color:var(--lake3);}
+.hline{width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--lake2),transparent);margin:0 auto 28px;opacity:.5;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px;position:relative;}
+.htag{background:rgba(90,171,203,.1);border:1px solid rgba(90,171,203,.2);border-radius:5px;padding:5px 14px;font-size:.73rem;font-weight:500;color:var(--lake2);letter-spacing:.03em;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.2vw,1.35rem);font-weight:300;font-style:italic;color:rgba(242,247,244,.45);max-width:640px;margin:0 auto 44px;line-height:1.8;position:relative;}
+.hctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative;}
+.bp{background:var(--gold);color:var(--forest3);padding:13px 34px;border-radius:7px;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;}
+.bp:hover{background:var(--gold2);transform:translateY(-1px);}
+.bg{background:transparent;color:rgba(242,247,244,.45);border:1px solid rgba(242,247,244,.12);padding:12px 22px;border-radius:7px;font-size:.8rem;letter-spacing:.04em;transition:all .2s;}
+.bg:hover{border-color:rgba(242,247,244,.35);color:var(--cr);}
+.hscroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,247,244,.15);}
+
+/* SECTION COMMONS */
+.sec{padding:96px 5%;}
+.si{max-width:1180px;margin:0 auto;}
+.stag{font-size:.64rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:300;line-height:1.1;color:var(--forest);margin-bottom:14px;letter-spacing:-.01em;}
+.sh em{font-style:italic;color:var(--earth);}
+.ssub{font-size:.95rem;color:var(--dim);max-width:560px;line-height:1.85;margin-bottom:44px;font-weight:300;}
+
+/* PROOF BAND */
+.proof-band{background:var(--forest2);padding:18px 5%;text-align:center;}
+.proof-inner{max-width:900px;margin:0 auto;}
+.proof-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.7rem);font-weight:300;color:var(--cr);line-height:1.4;margin-bottom:4px;}
+.proof-h em{font-style:italic;color:var(--gold2);}
+.proof-sub{font-size:.78rem;color:rgba(242,247,244,.5);letter-spacing:.04em;}
+
+/* WHAT IS INCLUDED */
+.inc-bg{background:var(--cr2);}
+.inc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
+.icard{background:var(--w);border:1px solid var(--b);border-radius:12px;padding:24px;transition:box-shadow .2s,transform .2s;}
+.icard:hover{box-shadow:0 4px 20px rgba(30,59,43,.07);transform:translateY(-2px);}
+.icard-ico{font-size:1.8rem;margin-bottom:10px;}
+.icard-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--forest);margin-bottom:5px;}
+.icard-body{font-size:.8rem;color:var(--dim);line-height:1.7;}
+.icard-tag{margin-top:10px;display:inline-block;background:rgba(30,59,43,.06);color:var(--forest);font-size:.63rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:4px;}
+
+/* THE LAKE */
+.lake-bg{background:var(--forest3);}
+.lake-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.lake-visual{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--lake) 0%,var(--lake2) 40%,var(--lake3) 100%);min-height:320px;display:flex;align-items:center;justify-content:center;position:relative;}
+.lake-icon{font-size:5rem;opacity:.25;}
+.lake-label{position:absolute;bottom:20px;left:20px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:rgba(255,255,255,.7);font-style:italic;}
+.lake-text .sh{color:var(--cr);}
+.lake-text .ssub{color:rgba(242,247,244,.45);}
+.lake-uses{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+.luse{display:flex;gap:12px;align-items:flex-start;}
+.luse-dot{color:var(--lake2);min-width:20px;font-size:.9rem;margin-top:2px;}
+.luse-text{font-size:.84rem;color:rgba(242,247,244,.65);line-height:1.6;}
+@media(max-width:800px){.lake-split{grid-template-columns:1fr;}}
+
+/* WELLNESS CENTRE */
+.well-bg{background:var(--cr);}
+.well-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;}
+.wcard{background:var(--w);border:1px solid var(--b);border-radius:10px;padding:20px;border-top:3px solid transparent;transition:all .2s;}
+.wcard:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(30,59,43,.06);}
+.wcard.allo{border-top-color:#3B82F6;}
+.wcard.ayur{border-top-color:#10B981;}
+.wcard.nutr{border-top-color:#F59E0B;}
+.wcard.yoga{border-top-color:#8B5CF6;}
+.wcard.mass{border-top-color:#EC4899;}
+.wcard.tcm{border-top-color:#EF4444;}
+.wcard.trib{border-top-color:#6B7280;}
+.wcard.ment{border-top-color:#14B8A6;}
+.wcard.diag{border-top-color:#F97316;}
+.wcard-ico{font-size:1.5rem;margin-bottom:8px;}
+.wcard-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;margin-bottom:4px;color:var(--forest);}
+.wcard-body{font-size:.77rem;color:var(--dim);line-height:1.65;}
+.wcard-free{margin-top:8px;font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);}
+.well-note{margin-top:32px;background:var(--forest);border-radius:12px;padding:28px 32px;max-width:700px;}
+.well-note-h{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--cr);margin-bottom:8px;font-style:italic;}
+.well-note-b{font-size:.82rem;color:rgba(242,247,244,.55);line-height:1.75;}
+
+/* NUMBERS */
+.num-bg{background:var(--forest2);}
+.num-bg .sh{color:var(--cr);}
+.num-bg .ssub{color:rgba(242,247,244,.38);}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(201,146,74,.08);margin-bottom:32px;}
+.nc2{background:var(--forest2);padding:30px 18px;text-align:center;}
+.nn{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--gold2);line-height:1;margin-bottom:6px;}
+.nlb{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,247,244,.28);}
+.num-note{font-size:.75rem;color:rgba(242,247,244,.3);text-align:center;margin-top:16px;line-height:1.7;}
+
+/* APP CTA */
+.app-bg{background:var(--cr2);}
+.app-card{background:var(--forest);border-radius:20px;padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.app-left .stag{color:var(--lake2);}
+.app-left .sh{color:var(--cr);font-size:clamp(1.8rem,4vw,3rem);}
+.app-left p{font-size:.88rem;color:rgba(242,247,244,.5);line-height:1.8;margin-bottom:24px;}
+.app-steps{display:flex;flex-direction:column;gap:14px;}
+.astep{display:flex;gap:14px;align-items:flex-start;}
+.astep-n{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:rgba(201,146,74,.3);min-width:32px;}
+.astep-text{font-size:.83rem;color:rgba(242,247,244,.6);line-height:1.6;}
+.astep-text strong{color:var(--gold2);}
+.app-right{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:32px;}
+.app-right-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lake2);margin-bottom:16px;}
+.app-features{display:flex;flex-direction:column;gap:10px;}
+.af{display:flex;gap:10px;align-items:flex-start;}
+.af-dot{color:var(--gold2);font-size:.9rem;min-width:18px;margin-top:2px;}
+.af-text{font-size:.82rem;color:rgba(242,247,244,.6);line-height:1.6;}
+.af-text strong{color:var(--cr);}
+@media(max-width:800px){.app-card{grid-template-columns:1fr;padding:32px;}}
+
+/* TIMELINE */
+.time-bg{background:var(--cr);}
+.tlist{max-width:580px;}
+.titem{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--b);}
+.titem:last-child{border-bottom:none;}
+.tyear{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--gold);min-width:90px;padding-top:2px;}
+.ttext{font-size:.82rem;color:var(--dim);line-height:1.7;}
+
+/* JOIN */
+.join-bg{background:var(--forest3);}
+.jinr{text-align:center;max-width:580px;margin:0 auto;}
+.jh{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;color:var(--cr);margin-bottom:12px;line-height:1.15;}
+.jh em{font-style:italic;color:var(--gold2);}
+.jsub{font-size:.9rem;color:rgba(242,247,244,.45);line-height:1.85;margin-bottom:32px;}
+.jform{display:flex;gap:10px;max-width:420px;margin:0 auto 10px;flex-wrap:wrap;justify-content:center;}
+.jform input{flex:1;min-width:190px;padding:12px 15px;border:1px solid rgba(242,247,244,.1);border-radius:7px;font-size:.88rem;outline:none;background:rgba(255,255,255,.05);color:var(--cr);font-family:'Inter',sans-serif;transition:border-color .2s;}
+.jform input::placeholder{color:rgba(242,247,244,.25);}
+.jform input:focus{border-color:var(--gold);}
+.jform button{background:var(--gold);color:var(--forest3);padding:12px 24px;border-radius:7px;font-weight:700;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;}
+.jform button:hover{background:var(--gold2);}
+.jnote{font-size:.7rem;color:rgba(242,247,244,.25);margin-top:12px;}
+.jnote a{color:var(--gold);text-underline-offset:3px;text-decoration:underline;}
+
+/* FOOTER */
+footer{background:var(--forest3);color:rgba(242,247,244,.2);text-align:center;padding:40px 5%;font-size:.72rem;line-height:2.2;}
+footer a{color:var(--gold);}
+.flinks{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;}
+.flinks a:hover{color:var(--cr);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- PROTOTYPE BAND -->
+<div class="proto-band">
+  SŪRYA NAGARI 500 · The First Collective · Living Prototype &nbsp;·&nbsp;
+  <a href="../index.html">See the 5,000-Acre Full Vision →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nl">Sūrya Nagari 500</div>
+  <div class="nv">
+    <a href="#basics">The Basics</a>
+    <a href="#lake">The Lake</a>
+    <a href="#wellness">Wellness</a>
+    <a href="#app">The App</a>
+    <a href="../index.html" class="nback">← Full City</a>
+  </div>
+  <a class="nc" href="#join">Join the Prototype</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-lake"></div>
+  <div class="hero-glow"></div>
+
+  <div class="heye">India · 500 Acres · 1,000 Families · The First Collective · MMXXVI</div>
+
+  <h1>The proof.<br><em>500 acres.</em><br><strong>Everything free.</strong></h1>
+
+  <div class="hline"></div>
+
+  <div class="hero-tags">
+    <span class="htag">Solar · Free Electricity</span>
+    <span class="htag">Lake · Recreation & Water</span>
+    <span class="htag">Community Kitchen · Free Meals</span>
+    <span class="htag">Wellness Centre · All 8 Disciplines</span>
+    <span class="htag">GPU Compute · Your Dividend</span>
+    <span class="htag">Build Your Home · Real-Time Quotes</span>
+  </div>
+
+  <p class="hero-sub">Before 5,000 acres, we prove it with 500. Every system. Every facility. 1,000 families. The first Collective. Working. Real. Open source.</p>
+
+  <div class="hctas">
+    <a class="bp" href="#basics">See What's Included</a>
+    <a class="bg" href="#app">The Home-Building App →</a>
+    <a class="bg" href="../prospectus.html">Full Prospectus</a>
+  </div>
+  <div class="hscroll">↓ scroll</div>
+</header>
+
+<!-- PROOF BAND -->
+<div class="proof-band">
+  <div class="proof-inner">
+    <div class="proof-h">The 5,000-acre city is the vision. The 500-acre Collective is the <em>proof it works.</em></div>
+    <div class="proof-sub">Every system proven here scales to 5,000 acres. And then — with the app — to every city in the world.</div>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<section class="sec inc-bg" id="basics">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">The Sovereign Baseline · Everything Free · For Every Resident</div>
+      <h2 class="sh">500 acres.<br><em>Zero monthly bills.</em></h2>
+      <p class="ssub">The prototype includes everything that eliminates survival anxiety. Every facility below costs residents ₹0/month — pre-funded by the Collective's shared infrastructure capital.</p>
+    </div>
+    <div class="inc-grid reveal">
+      <div class="icard">
+        <div class="icard-ico">☀️</div>
+        <div class="icard-title">Solar Farm + Battery</div>
+        <div class="icard-body">20 MW ground-mounted solar + 40 MWh battery storage. Generates more electricity than the Collective uses. Surplus powers the GPU campus that pays your dividend.</div>
+        <div class="icard-tag">Free · Forever</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🍽️</div>
+        <div class="icard-title">Community Kitchen</div>
+        <div class="icard-body">Three organic vegetarian meals daily, prepared in every zone's kitchen from the Collective's own farms. Fresh, seasonal, extraordinary. You never cook because you have to.</div>
+        <div class="icard-tag">Free · 3 Meals Daily</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">💧</div>
+        <div class="icard-title">Clean Water System</div>
+        <div class="icard-body">Rainwater harvesting, deep aquifer recharge, greywater recycling, and closed-loop sewage treatment. Pure water flowing into every home, always.</div>
+        <div class="icard-tag">Free · Always On</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🌾</div>
+        <div class="icard-title">Community Farms</div>
+        <div class="icard-body">200 acres of organic open-field and vertical farming. Grains, dal, vegetables, fruits, herbs, spices. Grown inside the Collective. Grain to plate in hours.</div>
+        <div class="icard-tag">Free · Organic</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🏥</div>
+        <div class="icard-title">Wellness Centre</div>
+        <div class="icard-body">50-bed multi-disciplinary wellness hub. 8 healing traditions under one roof — Allopathy, Ayurveda, Chinese, Tribal, Yoga, Nutrition, Massage, Mental Wellness. AI triage routes you to the right discipline.</div>
+        <div class="icard-tag">Free · All 8 Disciplines</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🖥️</div>
+        <div class="icard-title">GPU Compute Campus</div>
+        <div class="icard-body">256 NVIDIA H100s leased globally at $1.50/hr, 85% utilisation. Generates ~₹24 Crore per year. 70% goes back to 1,000 shareholders as annual dividends.</div>
+        <div class="icard-tag">~₹1.2 L / Year / Family ★</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🚗</div>
+        <div class="icard-title">EV Fleet + Charging</div>
+        <div class="icard-body">50 solar-charged autonomous EVs and 100 e-bikes. Free rides anywhere within the Collective. No traffic. No parking. No pollution. Just tap and go.</div>
+        <div class="icard-tag">Free · Within Collective</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🌐</div>
+        <div class="icard-title">1 Gbps Community Fiber</div>
+        <div class="icard-body">City-owned fiber network. Every home and facility connected. No ISP. No monthly bill. No throttling. Owned by the Collective, always on.</div>
+        <div class="icard-tag">Free · 1 Gbps</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🏫</div>
+        <div class="icard-title">K–12 School</div>
+        <div class="icard-body">AI-personalised curriculum from kindergarten to Grade 12. Free for every child in the Collective. University comes with the 5,000-acre city — this prototype proves the model.</div>
+        <div class="icard-tag">Free · Every Child</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">👕</div>
+        <div class="icard-title">Eco-Textile Unit</div>
+        <div class="icard-body">One Sūrya Works light textile unit producing khadi, cotton basics, and natural-dyed clothing. Basic clothing collectively produced. Fashion is still yours — this covers the essentials.</div>
+        <div class="icard-tag">Collective-Made</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🔧</div>
+        <div class="icard-title">Tool Library</div>
+        <div class="icard-body">Shared tools, equipment, and machines — borrow what you need, return when done. No one needs to own a drill they use twice a year. 500 families share 500 tools.</div>
+        <div class="icard-tag">Borrow · Return</div>
+      </div>
+      <div class="icard">
+        <div class="icard-ico">🌱</div>
+        <div class="icard-title">Zero Waste System</div>
+        <div class="icard-body">Organic waste → compost → farm → kitchen. Closed loop. No landfill. No burning. The Collective produces almost no waste — everything is a resource for something else.</div>
+        <div class="icard-tag">Closed Loop</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE LAKE -->
+<section class="sec lake-bg" id="lake">
+  <div class="si">
+    <div class="lake-split">
+      <div class="lake-visual">
+        <div class="lake-icon">🌊</div>
+        <div class="lake-label">The Collective Lake</div>
+      </div>
+      <div class="lake-text">
+        <div class="reveal">
+          <div class="stag">The Central Lake · 15 Acres · Heart of the Prototype</div>
+          <h2 class="sh">Not a feature.<br><em>A soul.</em></h2>
+          <p class="ssub">The 500-acre prototype has something the 5,000-acre city is still planning: a 15-acre man-made lake at its centre. Every zone touches it. Every resident walks to it.</p>
+          <div class="lake-uses">
+            <div class="luse"><div class="luse-dot">◈</div><div class="luse-text"><strong style="color:var(--cr);">Recreation</strong> — Swimming, kayaking, paddle boats, sunset walks along the water</div></div>
+            <div class="luse"><div class="luse-dot">◈</div><div class="luse-text"><strong style="color:var(--cr);">Water Reserve</strong> — Emergency water reservoir for the Collective, gravity-fed to farms</div></div>
+            <div class="luse"><div class="luse-dot">◈</div><div class="luse-text"><strong style="color:var(--cr);">Aquaculture</strong> — Freshwater fish (optional, member-voted), algae for biofuel research</div></div>
+            <div class="luse"><div class="luse-dot">◈</div><div class="luse-text"><strong style="color:var(--cr);">Ecology</strong> — Wetland buffer, bird sanctuary, natural cooling for the Collective</div></div>
+            <div class="luse"><div class="luse-dot">◈</div><div class="luse-text"><strong style="color:var(--cr);">Meditation</strong> — Dawn yoga decks on the eastern bank, silence zone on the west</div></div>
+            <div class="luse"><div class="luse-dot">◈</div><div class="luse-text"><strong style="color:var(--cr);">Social</strong> — The evening gathering point — where 1,000 families become one community</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WELLNESS CENTRE -->
+<section class="sec well-bg" id="wellness">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">The 50-Bed Wellness Centre · Not a Hospital · Something Better</div>
+      <h2 class="sh">Every tradition of healing.<br><em>One roof. Free.</em></h2>
+      <p class="ssub">No emergency room. No surgery wing. This is a multi-disciplinary consultation and short-stay wellness hub — the only place in India where all 8 healing traditions refer to each other.</p>
+    </div>
+    <div class="well-grid reveal">
+      <div class="wcard allo">
+        <div class="wcard-ico">🩺</div>
+        <div class="wcard-title">Allopathy</div>
+        <div class="wcard-body">4 consultation rooms, diagnostics lab, pharmacy. Modern medicine as one voice, not the only voice.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard ayur">
+        <div class="wcard-ico">🌿</div>
+        <div class="wcard-title">Ayurveda</div>
+        <div class="wcard-body">6 consultation rooms, full Panchakarma treatment wing, herb dispensary with 200+ plants.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard nutr">
+        <div class="wcard-ico">🥗</div>
+        <div class="wcard-title">Nutrition Science</div>
+        <div class="wcard-body">3 consultation rooms, metabolic lab, personalised diet planning tied to the community kitchen.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard yoga">
+        <div class="wcard-ico">🧘</div>
+        <div class="wcard-title">Yoga Therapy</div>
+        <div class="wcard-body">2 group halls, 4 private therapy rooms, outdoor lakeside deck. Therapeutic yoga, not just exercise.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard mass">
+        <div class="wcard-ico">🤲</div>
+        <div class="wcard-title">Massage & Bodywork</div>
+        <div class="wcard-body">6 treatment rooms — Abhyanga, Swedish, Thai, Deep Tissue, Marma. Booked by residents, free.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard tcm">
+        <div class="wcard-ico">🧧</div>
+        <div class="wcard-title">Traditional Chinese Medicine</div>
+        <div class="wcard-body">Acupuncture suite, herbal dispensary, moxibustion room. 3,000 years of clinical knowledge.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard trib">
+        <div class="wcard-ico">🌾</div>
+        <div class="wcard-title">Tribal & Indigenous Medicine</div>
+        <div class="wcard-body">2 consultation rooms. A living medicinal plant walk. Knowledge from India's forest traditions — preserved, respected, practised.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard ment">
+        <div class="wcard-ico">🧠</div>
+        <div class="wcard-title">Mental Wellness</div>
+        <div class="wcard-body">4 therapy rooms, 1 group circle room, silent retreat pod. Counselling, grief support, creative therapy.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+      <div class="wcard diag">
+        <div class="wcard-ico">🔬</div>
+        <div class="wcard-title">Diagnostics</div>
+        <div class="wcard-body">Blood lab, ECG, X-ray, DEXA, full body composition. AI flags early signals before they become problems.</div>
+        <div class="wcard-free">Free · All Residents</div>
+      </div>
+    </div>
+    <div class="well-note reveal">
+      <div class="well-note-h">"You book a 30-minute intake. AI routes you to the right tradition. They refer to each other. You leave with one plan."</div>
+      <div class="well-note-b">An Ayurvedic practitioner and an Allopathic doctor can consult on the same case simultaneously. A nutritionist sees your diagnostic results. Your yoga therapist knows your mental wellness history. All with your consent. All in one building. All free.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="sec num-bg">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">The Numbers · Pre-DPR Estimates · All Rates from Sourced Data</div>
+      <h2 class="sh" style="color:var(--cr);">Built on numbers,<br><em style="color:var(--gold2);">not promises.</em></h2>
+    </div>
+    <div class="ngrid reveal">
+      <div class="nc2"><div class="nn">500</div><div class="nlb">Acres</div></div>
+      <div class="nc2"><div class="nn">1,000</div><div class="nlb">Families</div></div>
+      <div class="nc2"><div class="nn">20 MW</div><div class="nlb">Solar Capacity</div></div>
+      <div class="nc2"><div class="nn">256</div><div class="nlb">H100 GPUs</div></div>
+      <div class="nc2"><div class="nn">₹0/mo</div><div class="nlb">Your Bills</div></div>
+      <div class="nc2"><div class="nn">₹1.2 L</div><div class="nlb">Annual Dividend ★</div></div>
+      <div class="nc2"><div class="nn">8</div><div class="nlb">Healing Traditions</div></div>
+      <div class="nc2"><div class="nn">4 Yrs</div><div class="nlb">Build Timeline</div></div>
+    </div>
+    <p class="num-note reveal">★ Indicative pre-DPR estimates derived from published 2026 source rates (InfraLens, MGetEnergy, IREDA, NVIDIA). Not a financial offer. See PLAN-500-ACRE.md for full derivation.</p>
+  </div>
+</section>
+
+<!-- THE APP -->
+<section class="sec app-bg" id="app">
+  <div class="si">
+    <div class="app-card reveal">
+      <div class="app-left">
+        <div class="stag">The Home-Building App · Satyug Collective</div>
+        <h2 class="sh">Choose your land.<br>Build your home.<br><em>Own everything.</em></h2>
+        <p>An app like Uber — but for building your dream home on land where survival is already free. No algorithm. No middlemen. Owner-to-owner. Real-time GC quotes.</p>
+        <div class="app-steps">
+          <div class="astep"><div class="astep-n">01</div><div class="astep-text"><strong>Browse land</strong> — every available parcel shown live, priced by owners, sorted by listing date</div></div>
+          <div class="astep"><div class="astep-n">02</div><div class="astep-text"><strong>Pick your plot</strong> — size, zone, price. See what Collective facilities are already there</div></div>
+          <div class="astep"><div class="astep-n">03</div><div class="astep-text"><strong>Submit your home</strong> — 1BHK, 2BHK, 3BHK, custom. Your style, your budget</div></div>
+          <div class="astep"><div class="astep-n">04</div><div class="astep-text"><strong>GC quotes arrive live</strong> — verified builders quote: price, timeline, materials. You choose</div></div>
+          <div class="astep"><div class="astep-n">05</div><div class="astep-text"><strong>Contract + build</strong> — milestone-tracked, payment-scheduled, review after completion</div></div>
+        </div>
+      </div>
+      <div class="app-right">
+        <div class="app-right-label">The Rules — Non-Negotiable</div>
+        <div class="app-features">
+          <div class="af"><div class="af-dot">✦</div><div class="af-text"><strong>Land by owners only</strong> — no corporate listings, no aggregators, no flippers</div></div>
+          <div class="af"><div class="af-dot">✦</div><div class="af-text"><strong>Rent by owners only</strong> — direct owner-to-resident, no property managers</div></div>
+          <div class="af"><div class="af-dot">✦</div><div class="af-text"><strong>No algorithm</strong> — listings in chronological order. GCs alphabetical. No ranking engine. Ever.</div></div>
+          <div class="af"><div class="af-dot">✦</div><div class="af-text"><strong>Owner sets price</strong> — the app never suggests, nudges, or "optimises" your price</div></div>
+          <div class="af"><div class="af-dot">✦</div><div class="af-text"><strong>100% verified reviews</strong> — only after a completed verified contract. Immutable. Not deletable.</div></div>
+          <div class="af"><div class="af-dot">✦</div><div class="af-text"><strong>Paid = labeled</strong> — a paid GC gets one clearly-marked featured slot. Never a rank change</div></div>
+          <div class="af"><div class="af-dot">✦</div><div class="af-text"><strong>You own the collective</strong> — every facility is member-owned, member-governed, member-benefiting</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec time-bg">
+  <div class="si">
+    <div class="reveal">
+      <div class="stag">Build Timeline · 500-Acre Prototype</div>
+      <h2 class="sh">Four years to <em>Satyug.</em></h2>
+      <p class="ssub">Each phase is a working Collective — not a construction site waiting to be finished. Residents move in at Phase 1 and the city grows around them.</p>
+    </div>
+    <div class="tlist reveal">
+      <div class="titem"><div class="tyear">Year 1</div><div class="ttext">Land acquired. MSCS formed. First 200 founding families. Lake excavation begins. Solar + battery installed. Community kitchen operational. Water system live.</div></div>
+      <div class="titem"><div class="tyear">Year 2</div><div class="ttext">500 homes complete. Wellness centre open (all 8 disciplines). K–12 school. EV fleet. Farms at 60% capacity. GPU campus (first 128 GPUs). App v1.0 live — land listings, GC quotes.</div></div>
+      <div class="titem"><div class="tyear">Year 3</div><div class="ttext">All 1,000 homes. Lake complete. 256 GPUs operational. Full farm output. Eco-textile unit. Tool library. First annual dividend distributed to all 1,000 families.</div></div>
+      <div class="titem"><div class="tyear">Year 4</div><div class="ttext">Full prototype proven. Every system documented and open-sourced. App v2.0 — Satyug Collective platform live for any city. Fork #1 of the blueprint begins somewhere in India.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="sec join-bg" id="join">
+  <div class="si">
+    <div class="jinr reveal">
+      <div class="stag" style="color:var(--lake2);">1,000 Founding Families · First Come First</div>
+      <h2 class="jh">Be the proof<br>that <em>Satyug works.</em></h2>
+      <p class="jsub">No payment now. Register as a founding member of the 500-acre prototype. When the Collective window opens, founding members are first. You're not buying a home — you're proving a civilisation is possible.</p>
+      <form class="jform" onsubmit="handleJoin(event)">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">I'm In →</button>
+      </form>
+      <p id="join-msg" style="margin-top:12px;font-size:.83rem;color:var(--gold2);display:none;font-weight:500;">✓ Registered. We'll reach you when the prototype founding window opens.</p>
+      <p class="jnote">
+        <a href="#wellness">Wellness Centre Detail</a> ·
+        <a href="../prospectus.html">Full Prospectus</a> ·
+        <a href="../index.html">5,000-Acre Vision</a> ·
+        <a href="https://github.com/originaonxi/surya-nagari-railway">Open Source</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="flinks">
+    <a href="#wellness">Wellness Centre</a>
+    <a href="#app">The App</a>
+    <a href="../index.html">5,000-Acre City</a>
+    <a href="../prospectus.html">Prospectus</a>
+    <a href="../founding-charter.html">Charter</a>
+    <a href="https://github.com/originaonxi/surya-nagari-railway">GitHub</a>
+  </div>
+  <div>
+    Sūrya Nagari 500 · The First Collective (proposed) · India · 2026<br>
+    ★ All figures are indicative pre-DPR estimates · Not a registered securities offering<br>
+    <span style="color:rgba(242,247,244,.1);">Designed by Anmol · Built with Claude, Codex & Gemini · Satyug begins now.</span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function handleJoin(e) {
+  e.preventDefault();
+  document.getElementById('join-msg').style.display = 'block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>
