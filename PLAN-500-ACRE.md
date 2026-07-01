@@ -1,4 +1,4 @@
-# SŪRYA NAGARI 500 — The Living Prototype Plan
+# The Satyug Collective 500 — The Living Prototype Plan
 ## Design Split: 500-Acre Prototype vs 5,000-Acre Full City
 
 > **How to read numbers here:** every figure marked ★ is a proportional pre-DPR estimate
@@ -34,7 +34,7 @@ It also provides real land and real owners for the **home-building marketplace a
 | **EV Fleet** | ~50 EVs, 100 e-bikes ★ | Proportional to 1,000 residents |
 | **Clothing** | Small eco-textile unit (khadi, natural dyes) | 5K has 5 factories; prototype has 1 light unit |
 | **School** | K–12 only (no university yet) | University comes at 5K scale |
-| **Factory** | 1 × Sūrya Works (soap, food processing) | 5K has 5 |
+| **Factory** | 1 × Satyug Works (soap, food processing) | 5K has 5 |
 | **Ecological** | ~80 acres rewilded, sacred groves | Proportional |
 | **Legal Structure** | Multi-State Co-operative Society (MSCS) | Required for >200 members — same as 5K |
 

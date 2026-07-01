@@ -5,11 +5,11 @@
 
 ## The Shift in Vision
 
-Sūrya Nagari is one city. One blueprint. One location in India.
+The Satyug Collective is one city. One blueprint. One location in India.
 
 **Satyug — The Collective** is the platform that lets anyone, anywhere build *their* version of it.
 
-You don't move to Sūrya Nagari. You open the app. You find land near your city. You join or start a Collective. You build your home. And together — with your neighbours — you own everything that makes life free.
+You don't move to The Satyug Collective. You open the app. You find land near your city. You join or start a Collective. You build your home. And together — with your neighbours — you own everything that makes life free.
 
 This is not a real estate app. It is the infrastructure for the golden age.
 
@@ -135,7 +135,7 @@ No commission from consumers. Ever.
 
 ## The Collective Governance Model
 
-Every Collective runs on the same governance as Sūrya Nagari:
+Every Collective runs on the same governance as The Satyug Collective:
 
 - **1 home = 1 vote** on all Collective decisions
 - Proposals submitted by any member
@@ -245,9 +245,9 @@ CIRCLE_RATE (reference data)
 
 ---
 
-## Relationship to Sūrya Nagari
+## Relationship to The Satyug Collective
 
-| Sūrya Nagari | Satyug Collective App |
+| The Satyug Collective | Satyug Collective App |
 |---|---|
 | One specific city blueprint (India) | The platform for any city, anywhere |
 | 5,000 acres pre-planned | Any size land, you decide |
@@ -256,7 +256,7 @@ CIRCLE_RATE (reference data)
 | One founding team builds it | Anyone can start a Collective |
 | The proof of concept | The scaling mechanism |
 
-**Sūrya Nagari is the first Collective. The app is how it spreads.**
+**The Satyug Collective is the first Collective. The app is how it spreads.**
 
 ---
 

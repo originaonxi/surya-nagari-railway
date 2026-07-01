@@ -1,21 +1,21 @@
-# SŪRYA NAGARI — project handoff (read me first)
+# The Satyug Collective — project handoff (read me first)
 
-This repo is **Sūrya Nagari — Open Real Estate AI Estate**, a 5,000-acre open-source self-sufficient
+This repo is **The Satyug Collective — Open Real Estate AI Estate**, a 5,000-acre open-source self-sufficient
 city blueprint for India structured as a Multi-State Cooperative Society (like Amul but for a city).
 It is a static website (plain HTML/CSS/JS, no build step) deployed on **Railway** via Docker/nginx.
 Co-designed by Anmol with Claude, Codex & Gemini. This file is the full handoff so a fresh Claude
 on any machine can continue exactly where we left off.
 
 ## Live URLs
-- Site: https://surya-nagari-railway-production.up.railway.app/
-- Share structure page: https://surya-nagari-railway-production.up.railway.app/share-structure.html
-- 3D model: https://surya-nagari-railway-production.up.railway.app/township-3d.html
-- PDF: https://surya-nagari-railway-production.up.railway.app/Surya-Nagari-Prospectus.pdf
-- Repo: https://github.com/originaonxi/surya-nagari-railway
+- Site: https://Satyug-nagari-railway-production.up.railway.app/
+- Share structure page: https://Satyug-nagari-railway-production.up.railway.app/share-structure.html
+- 3D model: https://Satyug-nagari-railway-production.up.railway.app/township-3d.html
+- PDF: https://Satyug-nagari-railway-production.up.railway.app/Satyug-Nagari-Prospectus.pdf
+- Repo: https://github.com/originaonxi/Satyug-nagari-railway
 
 ## Git Setup (one remote, correct)
 ```
-origin  https://github.com/originaonxi/surya-nagari-railway.git
+origin  https://github.com/originaonxi/Satyug-nagari-railway.git
 ```
 Branch `main` → deploys automatically to Railway on every push.
 
@@ -25,7 +25,7 @@ Branch `main` → deploys automatically to Railway on every push.
   share structure → 11 zones grid → economics → revenue → constitution → open source → waitlist.
 - `share-structure.html` — **NEW** — Multi-State Cooperative structure explained simply.
   Class-A vs Class-B shares, what you get (12 items), rules, working FAQ accordion.
-- `prospectus.html` — the **full detailed Phase 1 / SURYA-1 document** (200-acre prototype).
+- `prospectus.html` — the **full detailed Phase 1 / SATYUG-1 document** (200-acre prototype).
   Has a Phase 1 banner at top linking back to the 5,000-acre landing page.
 - `township-3d.html` — the **interactive 3D township** (Three.js 0.160 via jsDelivr importmap).
   Embedded as iframe in index.html. Has render fallback (cover.jpeg). Currently shows 200-acre
@@ -33,7 +33,7 @@ Branch `main` → deploys automatically to Railway on every push.
 - `founding-charter.html` — the animated 10-article founding charter. Phase 1 banner added.
 - `project-report.html` — legacy bank-style report (100 acres — oldest doc, needs update).
 - `brochure.html` — **print source** for the PDF (A4, page-break-perfect, banner image per page).
-- `Surya-Nagari-Prospectus.pdf` — generated FROM brochure.html.
+- `Satyug-Nagari-Prospectus.pdf` — generated FROM brochure.html.
 - `cover.jpeg` — hero aerial render.
 - `shots/z-*.jpeg` — 12 zone renders used throughout.
 - `README.md` — full open-source blueprint README with zone table, economics, fork instructions.
@@ -51,19 +51,19 @@ Branch `main` → deploys automatically to Railway on every push.
 - Sanatan values (live and let live), open books, open source
 
 ## Phase Structure
-- **Phase 1 (SURYA-1)**: 200 acres, 2,000 homes — prototype (prospectus.html, founding-charter.html)
+- **Phase 1 (SATYUG-1)**: 200 acres, 2,000 homes — prototype (prospectus.html, founding-charter.html)
 - **Phase 2 (full)**: 5,000 acres, 10,000 homes — the full vision (index.html, share-structure.html)
 
 ## Railway Deployment
 - Project: `resplendent-love` (Railway project name)
-- Service: `surya-nagari-railway`
+- Service: `Satyug-nagari-railway`
 - Region: US West
 - Every `git push origin main` auto-deploys via Railway's GitHub integration.
 - Dockerfile uses nginx:alpine + envsubst templates. PORT is injected by Railway at runtime.
 
 ## Run Locally (No Build Step)
 ```bash
-cd surya-nagari
+cd Satyug-nagari
 node -e "const h=require('http'),f=require('fs'),p=require('path');h.createServer((q,r)=>{let file=p.join('.',q.url==='/'?'index.html':q.url);try{r.end(f.readFileSync(file))}catch{r.end(f.readFileSync('index.html'))}}).listen(8742,()=>console.log('ready at http://localhost:8742'))"
 ```
 (No npm, no dependencies. Fonts and Three.js load from CDNs — internet needed.)

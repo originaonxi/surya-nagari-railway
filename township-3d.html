@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SŪRYA-1 · The Living Model — 500-Acre Mandala · Interactive 3D</title>
+<title>Satyug-1 · The Living Model — 500-Acre Mandala · Interactive 3D</title>
 <style>
   :root{--gold:#e9b949;--teal:#6fe3c8;--dim:#a8a796;--faint:#5d6072;--line:#1d2436;
     --mono:ui-monospace,'SF Mono',Menlo,monospace;--sans:'Inter','Avenir Next',system-ui,sans-serif;}
@@ -109,11 +109,11 @@
 <div id="loading">WAKING THE LIVING MODEL …</div>
 <div id="scene"></div>
 
-<div class="hud" id="title"><h1>SŪRYA-1</h1><div class="sub">the living model · 500 acres</div></div>
+<div class="hud" id="title"><h1>Satyug-1</h1><div class="sub">the living model · 500 acres</div></div>
 <a class="hud" id="back" href="index.html">← master document</a>
 <div class="hud" id="mode">DAY · INFERENCE</div>
 <div class="hud" id="telem">
-  <div class="h">LIVE TELEMETRY · SūryaOS</div>
+  <div class="h">LIVE TELEMETRY · SatyugOS</div>
   <canvas id="tEcg" width="190" height="30" style="display:block;margin:0 0 8px"></canvas>
   <div class="row"><span>heartbeat</span><b id="tBpm" class="ok">— bpm</b></div>
   <div class="row"><span>solar output</span><b id="tSolar">— MW</b></div>
@@ -679,7 +679,7 @@ const factorySmoke=[];const yardCrates=[];
 {const yc=P(134*D2R,318);const[yx,yz]=yc;const th=134*D2R;
  const apron=M(new THREE.CylinderGeometry(36,36,.7,10),new THREE.MeshStandardMaterial({color:0x2e2a22,roughness:.95}));apron.position.set(yx,.4,yz);scene.add(apron);
  const tang={x:-Math.sin(th),y:Math.cos(th)};
- const trades=[{n:'SOAP & HERBS',c:0xd87093},{n:'TEXTILES & CLOTH',c:0x8fa0c8},{n:'FOOD PROCESSING',c:0x69d98a},{n:'FURNITURE & WOOD',c:0xb05a3c},{n:'SŪRYA WORKS · DECK/DIYA',c:0xe9b949}];
+ const trades=[{n:'SOAP & HERBS',c:0xd87093},{n:'TEXTILES & CLOTH',c:0x8fa0c8},{n:'FOOD PROCESSING',c:0x69d98a},{n:'FURNITURE & WOOD',c:0xb05a3c},{n:'Satyug Works · DECK/DIYA',c:0xe9b949}];
  function makeShed(c){const g=new THREE.Group();
   const body=M(new THREE.BoxGeometry(12,7,9),new THREE.MeshStandardMaterial({color:0x6f6f72,metalness:.5,roughness:.5}));body.position.y=3.5;g.add(body);
   for(let s=0;s<3;s++){const saw=M(new THREE.BoxGeometry(12,3.4,.7),new THREE.MeshStandardMaterial({map:panelTex,metalness:.55,roughness:.4}));
@@ -700,7 +700,7 @@ const factorySmoke=[];const yardCrates=[];
   scene.add(cr);yardCrates.push({m:cr,t:i/6});}
  const ml=label("MAKERS' YARD · MADE HERE, SOLD TO THE WORLD",'#e9b949',20);ml.position.set(yx,30,yz);scene.add(ml);}
 
-/* ════════════ SŪRYA DVĀR — outside the east gate ════════════ */
+/* ════════════ Satyug Dvār — outside the east gate ════════════ */
 {const road=M(new THREE.BoxGeometry(260,.6,14),new THREE.MeshStandardMaterial({map:roadTex,roughness:.95}));road.position.set(648,.3,0);scene.add(road);
  const arch=M(new THREE.CylinderGeometry(16,16,56,16,1,true,0,Math.PI).rotateZ(Math.PI/2).rotateY(Math.PI/2),glassMat(0xe9b949,.3));
  arch.position.set(600,1,0);scene.add(arch);
@@ -714,7 +714,7 @@ const factorySmoke=[];const yardCrates=[];
  const p1=M(new THREE.BoxGeometry(3,22,3),glowMat(0x9c7a1f,0xe9b949,.5,2));p1.position.set(516,11,-12);scene.add(p1);
  const p2=p1.clone();p2.position.z=12;scene.add(p2);
  const arc=M(new THREE.TorusGeometry(12,1.2,8,24,Math.PI).rotateY(Math.PI/2),glowMat(0x9c7a1f,0xe9b949,.5,2));arc.position.set(516,22,0);scene.add(arc);
- const ml=label('SŪRYA DVĀR · THE MART · THE API GATE','#e9b949',20);ml.position.set(600,28,0);scene.add(ml);}
+ const ml=label('Satyug Dvār · THE MART · THE API GATE','#e9b949',20);ml.position.set(600,28,0);scene.add(ml);}
 const worldCars=[];for(let i=0;i<3;i++){
  const c=M(new THREE.BoxGeometry(7,3,3.6),glowMat([0xd8d2c0,0x8fa0c8,0xb05a3c][i],0xffe9a3,.15,1.2));
  scene.add(c);worldCars.push({m:c,t:Math.random(),sp:.05+i*.02,dir:i%2?1:-1});}
@@ -1077,7 +1077,7 @@ const INTERIORS={
  'Server Hall':{p:[INT_X+30,7,-788],t:[INT_X-10,5,-800],d:'Inside the brainstem: sixteen racks of solar-fed accelerators. By day they sell intelligence to the world; at night every rack turns to one job — retraining the town on what the land did today.'},
  'PRANA Clinic':{p:[INT_X+14,6,-386],t:[INT_X-4,3,-400],d:'No waiting room, no billing desk — PRANA already knows who needs to be here. The ring scanner reads what the band suspected; the wall traces a live heart; the doctor, unhurried, decides.'},
  '24/7 Kitchen':{p:[INT_X+13,6.5,15],t:[INT_X-2,3,0],d:'Three a.m. or noon — the hearth never closes. One long table because eating alone is optional here, bowls from this morning\'s harvest, a robot arm doing the tedium. Taste stays human.'},
- 'Ramana Room':{p:[INT_X+11,5,411],t:[INT_X,3,400],d:'One beam of light. One seeker. Nothing measured, nothing learned, nothing optimized — the only room in SŪRYA-1 where the model does not run. The question at the center of the mandala lives here: WHO AM I.'},
+ 'Ramana Room':{p:[INT_X+11,5,411],t:[INT_X,3,400],d:'One beam of light. One seeker. Nothing measured, nothing learned, nothing optimized — the only room in Satyug-1 where the model does not run. The question at the center of the mandala lives here: WHO AM I.'},
  'Sabha Hall':{p:[INT_X+19,9,817],t:[INT_X,4,800],d:'The university\'s heart: the committed sit in a circle around the model itself, reviewing the night\'s training — harvest vs prediction, cohort health, model loss. The humans correct; the model learns; both leave better. This room is the product.'},
 };
 
@@ -1091,12 +1091,12 @@ const VIEWS={
  'Olympic Ring':{p:[0,190,-110],t:[0,5,-330],d:'Stadium, 50-metre aquatics, velodrome, courts, cricket oval, akhara, archery — Olympic-grade, open to every seeker, every day. The body is also a model: the Sport Lab trains on every lap, and athletes here are seekers of the body\'s own frontier.'},
  'Farms':{p:[150,120,-130],t:[300,5,-60],d:'Food sovereignty for 2,000 + guests: four glass vertical-farm towers, five full-length glasshouse tunnels, crop arcs, herb beds, sandstone grain-silos and cold rooms — robots in the rows, ANNA reading 4,000 soil probes, harvest in the kitchen within hours.'},
  'Robot Hangar':{p:[-66,34,346],t:[-98,5,304],d:'The machine workforce docks and charges here: a steel-and-glass hangar of humanoid maintenance bots and rovers. Automation first — these run the farms, kitchens, deliveries and labs so the 2,000 owners are free to think. Two roll out on patrol; the rest charge under teal light.'},
- 'Makers’ Yard':{p:[-168,42,168],t:[-228,10,236],d:'The factories: five sawtooth workshops making everything the town needs — soap &amp; herbs, textiles &amp; cloth, food processing, furniture &amp; wood, and Sūrya Works (the Deck &amp; Diya machines). Crates ride the conveyor out through Sūrya Dvār — made here, sold to the world.'},
+ 'Makers’ Yard':{p:[-168,42,168],t:[-228,10,236],d:'The factories: five sawtooth workshops making everything the town needs — soap &amp; herbs, textiles &amp; cloth, food processing, furniture &amp; wood, and Satyug Works (the Deck &amp; Diya machines). Crates ride the conveyor out through Satyug Dvār — made here, sold to the world.'},
  'Zen Garden':{p:[60,40,-150],t:[29,4,-80],d:'Stillness you can walk into: raked sand in concentric rings, standing stones, a koi pond, open meditation pavilions — and the morning yoga circle at the banyan. Beyond the Ramana Rooms (where the model never enters), this is the town’s daily zen.'},
  'Solar + GPU':{p:[-185,130,40],t:[-320,8,0],d:'The west wedge: 22 MWp of sun-tracking panels, two green-terraced GPU towers burning brighter at night when the town trains, and the battery mound — sleep, made of lithium.'},
  'Water Ring':{p:[210,80,330],t:[287,2,287],d:'A perfect circle of water around the human world — the residual stream made recurrent. Lotus on the surface, birds above, four bridges at the cardinal gates. It separates the quarters of animals and humans, and joins them.'},
  'Animal Ring':{p:[-250,46,-110],t:[-390,6,-215],d:'The outermost circle belongs entirely to them: cows, dogs, birds, butterflies, the gaushala and the animal hospital — a kingdom wrapped around the whole town. The frozen weights guard the mandala. Humans visit by bridge, as guests.'},
- 'Sūrya Dvār':{p:[700,70,130],t:[590,8,0],d:'Beyond the east bridge and the gate: the timber-and-glass market hall where the mandala\'s overflow becomes provenanced product, and the ten labs\' models become APIs the world can call. The weights never leave; the gradient flows home.'},
+ 'Satyug Dvār':{p:[700,70,130],t:[590,8,0],d:'Beyond the east bridge and the gate: the timber-and-glass market hall where the mandala\'s overflow becomes provenanced product, and the ten labs\' models become APIs the world can call. The weights never leave; the gradient flows home.'},
 };
 const viewsEl=document.getElementById('views'),infoName=document.querySelector('#info .zname'),infoDesc=document.querySelector('#info .zdesc');
 let camGoal=null;
@@ -1158,7 +1158,7 @@ const vHeart=document.getElementById('vHeart'),vBpm=document.getElementById('vBp
 
 /* ════════════ CINEMATIC PITCH — sells itself in 75 seconds, hands-free ════════════ */
 const PITCH=[
- {v:'The Mandala',    s:'',         t:'SŪRYA-1',                              u:'the world’s first LIVING model'},
+ {v:'The Mandala',    s:'',         t:'Satyug-1',                              u:'the world’s first LIVING model'},
  {v:'The Still Point',s:'64 BPM',   t:'It has a heartbeat.',                  u:'a town that breathes — by day it thinks, by night it dreams on stored sunlight'},
  {v:'Living Rings',   s:'2,000',    t:'humans, held in one context',         u:'resident-owners · ₹4,000 crore · they own the machine they live in'},
  {v:'Solar + GPU',    s:'≈1 EFLOP', t:'intelligence, from sunlight',         u:'1,024 GPUs · 22 MW of solar · zero fossil, forever'},
@@ -1166,7 +1166,7 @@ const PITCH=[
  {v:'The Lab Belt',   s:'10 APIs',  t:'ten labs, sold to the world',         u:'every department is a model — flight · health · farm · silicon · compute · sport'},
  {v:'Olympic Ring',   s:'',         t:'the body is also a model',            u:'Olympic-grade — stadium, 50m aquatics, velodrome — for every seeker'},
  {v:'Animal Ring',    s:'',         t:'guarded by a kingdom that pays no rent',u:'ahimsa · the frozen weights wrap the whole mandala'},
- {v:'The Mandala',    s:'500 ACRES',t:'this is SŪRYA-1',                      u:'a living model, owned by its people — drag to explore, or press ▶ pitch to replay'},
+ {v:'The Mandala',    s:'500 ACRES',t:'this is Satyug-1',                      u:'a living model, owned by its people — drag to explore, or press ▶ pitch to replay'},
 ];
 const pitchEl=document.getElementById('pitch'),pskip=document.getElementById('pskip');
 const pStat=pitchEl.querySelector('.pstat'),pTitle=pitchEl.querySelector('.ptitle'),pSub=pitchEl.querySelector('.psub'),pBar=pitchEl.querySelector('.pbar');

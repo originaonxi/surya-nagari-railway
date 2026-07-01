@@ -1,4 +1,4 @@
-# 🏙️ SŪRYA NAGARI — Open Real Estate AI Estate
+# 🏙️ The Satyug Collective — Open Real Estate AI Estate
 
 **The world's first open-source self-sufficient city blueprint.**
 
@@ -13,9 +13,9 @@ No monthly bills. No landlords. No external utilities. Owned by its people, powe
 
 ---
 
-## What Is Sūrya Nagari?
+## What Is The Satyug Collective?
 
-Sūrya Nagari is not a real estate project. It is a **civilizational prototype** — a working proof that a city can be:
+The Satyug Collective is not a real estate project. It is a **civilizational prototype** — a working proof that a city can be:
 
 - **Built once** (₹15,250 Crore total, debt-free)
 - **Endowed forever** (₹770 Cr/year from GPU compute + commercial rents)
@@ -26,7 +26,7 @@ Sūrya Nagari is not a real estate project. It is a **civilizational prototype**
 
 ### The 30-Year Comparison
 
-| | Standard Indian City | Sūrya Nagari Shareholder |
+| | Standard Indian City | The Satyug Collective Shareholder |
 |---|---|---|
 | Initial cost | ₹1.2 Cr flat (only a flat) | **₹1.6 Cr shareblock** (whole city) |
 | Electricity (30 yrs) | ₹36 Lakhs | **₹0** (200 MW solar) |
@@ -46,7 +46,7 @@ Sūrya Nagari is not a real estate project. It is a **civilizational prototype**
 | 🌾 Community + Vertical Farms | 1,500 | Organic food for all residents, 100% vegetarian |
 | ☀️ Solar Farm + Battery (200 MW) | 800 | Powers everything, zero fossil fuel |
 | 🖥️ GPU Compute Campus | 100 | 2,048+ AI GPUs leased globally — main revenue |
-| 🏭 Industrial Park (Sūrya Works) | 200 | Clothes, soap, furniture, food processing |
+| 🏭 Industrial Park (Satyug Works) | 200 | Clothes, soap, furniture, food processing |
 | 🏢 Commercial Rental Zone | 150 | Grade-A offices (Gurgaon model) — rent = revenue |
 | 🎓 School + University + AI Labs | 150 | K-12 + full university, free for all shareholders |
 | 🏥 Medical + R&D Campus | 100 | 500-bed hospital, free healthcare for life |
@@ -100,7 +100,7 @@ Surplus:                     ₹520 Crore/yr
 | `founding-charter.html` | The animated 10-article founding charter |
 | `township-3d.html` | Interactive 3D city model (Three.js) |
 | `brochure.html` | Print source for the PDF prospectus |
-| `Surya-Nagari-Prospectus.pdf` | Downloadable 24-page PDF |
+| `Satyug-Nagari-Prospectus.pdf` | Downloadable 24-page PDF |
 | `shots/z-*.jpeg` | Zone renders used across the site |
 
 ---
@@ -108,8 +108,8 @@ Surplus:                     ₹520 Crore/yr
 ## Run Locally (No Build Step)
 
 ```bash
-git clone https://github.com/originaonxi/surya-nagari-railway
-cd surya-nagari-railway
+git clone https://github.com/originaonxi/Satyug-nagari-railway
+cd Satyug-nagari-railway
 python3 -m http.server 8742
 # Open: http://localhost:8742/
 ```
@@ -140,11 +140,11 @@ Click **Deploy** on Railway and it works out of the box.
 
 ```
 # Clone the blueprint
-git clone https://github.com/originaonxi/surya-nagari-railway my-city-blueprint
+git clone https://github.com/originaonxi/Satyug-nagari-railway my-city-blueprint
 
 # Adapt for your location (change: climate zone, land laws, language, cultural constitution)
 # Build your own city
-# Apply for "Official Sūrya Nagari Estate" certification (free community audit)
+# Apply for "Official The Satyug Collective Estate" certification (free community audit)
 ```
 
 ---
@@ -166,7 +166,7 @@ See `CONTRIBUTING.md` (coming soon). Open an issue or PR.
 
 > *"Sunlight in. Intelligence out. Time returned."*
 
-Gurgaon was built by a developer who got rich. Sūrya Nagari is built by 10,000 families who own it. The developer model has failed billions of people — it makes housing a speculative asset instead of a foundation for life.
+Gurgaon was built by a developer who got rich. The Satyug Collective is built by 10,000 families who own it. The developer model has failed billions of people — it makes housing a speculative asset instead of a foundation for life.
 
 This is the alternative. Not just for India. For the world.
 

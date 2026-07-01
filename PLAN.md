@@ -1,4 +1,4 @@
-# SŪRYA NAGARI → OPEN REAL ESTATE AI ESTATE
+# The Satyug Collective → OPEN REAL ESTATE AI ESTATE
 
 ## Transformation Plan v1.0 — June 2026
 
@@ -15,7 +15,7 @@
 
 **Structure:**
 1. **HERO** — "A city owned by its people. Powered by the sun. Free for life."
-2. **THE PROBLEM** — Simple 2-column: Standard City vs Surya Nagari (30-year comparison table)
+2. **THE PROBLEM** — Simple 2-column: Standard City vs The Satyug Collective (30-year comparison table)
 3. **THE ZONES** — 11 zones in a visual grid, each explained in plain language
 4. **HOW SHARES WORK** — 1 Share = Home + Land + Solar + GPU + Farms + Factory + Hospital + School
 5. **THE CONSTITUTION** — Pure vegetarian · No violence · Sanatan · Ahimsa
@@ -57,7 +57,7 @@ Add nixpacks.toml or server.js Express wrapper
 ---
 
 ## PHASE 2 — GITHUB LAUNCH
-1. Push 5 unpushed commits to `anmolsam/surya-nagari`
+1. Push 5 unpushed commits to `anmolsam/Satyug-nagari`
 2. Make repo public
 3. Add LICENSE files
 4. Enable GitHub Pages
@@ -65,5 +65,5 @@ Add nixpacks.toml or server.js Express wrapper
 
 ## PHASE 3 — RAILWAY SYNC
 1. Push to `railway` remote
-2. Verify live deployment at surya-nagari-railway.up.railway.app
+2. Verify live deployment at Satyug-nagari-railway.up.railway.app
 3. Fix any deployment issues
