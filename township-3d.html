@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SŪRYA-1 · The Living Model — 200-Acre Mandala · Interactive 3D</title>
+<title>SŪRYA-1 · The Living Model — 500-Acre Mandala · Interactive 3D</title>
 <style>
   :root{--gold:#e9b949;--teal:#6fe3c8;--dim:#a8a796;--faint:#5d6072;--line:#1d2436;
     --mono:ui-monospace,'SF Mono',Menlo,monospace;--sans:'Inter','Avenir Next',system-ui,sans-serif;}
@@ -109,7 +109,7 @@
 <div id="loading">WAKING THE LIVING MODEL …</div>
 <div id="scene"></div>
 
-<div class="hud" id="title"><h1>SŪRYA-1</h1><div class="sub">the living model · 200 acres</div></div>
+<div class="hud" id="title"><h1>SŪRYA-1</h1><div class="sub">the living model · 500 acres</div></div>
 <a class="hud" id="back" href="index.html">← master document</a>
 <div class="hud" id="mode">DAY · INFERENCE</div>
 <div class="hud" id="telem">
@@ -127,7 +127,7 @@
   <div class="row"><span>day</span><b id="tDay">1</b></div>
 </div>
 <div class="hud" id="hint">drag — orbit · scroll — zoom · right-drag — pan<br>one full day passes every 60 seconds</div>
-<div class="hud" id="info"><div class="zname">THE MANDALA</div><div class="zdesc">200 acres in sacred rings: animals guard the outermost circle, a ring of water separates their kingdom from ours, and at the exact center — where every other city puts its monument — stands the one question: WHO AM I.</div></div>
+<div class="hud" id="info"><div class="zname">THE MANDALA</div><div class="zdesc">500 acres in sacred rings: animals guard the outermost circle, a ring of water separates their kingdom from ours, and at the exact center — where every other city puts its monument — stands the one question: WHO AM I.</div></div>
 <div class="hud" id="vitals"></div>
 <div class="hud" id="inside"><span class="lbl">step inside →</span></div>
 <div class="hud" id="views"></div>
@@ -289,13 +289,13 @@ function label(text,color='#e9b949',size=26){
 
 /* ════════════ THE MANDALA — ground rings ════════════ */
 const outer=M(new THREE.CircleGeometry(3000,64).rotateX(-Math.PI/2),lam(0x0a0f0c));outer.position.y=-.5;scene.add(outer);
-/* whole 200-acre disc */
+/* whole 500-acre mandala disc — schematic scale */
 const disc=new THREE.Mesh(new THREE.CircleGeometry(512,96).rotateX(-Math.PI/2),new THREE.MeshStandardMaterial({map:grassTex,roughness:.95}));
 disc.receiveShadow=true;disc.position.y=-.1;scene.add(disc);
 /* fence — the membrane */
 {const fence=M(new THREE.TorusGeometry(512,.9,8,128).rotateX(Math.PI/2),glowMat(0x9c7a1f,0xe9b949,.5,1.8));fence.position.y=2.4;scene.add(fence);
  for(let i=0;i<48;i++){const [x,z]=P(i/48*Math.PI*2,512);const p=M(new THREE.CylinderGeometry(.4,.5,4.4),lam(0x4a3a1a));p.position.set(x,2.2,z);scene.add(p);}
- const bl=label('THE MEMBRANE · 200 ACRES','#9c7a1f',24);bl.position.set(0,26,-528);scene.add(bl);}
+ const bl=label('THE MEMBRANE · 500 ACRES','#9c7a1f',24);bl.position.set(0,26,-528);scene.add(bl);}
 /* ANIMAL RING — outermost: the guardians */
 scene.add(sector(425,508,0,Math.PI*2,new THREE.MeshStandardMaterial({map:meadowTex,roughness:.95,side:THREE.DoubleSide}),.12));
 {const al=label('THE ANIMAL RING · FROZEN WEIGHTS GUARD THE WHOLE MANDALA','#69d98a',24);al.position.set(0,30,-466);scene.add(al);}
@@ -1083,7 +1083,7 @@ const INTERIORS={
 
 /* ════════════ views ════════════ */
 const VIEWS={
- 'The Mandala':{p:[620,540,820],t:[0,0,0],d:'200 acres in sacred rings: animals guard the outermost circle, a ring of water separates their kingdom from ours, ten lab-APIs orbit the seekers\' homes, and at the exact center stands the question: WHO AM I.'},
+ 'The Mandala':{p:[620,540,820],t:[0,0,0],d:'500 acres in sacred rings: animals guard the outermost circle, a ring of water separates their kingdom from ours, ten lab-APIs orbit the seeker homes, and at the exact center stands the question: WHO AM I.'},
  'The Still Point':{p:[70,42,110],t:[0,10,0],d:'The center of everything: the great banyan, three earthen Ramana rooms, the morning yoga circle, one peacock. Every other city puts a monument here. This one puts silence — the stop token the whole mandala orbits.'},
  'The Commons':{p:[18,38,72],t:[-20,9,-72],d:'The attention ring: the PRANA clinic with its red cross + air-ambulance pad, the glass 24/7 kitchen, the golden Theater, the Management tower (the Glass Treasury — every rupee public, every tender open to bid), the university, the Sabha pillar of light where residents vote every decision, the amphitheatre, fountain and Zen Garden.'},
  'Living Rings':{p:[150,95,250],t:[76,4,132],d:'Six clusters, three ways to own: villa estates with plunge pools, garden homes, and low-rise residences — 2,000 resident-owners averaging ₹2 Cr each, a ₹4,000 Cr pool that builds everything and endows every life. No tenants, no landlords, no resident staff — only owners, machines, and guests.'},
@@ -1166,7 +1166,7 @@ const PITCH=[
  {v:'The Lab Belt',   s:'10 APIs',  t:'ten labs, sold to the world',         u:'every department is a model — flight · health · farm · silicon · compute · sport'},
  {v:'Olympic Ring',   s:'',         t:'the body is also a model',            u:'Olympic-grade — stadium, 50m aquatics, velodrome — for every seeker'},
  {v:'Animal Ring',    s:'',         t:'guarded by a kingdom that pays no rent',u:'ahimsa · the frozen weights wrap the whole mandala'},
- {v:'The Mandala',    s:'200 ACRES',t:'this is SŪRYA-1',                      u:'a living model, owned by its people — drag to explore, or press ▶ pitch to replay'},
+ {v:'The Mandala',    s:'500 ACRES',t:'this is SŪRYA-1',                      u:'a living model, owned by its people — drag to explore, or press ▶ pitch to replay'},
 ];
 const pitchEl=document.getElementById('pitch'),pskip=document.getElementById('pskip');
 const pStat=pitchEl.querySelector('.pstat'),pTitle=pitchEl.querySelector('.ptitle'),pSub=pitchEl.querySelector('.psub'),pBar=pitchEl.querySelector('.pbar');

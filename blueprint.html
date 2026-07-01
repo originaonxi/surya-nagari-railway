@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sūrya Nagari 100-Year Blueprint — indicative pre-DPR research into energy, water, food, architecture, governance, and healthcare systems for a self-sufficient township.">
+<title>100-Year Blueprint — Sūrya Nagari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --a:#FAF7F2;--a2:#F0EAE0;--a3:#E4DAC8;
+  --s:#1E2B30;--s2:#2B3A40;--s3:#162020;--s4:#0A1414;
+  --g:#C9924A;--g2:#E8AF60;--g3:#F5D08A;
+  --t:#1E2B30;--dim:#7A8490;--w:#fff;--b:rgba(30,43,48,.08);
+  --t1:#2A6B3C;--t1bg:#EAF5EE;--t1bd:#C3E0CB;
+  --t2:#7A6020;--t2bg:#FDF4E3;--t2bd:#E8C96E;
+  --t3:#7A4A20;--t3bg:#FDF0E3;--t3bd:#E8A06E;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--a);color:var(--t);font-family:'Inter',sans-serif;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 5%;display:flex;align-items:center;gap:24px;height:56px;}
+.nl{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:600;color:var(--s);letter-spacing:.04em;}
+.nv{display:flex;gap:22px;flex:1;}
+.nv a{font-size:.72rem;font-weight:500;color:var(--dim);letter-spacing:.09em;text-transform:uppercase;transition:color .2s;}
+.nv a:hover,.nv a.active{color:var(--s);}
+.nc{background:var(--g);color:var(--s4);padding:8px 20px;border-radius:6px;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;}
+
+/* HERO */
+.hero{background:var(--s4);padding:120px 5% 80px;text-align:center;}
+.heye{font-size:.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--g2);margin-bottom:28px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,5rem);font-weight:300;color:var(--a);line-height:1.1;margin-bottom:20px;letter-spacing:-.02em;}
+.hero h1 em{font-style:italic;color:var(--g2);}
+.hero-sub{font-size:clamp(.9rem,1.8vw,1.1rem);color:rgba(250,247,242,.45);max-width:640px;margin:0 auto 40px;line-height:1.85;font-weight:300;}
+.disclaimer{display:inline-block;background:rgba(201,146,74,.08);border:1px solid rgba(201,146,74,.2);border-radius:8px;padding:14px 24px;font-size:.78rem;color:rgba(250,247,242,.5);max-width:700px;line-height:1.7;}
+.disclaimer strong{color:var(--g2);}
+
+/* TIER LEGEND */
+.legend{background:var(--a2);padding:36px 5%;border-bottom:1px solid var(--b);}
+.legend-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.lt{border-radius:8px;padding:16px 20px;}
+.lt1{background:var(--t1bg);border:1px solid var(--t1bd);}
+.lt2{background:var(--t2bg);border:1px solid var(--t2bd);}
+.lt3{background:var(--t3bg);border:1px solid var(--t3bd);}
+.lt-badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:6px;}
+.lt1 .lt-badge{background:var(--t1);color:#fff;}
+.lt2 .lt-badge{background:var(--t2);color:#fff;}
+.lt3 .lt-badge{background:var(--t3);color:#fff;}
+.lt-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:4px;}
+.lt1 .lt-title{color:var(--t1);}
+.lt2 .lt-title{color:var(--t2);}
+.lt3 .lt-title{color:var(--t3);}
+.lt-body{font-size:.75rem;color:var(--dim);line-height:1.6;}
+
+/* NAV ANCHORS */
+.domain-nav{background:var(--s);padding:14px 5%;display:flex;gap:18px;flex-wrap:wrap;justify-content:center;position:sticky;top:56px;z-index:100;}
+.dn-a{font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,242,.35);transition:color .2s;padding:4px 0;}
+.dn-a:hover{color:var(--g2);}
+
+/* DOMAIN SECTIONS */
+.domain{padding:80px 5%;}
+.domain:nth-child(odd){background:var(--a);}
+.domain:nth-child(even){background:var(--a2);}
+.di{max-width:1100px;margin:0 auto;}
+.d-tag{font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:10px;}
+.d-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:300;color:var(--s);margin-bottom:8px;line-height:1.15;letter-spacing:-.01em;}
+.d-h em{font-style:italic;color:var(--g);}
+.d-sub{font-size:.9rem;color:var(--dim);max-width:580px;line-height:1.85;margin-bottom:40px;}
+.tier-group{margin-bottom:28px;}
+.tier-label{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.tier-pill{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;}
+.t1-pill{background:var(--t1);color:#fff;}
+.t2-pill{background:var(--t2);color:#fff;}
+.t3-pill{background:var(--t3);color:#fff;}
+.tier-pill-label{font-size:.72rem;color:var(--dim);font-weight:500;}
+.systems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.scard{border-radius:10px;padding:20px 22px;}
+.scard.t1{background:var(--t1bg);border:1px solid var(--t1bd);}
+.scard.t2{background:var(--t2bg);border:1px solid var(--t2bd);}
+.scard.t3{background:var(--t3bg);border:1px solid var(--t3bd);}
+.sc-name{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:600;margin-bottom:5px;}
+.scard.t1 .sc-name{color:var(--t1);}
+.scard.t2 .sc-name{color:var(--t2);}
+.scard.t3 .sc-name{color:var(--t3);}
+.sc-body{font-size:.78rem;color:var(--dim);line-height:1.65;margin-bottom:8px;}
+.sc-proof{font-size:.67rem;font-weight:600;letter-spacing:.04em;color:var(--dim);border-top:1px solid rgba(30,43,48,.07);padding-top:6px;margin-top:4px;}
+.scard.t1 .sc-proof{color:var(--t1);}
+.scard.t2 .sc-proof{color:var(--t2);}
+.sc-stat{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--g);margin-bottom:2px;display:block;line-height:1;}
+.sc-stat-label{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);}
+
+/* NUMBERS BAR */
+.numbers-bar{background:var(--s3);padding:52px 5%;}
+.nb-inner{max-width:1100px;margin:0 auto;}
+.nb-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:300;color:var(--a);margin-bottom:6px;}
+.nb-sub{font-size:.78rem;color:rgba(250,247,242,.35);margin-bottom:36px;}
+.nb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(201,146,74,.08);}
+.nb-cell{background:var(--s3);padding:28px 18px;text-align:center;}
+.nb-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--g2);line-height:1;margin-bottom:6px;}
+.nb-l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,242,.28);line-height:1.4;}
+.nb-src{font-size:.6rem;color:rgba(250,247,242,.15);margin-top:4px;}
+
+/* COMMUNITY LESSONS */
+.lessons{background:var(--s4);padding:80px 5%;}
+.lessons-inner{max-width:900px;margin:0 auto;}
+.ls-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--a);margin-bottom:8px;}
+.ls-h em{color:var(--g2);font-style:italic;}
+.ls-sub{font-size:.88rem;color:rgba(250,247,242,.38);margin-bottom:40px;line-height:1.85;}
+.lessons-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.lcard{background:rgba(43,58,64,.5);border:1px solid rgba(201,146,74,.08);border-radius:10px;padding:24px;}
+.lc-community{font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:8px;}
+.lc-age{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:rgba(250,247,242,.35);margin-bottom:10px;}
+.lc-lesson{font-size:.82rem;color:rgba(250,247,242,.7);line-height:1.7;}
+.lc-lesson strong{color:var(--g2);}
+
+/* WHAT WE ARE NOT BUILDING */
+.not-building{background:var(--a2);padding:60px 5%;}
+.nb2-inner{max-width:900px;margin:0 auto;}
+.nb2-h{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--s);margin-bottom:6px;}
+.nb2-sub{font-size:.82rem;color:var(--dim);margin-bottom:28px;line-height:1.8;}
+.not-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
+.not-item{background:rgba(30,43,48,.04);border:1px solid rgba(30,43,48,.07);border-radius:8px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;}
+.not-x{color:#B84040;font-size:1rem;min-width:18px;margin-top:1px;}
+.not-text{font-size:.77rem;color:var(--dim);line-height:1.6;}
+.not-text strong{color:var(--t);display:block;margin-bottom:2px;}
+
+/* CTA */
+.cta-sec{background:var(--a);padding:80px 5%;text-align:center;}
+.cta-inner{max-width:580px;margin:0 auto;}
+.cta-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--s);margin-bottom:12px;line-height:1.2;}
+.cta-h em{font-style:italic;color:var(--g);}
+.cta-sub{font-size:.88rem;color:var(--dim);line-height:1.85;margin-bottom:32px;}
+.cta-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.btn-p{background:var(--g);color:var(--s4);padding:13px 32px;border-radius:7px;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;transition:background .2s;}
+.btn-p:hover{background:var(--g2);}
+.btn-s{background:transparent;color:var(--dim);border:1px solid var(--b);padding:12px 22px;border-radius:7px;font-size:.78rem;transition:all .2s;}
+.btn-s:hover{border-color:var(--g);color:var(--s);}
+
+footer{background:var(--s4);color:rgba(250,247,242,.2);text-align:center;padding:40px 5%;font-size:.74rem;line-height:2.2;}
+footer a{color:var(--g);}
+.flinks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:800px){
+  .legend-inner,.lessons-grid{grid-template-columns:1fr;}
+  .nv{display:none;}
+  .domain-nav{gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nl">Sūrya Nagari</div>
+  <div class="nv">
+    <a href="index.html">Home</a>
+    <a href="index.html#resort">The Resort Life</a>
+    <a href="index.html#buffet">The Buffet</a>
+    <a href="index.html#paid">You Get Paid</a>
+    <a href="index.html#satyug">Satyug</a>
+    <a href="index.html#zones">The Zones</a>
+    <a href="prospectus.html">Prospectus</a>
+    <a href="founding-charter.html">Charter</a>
+    <a href="500/index.html" style="color:var(--g);">500-Acre Prototype ↗</a>
+    <a href="blueprint.html" style="color:var(--s);font-weight:600;">100-Yr Blueprint</a>
+  </div>
+  <a class="nc" href="index.html#join">Become a Founder</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="heye">Engineering · 100-Year Systems · Indicative Pre-DPR Research</div>
+  <h1>Built to last a <em>century.</em><br>Not a sales pitch.</h1>
+  <p class="hero-sub">This page shows the actual systems behind Sūrya Nagari — separated by what is proven today, what we plan for Phase 2, and what remains genuinely uncertain. We do not include things that sound impressive but cannot be built.</p>
+  <div class="disclaimer">
+    <strong>How to read this:</strong> Tier 1 = proven at community scale, building now. Tier 2 = proven elsewhere, adapting for India (Phase 2, years 5–15). Tier 3 = promising but uncertain — documented, not promised. Anything not on this page was considered and deliberately excluded.
+  </div>
+</header>
+
+<!-- TIER LEGEND -->
+<div class="legend">
+  <div class="legend-inner">
+    <div class="lt lt1">
+      <div class="lt-badge">Tier 1</div>
+      <div class="lt-title">Proven · Build Now</div>
+      <div class="lt-body">20+ years of real-world data at community scale. Available in India. Affordable with known maintenance requirements. Zero speculative assumptions.</div>
+    </div>
+    <div class="lt lt2">
+      <div class="lt-badge">Tier 2</div>
+      <div class="lt-title">Proven Elsewhere · Phase 2</div>
+      <div class="lt-body">Strong evidence base globally. Needs India adaptation, cost reduction, or skill development. Planned for years 5–15 once Tier 1 foundation is solid.</div>
+    </div>
+    <div class="lt lt3">
+      <div class="lt-badge">Tier 3</div>
+      <div class="lt-title">Promising · Genuinely Uncertain</div>
+      <div class="lt-body">Good science, no community-scale proof yet. We are watching, not promising. Will integrate if and when it becomes proven. Not in the capital plan.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DOMAIN NAV -->
+<div class="domain-nav">
+  <a class="dn-a" href="#energy">Energy</a>
+  <a class="dn-a" href="#water">Water</a>
+  <a class="dn-a" href="#food">Food & Soil</a>
+  <a class="dn-a" href="#architecture">Architecture</a>
+  <a class="dn-a" href="#governance">Governance</a>
+  <a class="dn-a" href="#healthcare">Healthcare</a>
+  <a class="dn-a" href="#education">Education</a>
+  <a class="dn-a" href="#technology">Technology</a>
+  <a class="dn-a" href="#economics">Economics</a>
+  <a class="dn-a" href="#cohesion">Social Cohesion</a>
+</div>
+
+<!-- ═══════════════════════════════════════════ ENERGY -->
+<section class="domain" id="energy">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 01 — Energy</div>
+      <h2 class="d-h">Solar-first energy.<br><em>Net-zero by design.</em></h2>
+      <p class="d-sub">200 MW of solar is modelled as the primary energy backbone. Homes and civic infrastructure are designed for low-energy operation; commercial compute is modelled as grid-tied for 24/7 uptime, offset by daytime solar exports and net-metering where policy allows. Organic waste supplies cooking gas and modest backup heat — not primary electricity.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Building in Phase 1</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Solar PV + Battery Storage</div>
+          <div class="sc-body">200 MW of ground-mounted bifacial solar panels across dedicated solar zones. Battery storage covers household and civic evening demand; 24/7 commercial GPU loads are modelled separately as grid-tied export infrastructure, offset by solar exports where net-metering is permitted. DC microgrids in homes reduce conversion losses.</div>
+          <div class="sc-proof">Reference: installed solar EPC costs in India are among the lowest globally; 25-year panel warranties are standard. Final system sizing depends on DPR load modelling, grid policy, and storage procurement.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Biogas from Organic Waste</div>
+          <div class="sc-body">Food and agricultural waste from 10,000 residents (~3–10 tonnes/day) converted via anaerobic digestion into cooking gas for zone kitchens and modest backup heat. Waste-to-gas closes the organic loop. Not a primary electricity source.</div>
+          <div class="sc-proof">Proof: running in Auroville, Pune biogas plants for 30+ years. Realistic output: cooking fuel for communal kitchens + 60–200 kWe of backup electrical.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">DC Microgrid — Native Homes</div>
+          <div class="sc-body">Every home wired for low-voltage DC from day one. Solar panels are DC. Batteries are DC. LED lighting, appliances, and USB-C devices are DC. Eliminating AC/DC conversion saves 10–15% of household energy.</div>
+          <div class="sc-proof">Proof: established engineering practice. Modern appliances increasingly DC-native.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t2-pill">Tier 2</span><span class="tier-pill-label">Phase 2 — after wind survey</span></div>
+      <div class="systems-grid">
+        <div class="scard t2">
+          <div class="sc-name">Wind Micro-Turbines</div>
+          <div class="sc-body">Night-time solar gap supplement. Rajasthan has viable wind corridors. Requires a 2-year on-site wind survey before sizing and procurement. Not assumed in Phase 1 energy budget.</div>
+          <div class="sc-proof">Proof: running at Findhorn (Scotland), multiple Rajasthan wind farms. Site-specific feasibility required first.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t3-pill">Tier 3</span><span class="tier-pill-label">Watching — not promised</span></div>
+      <div class="systems-grid">
+        <div class="scard t3">
+          <div class="sc-name">Green Hydrogen Storage</div>
+          <div class="sc-body">Long-duration storage for seasonal solar variation. Costs are falling but still 3–5× higher than battery storage per kWh. No community-scale proof yet. Will re-evaluate around 2035.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WATER -->
+<section class="domain" id="water">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 02 — Water</div>
+      <h2 class="d-h">Ancient tech.<br><em>Zero dependency.</em></h2>
+      <p class="d-sub">Rajasthan solved water scarcity a thousand years ago with johads, baoris, and step-wells. We are not reinventing anything — we are restoring the wisdom that colonial-era concrete pipes replaced. Domestic demand: 1.35 MLD. Rainwater from 500 ha of catchment at 350 mm/yr generates ~3.3 MLD — more than twice what we need.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Building in Phase 1</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Johad / Baori Rainwater Harvesting</div>
+          <div class="sc-body">Traditional Rajasthan step-wells and check dams capture and store monsoon runoff. The 5,000-acre site's catchment at 350 mm rainfall generates approximately 3.3 million litres/day — 2.5× domestic demand. Surplus recharges the aquifer.</div>
+          <div class="sc-proof">Proof: johads have sustained Rajasthan villages for 1,000+ years. TERI and Tarun Bharat Sangh revived hundreds of dry rivers using this technique.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">DEWATS Greywater Treatment</div>
+          <div class="sc-body">Decentralised Wastewater Treatment Systems using constructed wetlands and biofilters. Removes 85–95% of organic pollutants. Treated greywater irrigates the farms directly — nothing leaves the water loop.</div>
+          <div class="sc-proof">Proof: operating in Auroville and multiple Indian cities for 30+ years. Designed and documented by BORDA (Germany).</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Water Retention Landscape</div>
+          <div class="sc-body">Contour swales, infiltration ponds, and clay-lined deep reservoirs across the site slow runoff, recharge groundwater, and prevent drought. Modelled on Tamera (Portugal) and traditional Indian techniques.</div>
+          <div class="sc-proof">Proof: Tamera's 500-acre site in arid Portugal became drought-resilient within 5 years. Fully replicable in Rajasthan.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Closed-Loop: Greywater → Farms</div>
+          <div class="sc-body">Every drop of treated greywater goes directly to the food zones. Blackwater (toilet) processed to biogas and slurry. No water leaves the city boundary.</div>
+          <div class="sc-proof">Proof: standard operating model in ecovillages worldwide.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOD -->
+<section class="domain" id="food">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 03 — Food &amp; Soil</div>
+      <h2 class="d-h">Food sovereignty first.<br><em>Soil builds itself.</em></h2>
+      <p class="d-sub">Using John Jeavons' biointensive method as one reference model, approximately 370–450 hectares (~900–1,100 acres) can produce a large baseline share of calories and fresh nutrition for a 10,000-resident module. The full 10,000-family city must scale this through additional on-site acreage, regional cooperative farms, food forests, storage, and DPR-validated crop planning. The principle remains: soil carbon grows every year, not depletes.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Building in Phase 1</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Biointensive Agriculture (60-30-10)</div>
+          <div class="sc-body">60% of beds grow high-carbon compost crops (wheat straw, corn stalks) that feed the soil. 30% grow calorie-dense roots (sweet potato, cassava, garlic). 10% grow nutrition crops (greens, legumes). Achieves 2–4× conventional yields without chemical inputs.</div>
+          <div class="sc-proof">Proof: John Jeavons' method validated in 140 countries over 40 years. Ecology Action NGO has run demonstration farms since 1972.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Perennial Food Forest</div>
+          <div class="sc-body">Multi-storey forest gardens of fruit trees, nut trees, climbers, shrubs, and groundcovers. Self-maintaining after year 5 — zero tillage, zero inputs, zero labour per calorie after establishment. The most resilient food system per hectare.</div>
+          <div class="sc-proof">Proof: India's sacred groves (devavana) are thousands of years old. Modern food forests documented in Robert Hart's work since 1960s.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">On-Site Seed Bank</div>
+          <div class="sc-body">A living seed library of 500+ open-pollinated Indian varieties — millets, pulses, vegetables, medicinal herbs. Every resident can save seeds. Zero dependency on external seed supply or corporate varieties. Navdanya model.</div>
+          <div class="sc-proof">Proof: Navdanya has preserved 5,000+ varieties across India for 30+ years. Community seed banks proven in hundreds of Indian villages.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Vermicompost + Biochar Soil Building</div>
+          <div class="sc-body">Kitchen waste → worm composting → rich vermicompost returned to beds. Biochar from agricultural residue locks carbon in soil for 500–1,000 years and improves water retention. Soil carbon increases every year — the opposite of industrial farming.</div>
+          <div class="sc-proof">Proof: Biochar documented in Amazonian terra preta soils (2,500 years old). Vermicompost standard in Indian organic farming.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Six-Month Strategic Food Reserve</div>
+          <div class="sc-body">Climate shocks, crop failures and global disruptions require a buffer. Grain stores, dry foods, preserved foods and root cellars target a continuously rotated six-month reserve, with expansion possible after storage infrastructure and operating costs are validated.</div>
+          <div class="sc-proof">Reference: Switzerland maintains national food reserve systems and many resilient communities maintain household/community reserves. Six months is aggressive but more physically and financially realistic than a two-year promise at township scale.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t2-pill">Tier 2</span><span class="tier-pill-label">Phase 2 — solar-powered supplement</span></div>
+      <div class="systems-grid">
+        <div class="scard t2">
+          <div class="sc-name">Vertical Farming (leafy greens + herbs)</div>
+          <div class="sc-body">Solar-powered indoor growing for year-round fresh greens, medicinal herbs, and microgreens — unaffected by drought or seasonality. Not a staple-calorie system. Supplements the food forest and farm, especially for zone kitchens in peak summer.</div>
+          <div class="sc-proof">Proof: proven globally for greens. Not proven economically for staple calories — hence Tier 2, supplement only.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ ARCHITECTURE -->
+<section class="domain" id="architecture">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 04 — Architecture</div>
+      <h2 class="d-h">Rajasthan built buildings<br><em>that still stand after 500 years.</em></h2>
+      <p class="d-sub">We are not inventing new materials. We are using what Rajasthan already proved works in its climate: thick earth walls with high thermal mass, courtyard layouts that create cooler microclimates, lime plasters that breathe, and natural ventilation pathways designed to minimise mechanical cooling. Indicative reference: traditional courtyard designs have been measured at 4–6°C cooler indoors than exposed concrete structures in similar climates (IIHS 2023 study on heritage buildings). CSEB buildings from Auroville Earth Institute have stood for 40+ years with minimal maintenance — 100-year lifespan is the design target, not a guarantee. All figures subject to site-specific DPR validation.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">All homes built this way</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Compressed Stabilised Earth Blocks (CSEB)</div>
+          <div class="sc-body">Pressed from local soil with 5–8% lime or cement stabiliser. Thermal mass absorbs daytime heat and re-radiates it at night — 8–10 hour lag means peak heat never enters the home. 40% cheaper than fired brick. Zero kiln emissions. Lasts 100+ years.</div>
+          <div class="sc-proof">Proof: Auroville Earth Institute has built with CSEB for 40+ years. 100+ buildings standing. Published lifespan data.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Haveli Courtyard Layout + Jaali Screens</div>
+          <div class="sc-body">Buildings arranged around a shaded central courtyard. Cool air pools in the courtyard; hot air exhausts through the jaali (lattice) screens above. The courtyard creates a microclimate 5°C cooler than the street. No machinery. No energy. 500-year track record in Rajasthan.</div>
+          <div class="sc-proof">Proof: existing Rajasthan havelis from 1500s–1800s demonstrate the effect. IIHS 2023 temperature measurements confirm 5°C reduction.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Lime Plaster (not cement)</div>
+          <div class="sc-body">Lime breathes — it lets moisture move through walls, preventing damp and mould. Anti-microbial naturally. Absorbs CO₂ as it cures. Lasts 200+ years (Rajasthan forts prove it). Cement plaster cracks within 20 years and traps moisture behind it.</div>
+          <div class="sc-proof">Proof: lime plaster in Jaisalmer Fort, Mehrangarh, Amber Fort — all 300–600 years old and intact.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">East-West Orientation + Earth Berming</div>
+          <div class="sc-body">Every building's long axis runs east-west. Minimal glazing on east/west facades. North walls bermed with earth for insulation. South overhangs shade summer sun, admit winter sun. Zero cost — pure design discipline.</div>
+          <div class="sc-proof">Proof: universal vernacular in hot-dry climates globally. Codified in BIS passive design guidelines for India.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Natural Ventilation Pathways</div>
+          <div class="sc-body">Cross-ventilation designed into every room — cool air enters at floor level from the shaded courtyard, hot air exits at ceiling through clerestory or jaali. Wind towers (baoli-style) on communal buildings. Design intent: eliminate or minimise mechanical air-conditioning in most homes under normal conditions. Supplementary cooling may still be required during peak summer months and is not ruled out.</div>
+          <div class="sc-proof">Proof: Gujarat wind towers (vav) have operated for 700 years. Cross-ventilation design in BIS NBC 2016.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t2-pill">Tier 2</span><span class="tier-pill-label">Phase 2 additions</span></div>
+      <div class="systems-grid">
+        <div class="scard t2">
+          <div class="sc-name">Green Roofs + Living Walls</div>
+          <div class="sc-body">Communal buildings in Phase 2 get planted roofs — adds 40–60mm insulation, reduces urban heat island, grows food. Increases structural load, so requires Phase 1 roof design to accommodate it.</div>
+          <div class="sc-proof">Proof: multiple Bangalore and Pune projects. German DIN standard. Requires trained horticulturalists for maintenance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ GOVERNANCE -->
+<section class="domain" id="governance">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 05 — Governance</div>
+      <h2 class="d-h">Not democracy.<br><em>Something older and better.</em></h2>
+      <p class="d-sub">Nobel laureate Elinor Ostrom spent her career studying communities that managed shared resources for centuries without collapse. Her 8 design principles are the single most evidence-backed governance framework for a commons city. The Balinese Subak irrigation system has used them for 1,000 years. Swiss alpine commons since 1483. We are not experimenting — we are replicating what is proven.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Built into the founding charter</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Ostrom's 8 Principles for Commons</div>
+          <div class="sc-body">Clear membership boundaries. Rules fit the local context. Those affected by rules participate in modifying them. Effective monitoring of compliance. Graduated sanctions. Fast, low-cost conflict resolution. External authorities recognise self-governance. Nested councils for nested problems.</div>
+          <div class="sc-proof">Proof: Nobel Prize in Economics 2009. Balinese Subak (1,000 yrs), Törbel Switzerland pasture commons (since 1483), Zanjera irrigation Philippines (400+ yrs).</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Sociocracy — Consent-Based Circles</div>
+          <div class="sc-body">Each of the 14 zones is a self-governing circle. Decisions require consent (no objection) not consensus (everyone agrees). No one can be overruled, no one can veto endlessly. A city-wide circle handles cross-zone issues. Fast, non-hierarchical, scalable.</div>
+          <div class="sc-proof">Proof: 1,000+ organisations globally use sociocracy. Gerard Endenburg's system proven since 1970. Scales from 10 to 10,000.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Written Founding Covenant</div>
+          <div class="sc-body">Diana Leafe Christian's research across 100+ intentional communities shows this is the single strongest predictor of survival. A signed, specific, written document stating: what we value, how we decide, how we handle conflict, and what happens when someone leaves.</div>
+          <div class="sc-proof">Reference: Findhorn (60+ yrs), Damanhur (50+ yrs), Auroville (55+ yrs) all have written covenants. Diana Leafe Christian's field research (Communities That Abide, 2003) found that absence of a written agreement was a recurring factor in community breakdown — exact failure-rate figures vary by study population.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Restorative Justice + Mediation Council</div>
+          <div class="sc-body">Trained mediators in every zone. Conflict resolution is not punishment — it is restoration of relationship. Specific processes: facilitated dialogue, circle process, community conferencing. Fast, private, compulsory before any escalation.</div>
+          <div class="sc-proof">Proof: 90% of failed intentional communities cite unresolved conflict as primary cause (Diana Leafe Christian, 2003). Restorative justice proven in school systems, prisons, and communities worldwide.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t2-pill">Tier 2</span><span class="tier-pill-label">Phase 2 — after foundation is established</span></div>
+      <div class="systems-grid">
+        <div class="scard t2">
+          <div class="sc-name">Liquid Democracy (digital vote delegation)</div>
+          <div class="sc-body">Residents can vote directly on any issue, or delegate their vote to a trusted neighbour for specific domains (water, education, finance). Delegation is revocable at any time. Phase 2 only — start with sociocracy, add digital layer when community has matured.</div>
+          <div class="sc-proof">Proof: promising in theory, limited real-world testing at city scale. Not betting the foundation on it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ HEALTHCARE -->
+<section class="domain" id="healthcare">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 06 — Healthcare &amp; Longevity</div>
+      <h2 class="d-h">Blue Zone by design.<br><em>Not by luck.</em></h2>
+      <p class="d-sub">The world's five Blue Zones — where people routinely live past 100 in good health — share a precise set of characteristics: daily movement built into the environment, plant-based diet, strong sense of purpose (ikigai), close community bonds, and moderate, regular activity. We are not building a city and hoping people are healthy. We are designing health into the city itself.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Designed into the city from day one</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Blue Zone Urban Design</div>
+          <div class="sc-body">Walkable city — daily movement built into normal life. No cars within residential zones. Paths use undulating natural topography for moderate exercise, with parallel low-gradient paved routes for elders, children, wheelchairs, pregnancy, injury recovery and disability access. Low-rise buildings favour stairs, but designated elder-accessible and mobility-accessible homes include lift or mechanical-assist options.</div>
+          <div class="sc-proof">Proof: Okinawa, Sardinia, Ikaria, Loma Linda, Nicoya — all walkable, car-minimal environments. Documented by Dan Buettner / National Geographic, 2004–2023.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Ayurveda as Primary Care</div>
+          <div class="sc-body">Every zone has a resident Vaidya (Ayurvedic physician). Primary care is preventive — seasonal protocols (Ritucharya), daily routine (Dinacharya), and personalised diet. 500-bed allopathic hospital for acute care. Ayurveda for chronic disease prevention — 10× cheaper per QALY than curative care.</div>
+          <div class="sc-proof">Proof: 5,000-year clinical tradition. CCRAS (India) has 3,000+ documented formulations. Dinacharya reduces chronic disease markers — published in Journal of Ayurveda and Integrative Medicine.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Rasayana — The Herb Zone</div>
+          <div class="sc-body">A dedicated zone of Ayurvedic medicinal plants: Ashwagandha (adaptogen, stress), Brahmi (cognition), Amla (vitamin C, immunity), Tulsi (anti-microbial), Shatavari, Triphala. Grown on-site. Every resident has access. The pharmacy is the garden.</div>
+          <div class="sc-proof">Proof: Ashwagandha's efficacy in 12 peer-reviewed RCTs (2019–2024). Amla documented in 300+ studies. Brahmi: Bacosides proven in cognitive studies.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Purpose-by-Design (Ikigai)</div>
+          <div class="sc-body">The single most statistically significant longevity predictor after not smoking. Every resident has a defined role in the city — teacher, farmer, mediator, healer, artisan. Retirement from contribution does not exist here. Elders are the most respected contributors.</div>
+          <div class="sc-proof">Proof: Okinawan ikigai studies show residents with strong sense of purpose have 83% lower dementia risk (Nihon Ronen Igakkai Zasshi, 2019).</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t2-pill">Tier 2</span><span class="tier-pill-label">Phase 2 — as technology matures</span></div>
+      <div class="systems-grid">
+        <div class="scard t2">
+          <div class="sc-name">AI Wearable Health Monitoring</div>
+          <div class="sc-body">Continuous passive monitoring of cardiovascular markers, glucose trends, sleep quality, and activity. Flags anomalies to the zone Vaidya before they become disease. Technology is proven (Apple Watch-class); community-wide deployment is Phase 2 once costs normalise.</div>
+          <div class="sc-proof">Proof: Apple Watch atrial fibrillation detection validated in Stanford Heart Study (2019, n=419,297).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ EDUCATION -->
+<section class="domain" id="education">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 07 — Education</div>
+      <h2 class="d-h">Not preparing children<br><em>for a world that no longer exists.</em></h2>
+      <p class="d-sub">Industrial schooling was designed to produce factory workers. We need citizens who can farm, heal, govern, build, create, and adapt to challenges we cannot yet predict. Three proven models — each 50+ years old — are combined: India's guru-shishya for mastery, Sudbury Valley for self-directed learning, and project-based learning for real contribution.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Core pedagogy from day one</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Guru-Shishya Apprenticeship</div>
+          <div class="sc-body">Every zone master — the head farmer, the Vaidya, the engineer, the mediator — takes on 2–4 apprentices from age 12. Learning happens by doing, not by sitting. The city is the curriculum. Skills are transmitted person-to-person, not through textbooks.</div>
+          <div class="sc-proof">Proof: the Indian guru-shishya model is the world's oldest documented continuous educational tradition — 5,000+ years of proven skill transmission.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Sudbury Valley Democratic Schooling</div>
+          <div class="sc-body">For children under 12: a mixed-age, completely self-directed learning environment. Children choose their own activities. Adults are available as resources, not teachers. Research shows Sudbury graduates have higher university acceptance rates, entrepreneurship rates, and self-reported life satisfaction than conventional school graduates.</div>
+          <div class="sc-proof">Proof: Sudbury Valley School (Massachusetts) operating since 1968 — 55+ years. 300+ Sudbury-model schools in 30 countries.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Project-Based Learning (Real Work)</div>
+          <div class="sc-body">Children's projects are real city projects. A group of 10-year-olds designs the new water garden. Teenagers run the seed bank. Young adults apprentice in governance circles. Every learning project has a real user and a real stake. Finland and Singapore use this model with documented results.</div>
+          <div class="sc-proof">Proof: Buck Institute for Education's PBL research: 50+ peer-reviewed studies showing better retention, motivation, and transferable skill development vs lecture-based learning.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TECHNOLOGY -->
+<section class="domain" id="technology">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 08 — Technology Infrastructure</div>
+      <h2 class="d-h">Open. Resilient.<br><em>Upgradable — not dependent.</em></h2>
+      <p class="d-sub">The design principle: build the permanent layer (fiber conduit, power conduit, structural backbone) robustly. Keep the technology layer modular and replaceable. A city should not need to rebuild its roads because WiFi protocols changed. We own our infrastructure — no vendor lock-in, no subscription dependency.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Built into Phase 1 infrastructure</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Dark Fiber + LoRaWAN Mesh</div>
+          <div class="sc-body">City-owned fiber conduit connecting every building — currently lit with 1 Gbps, conduit can carry 100 Gbps+ when needed. LoRaWAN mesh for IoT sensors (water meters, soil sensors, weather stations) — low power, long range, no internet dependency.</div>
+          <div class="sc-proof">Proof: LoRaWAN is the global standard for community IoT. Dark fiber is standard municipal infrastructure in 100+ smart cities.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Open Source Ecology Machine Library</div>
+          <div class="sc-body">OSE has open-sourced blueprints for 50+ machines the city needs: tractor, brick press, bakery oven, lathe, cement mixer, solar concentrator. The city maintains a fabrication lab to build and repair its own tools. Zero dependency on import supply chains for core machines.</div>
+          <div class="sc-proof">Proof: Open Source Ecology (Missouri) has demonstrated these machines at their Factor e Farm since 2003. All blueprints freely available.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t2-pill">Tier 2</span><span class="tier-pill-label">Phase 2</span></div>
+      <div class="systems-grid">
+        <div class="scard t2">
+          <div class="sc-name">On-Site Solar-Powered Data Centre</div>
+          <div class="sc-body">City services (health records, governance voting, seed bank, financial ledger) hosted on-site — not on external cloud. Small edge data centre powered by city solar. Reduces external dependency and keeps sensitive data within the community's legal jurisdiction.</div>
+        </div>
+        <div class="scard t2">
+          <div class="sc-name">Post-Quantum Cryptography</div>
+          <div class="sc-body">NIST finalised post-quantum encryption standards in 2024. Migrating city data systems to quantum-resistant algorithms now ensures records created today remain secure for the next 100 years — even as quantum computers mature.</div>
+          <div class="sc-proof">Proof: NIST FIPS 203/204/205 published August 2024. Major cloud providers migrating now.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ ECONOMICS -->
+<section class="domain" id="economics">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 09 — Economics</div>
+      <h2 class="d-h">The commons owns the land.<br><em>The city pays you.</em></h2>
+      <p class="d-sub">Three proven models — each operating for 45–70 years at scale — form the economic backbone. The land never becomes private property, reducing speculation. External cooperatives may earn revenue. Residents may receive variable surplus distributions only when audited cooperative surplus exists. The six-month food reserve reduces exposure to global market shocks.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Legal structure from founding day</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Community Land Trust</div>
+          <div class="sc-body">All 5,000 acres held in perpetual trust by the cooperative. No individual can buy, sell, or speculate on city land. Homes are owned; land is not. This eliminates the single biggest threat to intentional communities: real estate speculation driving out founding members.</div>
+          <div class="sc-proof">Proof: 500+ CLTs operating globally. Burlington CLT (Vermont) has maintained affordability since 1984. Champlain Housing Trust: 42 years, 2,500 homes.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Mondragon-Model Federated Cooperatives</div>
+          <div class="sc-body">The city's proposed GPU compute cluster, commercial zone businesses, and craft exports are organised as worker-owned cooperatives federated under the city's umbrella. The GPU cluster is modelled as grid-tied for 24/7 uptime and offset by solar exports where policy allows. Profits recirculate only after operating costs, reserves, maintenance, depreciation, debt service, and member-approved allocations.</div>
+          <div class="sc-proof">Reference: Mondragon Corporation — 70 years, 80,000 worker-owners, survived the 2008 financial crisis without mass layoffs. World's largest cooperative group. Basque Country, Spain.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Variable Surplus Distribution from Commons</div>
+          <div class="sc-body">Revenue from compute, commercial rents, and city exports flows into a commons fund. After operating costs and reserves, members may vote to distribute part of audited surplus. The current pre-DPR model studies a target distribution of up to ₹2.9 L/year, but this is not a guaranteed return, not a fixed yield, and not a securities offering.</div>
+          <div class="sc-proof">Reference: Alaska Permanent Fund has paid variable annual resident dividends since 1982. The principle is commons-based surplus sharing; actual Sūrya Nagari distributions would depend on audited cooperative surplus and Indian law.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ COHESION -->
+<section class="domain" id="cohesion">
+  <div class="di">
+    <div class="reveal">
+      <div class="d-tag">Domain 10 — Social Cohesion</div>
+      <h2 class="d-h">What actually keeps<br><em>communities alive.</em></h2>
+      <p class="d-sub">Diana Leafe Christian's field research across 100+ intentional communities (Communities That Abide, 2003) found that the large majority that dissolved shared identifiable structural absences. The survivors shared six recurring characteristics — none of them technology-related. These are designed into Sūrya Nagari from day one.</p>
+    </div>
+    <div class="tier-group reveal">
+      <div class="tier-label"><span class="tier-pill t1-pill">Tier 1</span><span class="tier-pill-label">Non-negotiable from founding day</span></div>
+      <div class="systems-grid">
+        <div class="scard t1">
+          <div class="sc-name">Daily Communal Meals</div>
+          <div class="sc-body">The single strongest predictor of community longevity. Every zone has a communal dining hall serving the unlimited buffet. Eating together daily creates bonds that no app, governance system, or economic model can replicate. Every surviving long-term community — Okinawa, kibbutz, Findhorn, Auroville — gathers around food.</div>
+          <div class="sc-proof">Proof: Okinawan moai (lifelong social groups centred on shared meals), Israeli kibbutz (130+ years), Findhorn (60+ years). Communal dining is the common thread.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Intergenerational Design</div>
+          <div class="sc-body">No age-segregated housing by design. Every neighbourhood mixes children, working adults, and elders. Elders mentor apprentices. Children grow up alongside their community's elders. Design intent: reduce structural loneliness, which research consistently associates with significantly elevated health risk.</div>
+          <div class="sc-proof">Reference: Holt-Lunstad et al. (2015) found social isolation associated with mortality risk comparable to smoking. Intergenerational co-housing research is emerging — specific outcome figures vary by study design and population. We adopt the principle, not a specific numerical outcome.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Meaningful Contribution (15–20 hrs/week)</div>
+          <div class="sc-body">Every resident contributes 15–20 hours per week to city operations: farming, cooking, teaching, mediating, building, healing. This is not charity — this is how the city runs. Purpose-through-contribution is the other half of the longevity equation. People who feel needed live longer.</div>
+          <div class="sc-proof">Proof: kibbutz model (130+ years), Mondragon (70 years), Auroville (55 years) — all operate on contribution economics, not wage-only economics.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Founder Values Screening</div>
+          <div class="sc-body">The founding 2,000 families are selected through an application and interview process — not to exclude, but to ensure alignment with the covenant. A community of 10,000 people who deeply share values is stronger than one of 100,000 who don't. Findhorn and Damanhur both screen founders carefully.</div>
+          <div class="sc-proof">Proof: Findhorn (selective, 60+ years), Damanhur (selective, 50+ years). Communities that admit anyone without screening fragment within 5 years.</div>
+        </div>
+        <div class="scard t1">
+          <div class="sc-name">Seasonal Festivals + Ritual Calendar</div>
+          <div class="sc-body">Shared celebration builds shared identity. Every surviving 100-year community has a strong ritual calendar. Sūrya Nagari's calendar is rooted in India's existing festival cycle — Diwali, Holi, Makar Sankranti, Navratri — deepened with zone-specific harvest celebrations and seasonal ceremonies.</div>
+          <div class="sc-proof">Proof: anthropological consensus: ritual and celebration are the social glue of every long-duration human community across all cultures and centuries.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERIFIED NUMBERS BAR -->
+<div class="numbers-bar">
+  <div class="nb-inner reveal">
+    <div class="nb-h">Indicative estimates — pre-DPR.</div>
+    <div class="nb-sub">Figures below are based on published methods and reference data. All require site-specific engineering study before finalisation.</div>
+    <div class="nb-grid">
+      <div class="nb-cell">
+        <div class="nb-n">1.35 MLD</div>
+        <div class="nb-l">Domestic Water Demand</div>
+        <div class="nb-src">135 LPCD × 10,000 people</div>
+      </div>
+      <div class="nb-cell">
+        <div class="nb-n">3.3 MLD</div>
+        <div class="nb-l">Rainwater Catchment Supply</div>
+        <div class="nb-src">500 ha × 350 mm × 70% capture</div>
+      </div>
+      <div class="nb-cell">
+        <div class="nb-n">~400 ha</div>
+        <div class="nb-l">Cultivation Land Needed</div>
+        <div class="nb-src">Jeavons method: 372 sqm/person</div>
+      </div>
+      <div class="nb-cell">
+        <div class="nb-n">18%</div>
+        <div class="nb-l">Of Site Used for Food</div>
+        <div class="nb-src">400 ha of 2,023 ha total site</div>
+      </div>
+      <div class="nb-cell">
+        <div class="nb-n">8–10 hr</div>
+        <div class="nb-l">CSEB Thermal Lag</div>
+        <div class="nb-src">Auroville Earth Institute data</div>
+      </div>
+      <div class="nb-cell">
+        <div class="nb-n">5°C</div>
+        <div class="nb-l">Cooler with Courtyard Design</div>
+        <div class="nb-src">IIHS measurement study 2023</div>
+      </div>
+      <div class="nb-cell">
+        <div class="nb-n">70 yrs</div>
+        <div class="nb-l">Mondragon Cooperative Track Record</div>
+        <div class="nb-src">Founded 1956, 80,000 workers</div>
+      </div>
+      <div class="nb-cell">
+        <div class="nb-n">45 yrs</div>
+        <div class="nb-l">Alaska Dividend Fund Track Record</div>
+        <div class="nb-src">Operating since 1982</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE LEARNED FROM OTHER COMMUNITIES -->
+<div class="lessons">
+  <div class="lessons-inner reveal">
+    <div class="d-tag" style="color:var(--g);">Lessons from the survivors</div>
+    <h2 class="ls-h">60 years of evidence.<br><em>We are not the first.</em></h2>
+    <p class="ls-sub">Every community below survived 50+ years. Each teaches something specific. We have studied each carefully and built their lessons into our design.</p>
+    <div class="lessons-grid">
+      <div class="lcard">
+        <div class="lc-community">Findhorn · Scotland</div>
+        <div class="lc-age">Founded 1962 · 60+ years · 500 residents</div>
+        <div class="lc-lesson"><strong>Lesson:</strong> Communities grow beyond their founders. Design the governance to welcome the second and third generation, or you will calcify into a cult of founders. <strong>What we adopt:</strong> open membership, sociocracy circles that any resident can join.</div>
+      </div>
+      <div class="lcard">
+        <div class="lc-community">Auroville · India</div>
+        <div class="lc-age">Founded 1968 · 55+ years · 3,500 residents</div>
+        <div class="lc-lesson"><strong>Lesson:</strong> A visionary founder creates momentum but also dependency. Auroville struggled for decades after The Mother died. <strong>What we adopt:</strong> the covenant is the founder — not any person. Constitution outlasts individuals.</div>
+      </div>
+      <div class="lcard">
+        <div class="lc-community">Damanhur · Italy</div>
+        <div class="lc-age">Founded 1975 · 50+ years · 600 residents</div>
+        <div class="lc-lesson"><strong>Lesson:</strong> Economic independence from the outside world is more important than ideological purity. Damanhur runs profitable businesses and is financially self-sustaining. <strong>What we adopt:</strong> Mondragon-model export cooperatives from day one.</div>
+      </div>
+      <div class="lcard">
+        <div class="lc-community">Mondragon · Spain</div>
+        <div class="lc-age">Founded 1956 · 70 years · 80,000 workers</div>
+        <div class="lc-lesson"><strong>Lesson:</strong> Worker ownership alone is not enough — you need a cooperative bank, a cooperative university, and federated mutual support between cooperatives. <strong>What we adopt:</strong> the full ecosystem: housing, food, governance, finance, and education are all cooperative and mutually reinforcing.</div>
+      </div>
+      <div class="lcard">
+        <div class="lc-community">Kibbutz Movement · Israel</div>
+        <div class="lc-age">Founded 1910 · 110+ years · 270 kibbutzim</div>
+        <div class="lc-lesson"><strong>Lesson:</strong> Kibbutzim that privatised in the 1990s lost their social cohesion within a decade. Those that stayed collective retained their culture and longevity. <strong>What we adopt:</strong> land stays in the CLT permanently. Non-negotiable. Zero privatisation path.</div>
+      </div>
+      <div class="lcard">
+        <div class="lc-community">Okinawa Blue Zone · Japan</div>
+        <div class="lc-age">1,000+ year tradition · Highest centenarian rate on Earth</div>
+        <div class="lc-lesson"><strong>Lesson:</strong> Health is not a healthcare problem. It is an urban design, food system, social connection, and purpose problem. No hospital system can create what Okinawan village life creates naturally. <strong>What we adopt:</strong> design the city so health is the default outcome, not the treatment for its absence.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE ARE NOT BUILDING -->
+<div class="not-building">
+  <div class="nb2-inner reveal">
+    <h2 class="nb2-h">What we deliberately excluded.</h2>
+    <p class="nb2-sub">These were all researched and scored. They were removed because they are speculative, India-infeasible within any realistic planning horizon, prohibitively expensive, or because the evidence base is too thin to justify inclusion in the plan. Excluding them is itself a design decision.</p>
+    <div class="not-grid">
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>Small Modular Reactors (SMR)</strong>Not approved in India. No commercial deployment globally. 20+ year regulatory horizon. ₹500+ Cr per unit.</div></div>
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>Fusion Power</strong>Not commercially available by any credible estimate before 2060. Not in any 10-year capital plan.</div></div>
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>Hyperloop / Maglev Transport</strong>No proven commercial deployment anywhere. City is walkable — we do not need it.</div></div>
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>Gene Therapy / Radical Life Extension</strong>Promising science, no population-scale proof. Individual choice — not a city-wide programme.</div></div>
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>DAO Blockchain Governance</strong>Empirically: most DAOs show plutocracy and voter apathy within 3 years. Ostrom's proven framework is superior.</div></div>
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>Lab-Grown / Cellular Protein</strong>Not approved in India. Community is vegetarian — Jeavons biointensive covers all protein needs from legumes.</div></div>
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>6G / Quantum Internet</strong>10–20 year horizon. Dark fiber conduit is upgradable to any future standard — no need to plan around it now.</div></div>
+      <div class="not-item"><div class="not-x">✕</div><div class="not-text"><strong>Desalination</strong>Energy-intensive, coast-dependent. Inland Rajasthan site — rainwater catchment solves water with zero energy.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-inner reveal">
+    <div class="d-tag">You have seen the engineering.</div>
+    <h2 class="cta-h">Now see <em>the life</em><br>it makes possible.</h2>
+    <p class="cta-sub">The blueprint is the foundation. The resort-standard life, the buffet, the variable surplus distributions, and the zones are what the foundation aims to make possible — subject to DPR validation and cooperative governance.</p>
+    <div class="cta-links">
+      <a class="btn-p" href="index.html#resort">See the Resort Life →</a>
+      <a class="btn-s" href="prospectus.html">Full Prospectus</a>
+      <a class="btn-s" href="founding-charter.html">The Charter</a>
+      <a class="btn-s" href="index.html#join">Register Interest</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flinks">
+    <a href="index.html">Overview</a>
+    <a href="prospectus.html">Prospectus</a>
+    <a href="share-structure.html">Share Structure</a>
+    <a href="founding-charter.html">Founding Charter</a>
+    <a href="township-3d.html">3D City Model</a>
+    <a href="https://github.com/originaonxi/surya-nagari-railway">Open Source on GitHub</a>
+  </div>
+  Sūrya Nagari Infrastructure &amp; Development Co-operative (proposed) · India · 2026<br>
+  All figures are indicative pre-DPR estimates · Final values require site-specific engineering, legal, and financial validation · Not a registered securities offering
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
