@@ -293,6 +293,14 @@ footer a{color:var(--g);}
   .hero h1{font-size:2.6rem;}
   .cp,.cc,.paid-left,.share-card-main{padding:32px;}
 }
+
+/* Visual placeholder system */
+.visual{position:relative;min-height:320px;border-radius:28px;overflow:hidden;border:1px solid rgba(29,42,49,.10);background:radial-gradient(circle at 18% 20%,rgba(229,184,112,.40),transparent 22%),radial-gradient(circle at 78% 16%,rgba(93,116,91,.34),transparent 28%),linear-gradient(135deg,#d6cec3,#c7bba7 48%,#ab9b84)}
+.visual::before{content:attr(data-slot);position:absolute;left:18px;top:16px;background:rgba(17,32,38,.76);color:#f3eadf;padding:7px 10px;border-radius:999px;font-size:.64rem;letter-spacing:.10em;text-transform:uppercase}
+.visual::after{content:attr(data-caption);position:absolute;left:18px;right:18px;bottom:18px;color:#fff;font-size:.82rem;line-height:1.6;text-shadow:0 2px 12px rgba(0,0,0,.55)}
+.visual.has-image{background-size:cover;background-position:center}
+.visual.has-image::before,.visual.has-image::after{display:none!important}
+.visual.short{min-height:230px}
 </style>
 </head>
 <body>
@@ -827,6 +835,17 @@ document.querySelectorAll('.zrow').forEach(row => {
   row.addEventListener('mouseenter', () => { row.style.borderLeft = `3px solid ${bg}`; });
   row.addEventListener('mouseleave', () => { row.style.borderLeft = ''; });
 });
+
+// deterministic image workflow: if a file exists later, it auto appears without markup changes
+for (const box of document.querySelectorAll('.visual[data-image]')) {
+  const src = box.dataset.image;
+  const img = new Image();
+  img.onload = () => {
+    box.style.backgroundImage = `url('${src}')`;
+    box.classList.add('has-image');
+  };
+  img.src = src;
+}
 </script>
 </body>
 </html>
