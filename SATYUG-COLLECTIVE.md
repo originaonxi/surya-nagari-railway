@@ -260,13 +260,55 @@ CIRCLE_RATE (reference data)
 
 ---
 
+## The First Miniature: Uttarakhand Experience Farm
+
+Before the 500-acre prototype and before the 5,000-acre city, Satyug needs a **living miniature**: a real farm in Uttarakhand where 15–20 people can live the pattern and serious founding members can experience it for 3 nights and 4 days.
+
+The miniature demonstrates the feeling of Satyug:
+
+- farm-grown vegetarian food and community kitchen
+- AI work café with high-speed internet
+- music, painting, cooking, baking, furniture, and creative work
+- Advaita Vedanta study: not two — just one — everything one
+- Sanskrit, Greek, and English literature through AI-enabled learning
+- solar, water harvesting, composting, and farm operations
+- MBHK / Mother BHK residential care concept inside the wellness system
+
+### Uttarakhand shortlist
+
+Candidate regions for field verification:
+
+1. **Kotabagh & Taliya Village** — strong first miniature candidate in the Nainital foothills
+2. **Ramgarh & Nathuakhan Valley** — orchard, organic farming, wellness, slow-living fit
+3. **Jageshwar & Artola Belt** — spiritual/wellness setting for Ayurveda and silence
+4. **Lohaghat** — long-horizon blank-canvas option for larger land banking
+
+### MBHK — Mother BHK
+
+MBHK is the proposed 51-day mothering environment:
+
+- arrive in the 9th month
+- stay minimum 21 days after delivery
+- 30 + 21 = 51 days of supported recovery
+- fully loaded 1BHK-style mother suite
+- farm-to-table plant café following the mother's doctor-advised diet
+- Ayurvedic malish for mother and baby, coordinated with medical advice
+- new mother circle, baby photos, optional farewell gathering
+- husband zone with 1 Gbps/5G work café, standing desks, gym, protein bar, cold-pressed juices, and swimming
+- proposed first capacity: 10 mothers per month
+
+**Medical framing:** MBHK is not a hospital and does not promise medical outcomes. Any implementation requires licensed obstetric/neonatal oversight, registered facility partnerships, emergency transfer protocols, and compliance with Indian medical regulations. Satyug provides the environment; the mother's own doctor and licensed clinical team lead clinical decisions.
+
+---
+
 ## What to Build First (Build Order)
 
-1. ⬜ `500/index.html` — 500-acre prototype landing page (first Collective)
-2. ⬜ `500/wellness.html` — Wellness centre detail
-3. ⬜ `500/app.html` — The app concept page (this vision, designed)
-4. ⬜ FastAPI backend — land + collective + member + quote + review models
-5. ⬜ React/RN frontend — map, collective browser, build-my-home, GC quotes
-6. ⬜ Governance module — proposal + vote + AI brief + blockchain hash
-7. ⬜ Circle rate integration — state land registry APIs for live reference prices
-8. ⬜ Deploy on Railway — one platform, global reach
+1. ✅ `500/index.html` — 500-acre prototype landing page (first Collective)
+2. ✅ `500/wellness.html` — Wellness centre detail + MBHK mothering concept
+3. ✅ `500/experience.html` — Uttarakhand miniature + 3N4D founder immersion experience + MBHK summary
+4. ✅ `500/app.html` — The app concept page
+5. ⬜ FastAPI backend — land + collective + member + quote + review models
+6. ⬜ React/RN frontend — map, collective browser, build-my-home, GC quotes
+7. ⬜ Governance module — proposal + vote + AI brief + blockchain hash
+8. ⬜ Circle rate integration — state land registry APIs for live reference prices
+9. ⬜ Deploy on Railway — one platform, global reach

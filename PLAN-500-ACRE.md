@@ -253,3 +253,70 @@ OWNER (verified MSCS shareholder)
 6. ⬜ Append `PLAN.md` — Phase 4 section
 7. ⬜ FastAPI backend scaffold — land + quote + review endpoints
 8. ⬜ React frontend — Land map + Build-my-home + GC profiles
+
+---
+
+## PART 5 — UTTARAKHAND MINIATURE + SATYUG EXPERIENCE
+
+The 500-acre prototype should be preceded by a smaller **living miniature**: a real farm in Uttarakhand where 15–20 people can live, farm, cook, build, study, create, and host serious founding members for a 3-night, 4-day enrichment experience.
+
+### Why the Miniature Exists
+
+The full 5,000-acre city is too large to understand only through a website. The 500-acre prototype is still a major development. The miniature lets people feel the model first:
+
+- food grown and cooked on-site
+- plant café and community kitchen
+- music, painting, baking, furniture, farm work
+- AI work café with high-speed internet
+- spiritual study rooted in Advaita Vedanta
+- Sanskrit, Greek, and English literature learning
+- early MBHK / mothering care environment concept
+- solar, water harvesting, composting, and farm systems at small scale
+
+### 3 Nights · 4 Days Founder / Cooperative Member Experience
+
+Qualified founding families, cooperative members, doctors, architects, educators, organic farming operators, and long-horizon builders can be invited to stay for a proposed **3-night, 4-day Satyug Experience**.
+
+Purpose: not tourism, but lived due diligence.
+
+| Day | Theme | What Happens |
+|---|---|---|
+| 1 | Arrival + Orientation | Land walk, farm meal, opening circle, project context |
+| 2 | Farm + Food + Work | Yoga, farm work, plant café, AI work block, solar/water walkthrough |
+| 3 | AI + Art + Advaita | Music, painting, baking, furniture, Sanskrit/Greek reading, Advaita session |
+| 4 | Decision + Blueprint | Cooperative structure, location due diligence, 500-acre path, 5,000-acre vision |
+
+### Uttarakhand Location Shortlist
+
+These are shortlists for field verification, not final acquisition recommendations.
+
+| Region | Fit |
+|---|---|
+| **Kotabagh & Taliya Village, Nainital Foothills** | Strong first-miniature candidate: fertile foothill valley, gentler terrain, road access, good farm-stay potential |
+| **Ramgarh & Nathuakhan Valley, near Mukteshwar** | Organic farm culture, orchard identity, wellness/digital-nomad pull, strong slow-living brand |
+| **Jageshwar & Artola Belt, Almora** | Spiritual/wellness angle, deodar forests, retreat culture, good for MBHK + Ayurveda emphasis |
+| **Lohaghat, Champawat** | Larger long-horizon blank-canvas candidate for future 500-acre/5,000-acre expansion |
+
+### MBHK — Mother BHK Concept
+
+The MBHK is a proposed residential mothering environment inside the wellness system:
+
+- arrival in the 9th month
+- minimum 21 days after delivery before exit
+- 30 + 21 = 51-day supported stay
+- fully loaded 1BHK-style residential suite
+- plant café with farm-grown meals following the mother's doctor-advised diet
+- daily Ayurvedic malish for mother and baby, coordinated with medical advice
+- new mother circle, baby photo celebrations, farewell gathering if desired
+- husband zone: 1 Gbps/5G work café, standing desks, gym, protein bar, cold-pressed juices, swimming
+- proposed starting capacity: 10 mothers per month
+
+**Medical framing:** MBHK is not a hospital and does not promise medical outcomes. Any implementation requires licensed obstetric/neonatal oversight, registered facility partnerships, emergency transfer protocols, and full compliance with Indian medical regulations. Satyug provides the environment; the mother's own doctor and licensed care team lead clinical decisions.
+
+### Codebase Integration
+
+Implemented / planned site surfaces:
+
+- `500/experience.html` — Satyug Experience, Uttarakhand location shortlist, farm miniature, philosophy, MBHK summary
+- `500/wellness.html#mbhk` — detailed MBHK concept within the wellness page
+- `500/index.html` navigation + footer links to the Experience page

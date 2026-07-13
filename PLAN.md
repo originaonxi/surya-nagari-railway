@@ -65,5 +65,5 @@ Add nixpacks.toml or server.js Express wrapper
 
 ## PHASE 3 — RAILWAY SYNC
 1. Push to `railway` remote
-2. Verify live deployment at Satyug-nagari-railway.up.railway.app
+2. Verify live deployment at surya-nagari-railway-production.up.railway.app
 3. Fix any deployment issues

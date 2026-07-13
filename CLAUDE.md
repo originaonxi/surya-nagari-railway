@@ -7,15 +7,15 @@ Co-designed by Anmol with Claude, Codex & Gemini. This file is the full handoff 
 on any machine can continue exactly where we left off.
 
 ## Live URLs
-- Site: https://Satyug-nagari-railway-production.up.railway.app/
-- Share structure page: https://Satyug-nagari-railway-production.up.railway.app/share-structure.html
-- 3D model: https://Satyug-nagari-railway-production.up.railway.app/township-3d.html
-- PDF: https://Satyug-nagari-railway-production.up.railway.app/Satyug-Nagari-Prospectus.pdf
-- Repo: https://github.com/originaonxi/Satyug-nagari-railway
+- Site: https://surya-nagari-railway-production.up.railway.app/
+- Share structure page: https://surya-nagari-railway-production.up.railway.app/share-structure.html
+- 3D model: https://surya-nagari-railway-production.up.railway.app/township-3d.html
+- PDF: https://surya-nagari-railway-production.up.railway.app/Satyug-Nagari-Prospectus.pdf
+- Repo: https://github.com/originaonxi/surya-nagari-railway
 
 ## Git Setup (one remote, correct)
 ```
-origin  https://github.com/originaonxi/Satyug-nagari-railway.git
+origin  https://github.com/originaonxi/surya-nagari-railway.git
 ```
 Branch `main` → deploys automatically to Railway on every push.
 
@@ -56,7 +56,7 @@ Branch `main` → deploys automatically to Railway on every push.
 
 ## Railway Deployment
 - Project: `resplendent-love` (Railway project name)
-- Service: `Satyug-nagari-railway`
+- Service: `surya-nagari-railway`
 - Region: US West
 - Every `git push origin main` auto-deploys via Railway's GitHub integration.
 - Dockerfile uses nginx:alpine + envsubst templates. PORT is injected by Railway at runtime.

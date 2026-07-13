@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Satyug Collective App Concept — A proposed peer-to-peer design for land allocations, builder quotes, and decentralized governance. Pre-DPR study.">
+<title>The App Concept — The Satyug Collective 500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cr:#F2F7F4;--cr2:#E4EEE8;--cr3:#D0E3D6;
+  --forest:#1E3B2B;--forest2:#2B5040;--forest3:#163020;
+  --gold:#C9924A;--gold2:#E8AF60;--gold3:#F5D08A;
+  --lake:#3B7EA1;--lake2:#5AABCB;--lake3:#A8D8EA;
+  --earth:#7A5C3A;--earth2:#B08060;
+  --t:#1E3B2B;--dim:#6B8070;--w:#fff;--b:rgba(30,59,43,.08);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cr);color:var(--t);font-family:'Inter',sans-serif;line-height:1.65;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(242,247,244,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 5%;display:flex;align-items:center;gap:24px;height:56px;}
+.nl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--forest);letter-spacing:.04em;}
+.nv{display:flex;gap:20px;flex:1;}
+.nv a{font-size:.72rem;font-weight:500;color:var(--dim);letter-spacing:.09em;text-transform:uppercase;transition:color .2s;}
+.nv a:hover{color:var(--forest);}
+.nc{background:var(--forest);color:var(--gold2);padding:8px 18px;border-radius:6px;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:background .2s;white-space:nowrap;}
+.nc:hover{background:var(--forest2);}
+.nback{font-size:.72rem;color:var(--dim);letter-spacing:.06em;}
+.nback:hover{color:var(--forest);}
+@media(max-width:800px){.nv{display:none;}}
+
+/* PROTOTYPE BAND */
+.proto-band{background:var(--forest);padding:10px 5%;text-align:center;font-size:.75rem;color:rgba(255,255,255,.55);letter-spacing:.07em;}
+.proto-band a{color:var(--gold2);text-underline-offset:3px;text-decoration:underline;}
+
+/* HERO */
+.hero{padding:90px 5% 60px;background:var(--forest3);color:var(--cr);text-align:center;position:relative;overflow:hidden;}
+.heye{font-size:.63rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--lake2);margin-bottom:24px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.8rem);font-weight:300;line-height:1.1;max-width:900px;margin:0 auto 20px;letter-spacing:-.01em;}
+.hero h1 em{font-style:italic;color:var(--gold2);}
+.hero p{font-size:1.05rem;color:rgba(242,247,244,.65);max-width:700px;margin:0 auto;font-weight:300;line-height:1.75;}
+
+/* SECTION */
+.sec{padding:80px 5%;}
+.si{max-width:1100px;margin:0 auto;}
+.stag{font-size:.64rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;line-height:1.15;color:var(--forest);margin-bottom:16px;}
+.ssub{font-size:.95rem;color:var(--dim);max-width:700px;line-height:1.8;margin-bottom:40px;font-weight:300;}
+
+/* APP FLOW */
+.flow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:40px 0;}
+@media(max-width:900px){.flow-steps{grid-template-columns:1fr;}}
+.fstep{background:var(--w);border:1px solid var(--b);border-radius:12px;padding:24px;position:relative;}
+.fstep-n{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--gold);margin-bottom:8px;}
+.fstep-t{font-weight:600;color:var(--forest);font-size:.85rem;margin-bottom:6px;}
+.fstep-d{font-size:.76rem;color:var(--dim);line-height:1.6;}
+
+/* SCHEMA & ARCH */
+.tech-split{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;margin:50px 0;}
+@media(max-width:800px){.tech-split{grid-template-columns:1fr;}}
+.tech-box{background:var(--w);border:1px solid var(--b);border-radius:14px;padding:32px;}
+.tech-box h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--forest);margin-bottom:16px;}
+.code-pre{background:var(--forest3);color:var(--gold3);font-family:monospace;font-size:.75rem;padding:20px;border-radius:8px;overflow-x:auto;line-height:1.5;}
+
+/* STYLING FOR TABLES */
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .82rem;
+}
+.cost-table th, .cost-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--b);
+}
+.cost-table th {
+  font-weight: 600;
+  color: var(--forest);
+  background: var(--cr);
+}
+
+/* RULES MATRIX */
+.matrix-box{background:var(--cr2);border-radius:18px;padding:40px;margin-bottom:50px;}
+.matrix-table{width:100%;border-collapse:collapse;font-size:.82rem;}
+.matrix-table th, .matrix-table td{text-align:left;padding:12px;border-bottom:1px solid rgba(30,59,43,.08);}
+.matrix-table th{font-weight:600;color:var(--forest);background:var(--cr3);}
+
+/* FACILITY LOCKS */
+.lock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:20px;}
+.lcard{background:var(--w);border:1px solid var(--b);border-radius:12px;padding:20px;display:flex;gap:14px;align-items:flex-start;}
+.lcard-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold);line-height:1;}
+.lcard-info h3{font-size:.85rem;color:var(--forest);margin-bottom:4px;}
+.lcard-info p{font-size:.74rem;color:var(--dim);line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--forest3);color:rgba(242,247,244,.2);text-align:center;padding:40px 5%;font-size:.72rem;line-height:2.2;}
+footer a{color:var(--gold);}
+.flinks{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;}
+.flinks a:hover{color:var(--cr);}
+</style>
+</head>
+<body>
+
+<div class="proto-band">
+  The Satyug Collective 500 · Proposed Model · Pre-DPR Reference &nbsp;·&nbsp;
+  <a href="../index.html">See the 5,000-Acre Full Vision →</a>
+</div>
+
+<nav>
+  <div class="nl">Satyug 500 · The App Concept</div>
+  <div class="nv">
+    <a href="index.html">← Back to Prototype</a>
+    <a href="#how-it-works">Proposed Flow</a>
+    <a href="#architecture">Schema & Stack</a>
+    <a href="#rules">Proposed Principles</a>
+    <a href="#facilities">Potential Unlocks</a>
+    <a href="experience.html">Experience</a>
+  </div>
+  <a class="nc" href="index.html#join">Join the Prototype</a>
+</nav>
+
+<header class="hero">
+  <div class="heye">Proposed Platform Design · Peer-to-Peer Building Model · Pre-DPR Study</div>
+  <h1>Proposed direct discovery.<br>Concept for transparent routing.<br><em>Sovereign leasehold design.</em></h1>
+  <p>An indicative, open-source concept showing how a mobile app could coordinate land allocations, contractor bidding, milestone-based payments, and decentralized governance.</p>
+</header>
+
+<section class="sec" id="how-it-works">
+  <div class="si">
+    <div class="stag">Proposed User Flow (Conceptual)</div>
+    <h2 class="sh">Target steps from signup to construction.</h2>
+    <p class="ssub">A theoretical blueprint mapping how peer-to-peer building could be studied as a way to examine administrative overhead and developer-margin exposure.</p>
+
+    <div class="flow-steps">
+      <div class="fstep">
+        <div class="fstep-n">01</div>
+        <div class="fstep-t">Indicative Map</div>
+        <div class="fstep-d">Proposed to display local plots side-by-side with government reference rates and owner listings, sorted chronologically.</div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-n">02</div>
+        <div class="fstep-t">Plot Selection</div>
+        <div class="fstep-d">Concept allows claiming Class-A leasehold allocations and reviewing facilities voted on by early members.</div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-n">03</div>
+        <div class="fstep-t">Input Parameters</div>
+        <div class="fstep-d">Users define layout templates (e.g. 1BHK/2BHK) or input custom variables to initiate the contractor bidding loop.</div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-n">04</div>
+        <div class="fstep-t">Contractor Bidding</div>
+        <div class="fstep-d">Verified GCs would submit bids outlining estimated pricing, projected timelines, and material metrics.</div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-n">05</div>
+        <div class="fstep-t">Milestone Releases</div>
+        <div class="fstep-d">Payment design locks funds in escrow, proposed to release in tranches following mutual buyer and verification checks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="architecture" style="background:var(--w);">
+  <div class="si">
+    <div class="stag">Technical Architecture Concept</div>
+    <h2 class="sh">Designed for transparency.</h2>
+    <p class="ssub">A proposed framework for cross-platform clients and a relational backend structured around open-source components and verified records.</p>
+
+    <div class="tech-split">
+      <div class="tech-box">
+        <h3>Proposed Database Schema Reference</h3>
+        <p style="font-size:.8rem;color:var(--dim);margin-bottom:14px;">Hypothetical schema structured for a PostgreSQL database with PostGIS extensions for spatial queries.</p>
+        <pre class="code-pre">
+COLLECTIVE
+  id: uuid · name: text · geo: geometry(Point)
+  status: enum(forming, active, mature)
+  facilities: List[Facility] · balance_inr: numeric
+
+LAND_ALLOCATION
+  id: uuid · collective_id: uuid
+  size_sqft: integer · price_inr: numeric (owner-set)
+  status: enum(available, claimed, building, occupied)
+  circle_rate_inr: numeric (proposed gov registry sync)
+
+MEMBER
+  id: uuid · collective_id: uuid · home_id: uuid
+  shares: numeric · votes: List[VoteRecord]
+
+QUOTE
+  id: uuid · home_id: uuid · gc_id: uuid
+  price_inr: numeric · timeline_months: integer
+  materials: text · status: enum(pending, accepted, rejected)
+        </pre>
+      </div>
+
+      <div class="tech-box" style="border-top:4px solid var(--lake);">
+        <h3>Platform Stack Proposal</h3>
+        <table class="cost-table" style="font-size:.8rem;margin-top:0;">
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Proposed Open Component</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600;">Mobile Client</td>
+              <td>React Native (iOS + Android)</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Web Dashboard</td>
+              <td>React + Vite + Tailwind</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Backend API</td>
+              <td>FastAPI (Python, Async)</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Map Engine</td>
+              <td>MapLibre GL JS (no Google Maps API fees)</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Immutable Ledger</td>
+              <td>Polygon Network (hash verification reference)</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">Authentication</td>
+              <td>SMS OTP (local phone baseline)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rules">
+  <div class="si">
+    <div class="matrix-box">
+      <div class="stag">Proposed Platform Principles</div>
+      <h2 class="sh" style="color:var(--forest);">The Proposed No-Algorithm Concept</h2>
+      <p class="ssub" style="color:var(--dim);max-width:640px;">Designed to protect the community marketplace from ranking manipulation, artificial inflation, and opaque developer markups.</p>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Charter Constraint</th>
+            <th>Proposed Code Enforcement</th>
+            <th>Intended Benefit to Community</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Chronological Sort</strong></td>
+            <td>Listings are designed to sort strictly by `listed_at` timestamp with no ranking boost.</td>
+            <td>Mitigates commercial flipping and pay-to-play visibility.</td>
+          </tr>
+          <tr>
+            <td><strong>Alphabetical Contractors</strong></td>
+            <td>Builders are proposed to be listed alphabetically or via custom filters. No system scores.</td>
+            <td>Aims to prevent review gaming and platform recommendation bias.</td>
+          </tr>
+          <tr>
+            <td><strong>100% Owner-Set Prices</strong></td>
+            <td>Platform lacks automatic valuation engines or pricing recommendations.</td>
+            <td>Designed to prevent algorithmically driven price escalation to protect buyers.</td>
+          </tr>
+          <tr>
+            <td><strong>Escrow-Locked Bidding</strong></td>
+            <td>Proposed contract structure signs, hashes, and releases funds on milestone approvals.</td>
+            <td>Designed to mitigate risks of builder delays and payment disputes.</td>
+          </tr>
+          <tr>
+            <td><strong>Verified Reviews Only</strong></td>
+            <td>Feedback forms are proposed to unlock strictly upon settled, completed contracts.</td>
+            <td>Designed to eliminate unverified review manipulation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="facilities" style="background:var(--w);">
+  <div class="si">
+    <div class="stag">Proposed Potential Unlocks</div>
+    <h2 class="sh">Proposed Facilities Menu</h2>
+    <p class="ssub">Proposed baseline menu mapping how member growth could trigger community facilities to offset local operational costs.</p>
+
+    <div class="lock-grid">
+      <div class="lcard">
+        <div class="lcard-num">50</div>
+        <div class="lcard-info">
+          <h3>Minimum Baseline</h3>
+          <p>Triggers proposed Community Kitchen, Solar Farm + BESS grid, Clean Water loops, and organic farm prep.</p>
+        </div>
+      </div>
+      <div class="lcard">
+        <div class="lcard-num">100</div>
+        <div class="lcard-info">
+          <h3>Township Scale</h3>
+          <p>Triggers proposed school foundation, shared EV transport options, local tool library, and meditation spaces.</p>
+        </div>
+      </div>
+      <div class="lcard">
+        <div class="lcard-num">200</div>
+        <div class="lcard-info">
+          <h3>Compute Scale</h3>
+          <p>Triggers proposed local GPU campus (targeting 256 H100s) to explore revenue offsets, and light khadi weaving works.</p>
+        </div>
+      </div>
+      <div class="lcard">
+        <div class="lcard-num">500+</div>
+        <div class="lcard-info">
+          <h3>City District</h3>
+          <p>Triggers proposed central lake excavation, organic food processing works, and craft workshops.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flinks">
+    <a href="index.html">Satyug 500 Home</a>
+    <a href="wellness.html">Wellness Centre</a>
+    <a href="experience.html">Experience</a>
+    <a href="../index.html">5,000-Acre City</a>
+    <a href="../prospectus.html">Prospectus</a>
+    <a href="../blueprint.html">Blueprint</a>
+    <a href="https://github.com/originaonxi/surya-nagari-railway">GitHub</a>
+  </div>
+  <div>
+    The Satyug Collective 500 · The First Collective (proposed) · India · 2026<br>
+    ★ All figures are indicative pre-DPR estimates · Not a registered securities offering<br>
+    <span style="color:rgba(242,247,244,.1);">Designed by Anmol · Built with Claude, Codex & Gemini · Satyug begins now.</span>
+  </div>
+</footer>
+
+</body>
+</html>

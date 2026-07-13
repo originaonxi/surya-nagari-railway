@@ -108,8 +108,8 @@ Surplus:                     ₹520 Crore/yr
 ## Run Locally (No Build Step)
 
 ```bash
-git clone https://github.com/originaonxi/Satyug-nagari-railway
-cd Satyug-nagari-railway
+git clone https://github.com/originaonxi/surya-nagari-railway
+cd surya-nagari-railway
 python3 -m http.server 8742
 # Open: http://localhost:8742/
 ```
@@ -140,7 +140,7 @@ Click **Deploy** on Railway and it works out of the box.
 
 ```
 # Clone the blueprint
-git clone https://github.com/originaonxi/Satyug-nagari-railway my-city-blueprint
+git clone https://github.com/originaonxi/surya-nagari-railway my-city-blueprint
 
 # Adapt for your location (change: climate zone, land laws, language, cultural constitution)
 # Build your own city
