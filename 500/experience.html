@@ -3,345 +3,308 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Satyug Collective Experience — proposed 3-night, 4-day founder immersion for the 500-acre Uttarakhand miniature: farm living, AI, music, spirituality, and the MBHK mothering concept.">
-<title>The Experience — The Satyug Collective 500</title>
+<meta name="description" content="Come stay for four days on the small Satyug farm prototype: food, farming, AI work, music, family life, mother care, and the future village model explained simply.">
+<title>Come See Satyug — 4 Days on the Farm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --cr:#F2F7F4;--cr2:#E4EEE8;--cr3:#D0E3D6;
-  --forest:#1E3B2B;--forest2:#2B5040;--forest3:#163020;
-  --gold:#C9924A;--gold2:#E8AF60;--gold3:#F5D08A;
-  --lake:#3B7EA1;--lake2:#5AABCB;--lake3:#A8D8EA;
-  --earth:#7A5C3A;--earth2:#B08060;
-  --rose:#C06090;--rose2:#E8C4D8;--ink:#17221B;
-  --t:#1E3B2B;--dim:#6B8070;--w:#fff;--b:rgba(30,59,43,.08);
+  --cream:#F4F0EA;--cream2:#EAE4D9;--paper:#FFFDF8;
+  --green:#1E3B2B;--green2:#2B5040;--dark:#122216;
+  --gold:#C9924A;--gold2:#E8B86D;--earth:#7A5C3A;
+  --text:#233026;--muted:#68786D;--line:rgba(30,59,43,.12);
+  --rose:#B45F7B;--sky:#4B8AA8;
 }
 html{scroll-behavior:smooth;}
-body{background:var(--cr);color:var(--t);font-family:'Inter',sans-serif;line-height:1.65;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:200;background:rgba(242,247,244,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 5%;display:flex;align-items:center;gap:24px;height:56px;}
-.nl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--forest);letter-spacing:.04em;white-space:nowrap;}
-.nv{display:flex;gap:18px;flex:1;align-items:center;}
-.nv a{font-size:.7rem;font-weight:600;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;transition:color .2s;white-space:nowrap;}
-.nv a:hover{color:var(--forest);}
-.nc{background:var(--forest);color:var(--gold2);padding:8px 18px;border-radius:6px;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:background .2s;white-space:nowrap;}
-.nc:hover{background:var(--forest2);}
-.nback{font-size:.7rem;color:var(--dim);letter-spacing:.06em;}
-@media(max-width:900px){.nv{display:none;}.nl{font-size:1rem;}}
+.top{background:var(--green);color:rgba(255,255,255,.62);font-size:.76rem;text-align:center;padding:10px 5%;letter-spacing:.04em;}
+.top a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px;}
+nav{position:sticky;top:0;z-index:10;height:58px;background:rgba(244,240,234,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 5%;gap:24px;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--green);white-space:nowrap;}
+.links{display:flex;gap:20px;flex:1;align-items:center;}
+.links a{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.links a:hover{color:var(--green);}
+.cta{background:var(--green);color:var(--gold2);padding:9px 18px;border-radius:7px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;}
+@media(max-width:850px){.links{display:none;}nav{height:54px}.logo{font-size:1.05rem}.cta{font-size:.68rem;padding:8px 12px}}
 
-/* BAND */
-.proto-band{background:var(--forest);padding:10px 5%;text-align:center;font-size:.75rem;color:rgba(255,255,255,.55);letter-spacing:.07em;}
-.proto-band a{color:var(--gold2);text-underline-offset:3px;text-decoration:underline;}
+.hero{background:linear-gradient(135deg,var(--dark),#203728 62%,#3B2A18);color:var(--cream);padding:82px 5% 70px;}
+.hero-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center;}
+.eyebrow{font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:18px;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,6.8rem);font-weight:300;line-height:.98;letter-spacing:-.03em;margin-bottom:24px;}
+h1 em{font-style:italic;color:var(--gold2);}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.4vw,1.55rem);font-style:italic;font-weight:300;color:rgba(244,240,234,.68);line-height:1.65;margin-bottom:28px;max-width:660px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;padding:13px 24px;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}
+.btn-main{background:var(--gold);color:var(--dark);}
+.btn-soft{border:1px solid rgba(244,240,234,.18);color:rgba(244,240,234,.75);}
+.answer-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px;}
+.answer{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.answer:last-child{border-bottom:none;padding-bottom:0;}
+.answer-k{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;}
+.answer-v{font-size:1rem;color:rgba(244,240,234,.82);line-height:1.75;}
+.answer-v strong{color:#fff;}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr}.hero{padding-top:60px}}
 
-/* HERO */
-.hero{min-height:90vh;background:radial-gradient(circle at 70% 30%,rgba(90,171,203,.12),transparent 35%),linear-gradient(140deg,var(--forest3),#121E16 68%,#211B14);display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 5% 90px;position:relative;overflow:hidden;}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:170px;background:linear-gradient(to top,rgba(201,146,74,.13),transparent);pointer-events:none;}
-.heye{font-size:.63rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--lake2);margin-bottom:28px;position:relative;z-index:1;}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,6.6rem);font-weight:300;line-height:1.02;color:var(--cr);max-width:980px;margin:0 auto 26px;letter-spacing:-.02em;position:relative;z-index:1;}
-.hero h1 em{font-style:italic;color:var(--gold2);}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,2.2vw,1.45rem);font-weight:300;font-style:italic;color:rgba(242,247,244,.55);max-width:760px;margin:0 auto 38px;line-height:1.75;position:relative;z-index:1;}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;z-index:1;margin-bottom:32px;}
-.htag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:.72rem;font-weight:600;color:rgba(242,247,244,.68);letter-spacing:.04em;}
-.hctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;}
-.bp{background:var(--gold);color:var(--forest3);padding:13px 32px;border-radius:7px;font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;}
-.bp:hover{background:var(--gold2);transform:translateY(-1px);}
-.bg{background:transparent;color:rgba(242,247,244,.58);border:1px solid rgba(242,247,244,.14);padding:12px 22px;border-radius:7px;font-size:.78rem;letter-spacing:.04em;transition:all .2s;}
-.bg:hover{border-color:rgba(242,247,244,.35);color:var(--cr);}
-
-/* COMMON */
-.sec{padding:90px 5%;}
-.si{max-width:1180px;margin:0 auto;}
-.stag{font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.sh{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:300;line-height:1.1;color:var(--forest);margin-bottom:14px;letter-spacing:-.01em;}
-.sh em{font-style:italic;color:var(--earth);}
-.ssub{font-size:.95rem;color:var(--dim);max-width:720px;line-height:1.85;margin-bottom:44px;font-weight:300;}
+.sec{padding:78px 5%;}
+.in{max-width:1120px;margin:0 auto;}
+.kicker{font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4.2rem);font-weight:300;line-height:1.08;color:var(--green);letter-spacing:-.02em;margin-bottom:16px;}
+h2 em{font-style:italic;color:var(--earth);}
+.lead{font-size:1rem;color:var(--muted);line-height:1.85;max-width:760px;margin-bottom:36px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:18px;}
-.card{background:var(--w);border:1px solid var(--b);border-radius:14px;padding:28px;}
-.card-k{font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.card-h{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--forest);line-height:1.15;margin-bottom:10px;}
-.card-p{font-size:.82rem;color:var(--dim);line-height:1.7;}
-.note{background:rgba(201,146,74,.08);border:1px solid rgba(201,146,74,.2);border-radius:12px;padding:20px;font-size:.78rem;color:var(--earth);line-height:1.75;}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--green);line-height:1.15;margin-bottom:10px;}
+.card p{font-size:.9rem;color:var(--muted);line-height:1.75;}
+.card small{display:block;margin-top:14px;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);}
 
-/* PACKAGE */
-.pkg-bg{background:var(--cr2);}
-.itinerary{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(30,59,43,.09);border-radius:16px;overflow:hidden;margin-top:30px;}
-.day{background:var(--w);padding:30px;}
-.day-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:300;line-height:1;margin-bottom:8px;}
-.day-k{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);margin-bottom:10px;}
-.day-p{font-size:.8rem;color:var(--dim);line-height:1.7;}
-@media(max-width:900px){.itinerary{grid-template-columns:1fr 1fr;}}
-@media(max-width:560px){.itinerary{grid-template-columns:1fr;}}
+.story{background:var(--paper);}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;}
+.big-card{background:var(--cream2);border-radius:22px;padding:34px;border:1px solid var(--line);}
+.big-card p{font-size:1.02rem;color:var(--text);line-height:1.9;margin-bottom:18px;}
+.big-card p:last-child{margin-bottom:0;}
+.simple-list{display:flex;flex-direction:column;gap:12px;}
+.row{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:90px 1fr;gap:14px;align-items:start;}
+.row b{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold);}
+.row span{font-size:.9rem;color:var(--muted);line-height:1.65;}
+@media(max-width:850px){.split{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:4px}}
 
-/* LOCATIONS */
-.loc-card{border-top:4px solid var(--forest);}
-.loc-card:nth-child(2){border-top-color:var(--lake);}
-.loc-card:nth-child(3){border-top-color:var(--gold);}
-.loc-card:nth-child(4){border-top-color:var(--rose);}
-.loc-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
-.pill{background:rgba(30,59,43,.06);border-radius:999px;padding:4px 9px;font-size:.66rem;font-weight:700;color:var(--forest2);letter-spacing:.04em;}
+.days{background:var(--green);color:var(--cream);}
+.days h2{color:var(--cream);}
+.days h2 em{color:var(--gold2);}
+.days .lead{color:rgba(244,240,234,.62);}
+.day-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border-radius:18px;overflow:hidden;}
+.day{background:rgba(255,255,255,.055);padding:28px;min-height:260px;}
+.day-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold2);line-height:1;margin-bottom:14px;}
+.day h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff;margin-bottom:10px;}
+.day p{font-size:.88rem;color:rgba(244,240,234,.68);line-height:1.72;}
+@media(max-width:900px){.day-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.day-grid{grid-template-columns:1fr}}
 
-/* LIFE */
-.life-bg{background:var(--forest3);color:var(--cr);}
-.life-bg .sh{color:var(--cr);}
-.life-bg .ssub{color:rgba(242,247,244,.5);}
-.life-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px;}
-.life-card .card-k{color:var(--lake2);}
-.life-card .card-h{color:var(--gold2);}
-.life-card .card-p{color:rgba(242,247,244,.62);}
+.locations{background:var(--cream2);}
+.place{border-top:4px solid var(--green);}
+.place:nth-child(2){border-top-color:var(--sky);}
+.place:nth-child(3){border-top-color:var(--gold);}
+.place:nth-child(4){border-top-color:var(--rose);}
 
-/* MBHK */
-.mbhk-bg{background:linear-gradient(160deg,#F9F0F5 0%,#F2F7F4 100%);}
-.mbhk-panel{background:#fff;border:1px solid rgba(180,100,140,.15);border-radius:18px;padding:42px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:start;}
-.mbhk-panel h3{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:#2D1F2A;line-height:1.1;margin-bottom:14px;}
-.mbhk-panel h3 em{font-style:italic;color:var(--rose);}
-.mbhk-panel p{font-size:.86rem;color:#6B5060;line-height:1.8;margin-bottom:16px;}
-.mlist{display:flex;flex-direction:column;gap:10px;}
-.mi{background:rgba(180,100,140,.06);border-radius:8px;padding:12px 14px;font-size:.78rem;color:#6B5060;line-height:1.6;}
-.mi strong{color:#2D1F2A;}
-@media(max-width:850px){.mbhk-panel{grid-template-columns:1fr;padding:30px;}}
+.mbhk{background:#FBF2F5;}
+.mother-card{background:#fff;border:1px solid rgba(180,95,123,.16);border-radius:22px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;}
+.mother-card h3{font-family:'Cormorant Garamond',serif;font-size:2.2rem;line-height:1.1;color:#402634;margin-bottom:12px;}
+.mother-card p{font-size:.96rem;line-height:1.85;color:#765C68;margin-bottom:14px;}
+.mother-list{display:flex;flex-direction:column;gap:10px;}
+.mother-list div{background:rgba(180,95,123,.065);border-radius:10px;padding:13px 15px;color:#765C68;font-size:.88rem;line-height:1.65;}
+.mother-list strong{color:#402634;}
+@media(max-width:800px){.mother-card{grid-template-columns:1fr}}
 
-/* PHILOSOPHY */
-.phil-bg{background:#F7F1E8;}
-.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(122,92,58,.12);border-radius:16px;overflow:hidden;}
-.triad-card{background:#FFFDF8;padding:34px;}
-.triad-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--earth);margin-bottom:8px;}
-.triad-body{font-size:.84rem;color:#7A6A58;line-height:1.75;}
-@media(max-width:760px){.triad{grid-template-columns:1fr;}}
+.philosophy{background:#F7F1E8;}
+.quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-style:italic;line-height:1.2;color:var(--earth);max-width:840px;margin-bottom:22px;}
 
-/* CTA */
-.cta{background:var(--forest);color:var(--cr);text-align:center;}
-.cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;line-height:1.1;max-width:780px;margin:0 auto 18px;}
-.cta h2 em{font-style:italic;color:var(--gold2);}
-.cta p{font-size:.9rem;color:rgba(242,247,244,.55);line-height:1.8;max-width:680px;margin:0 auto 32px;}
-
-/* FOOTER */
-footer{background:var(--forest3);color:rgba(242,247,244,.2);text-align:center;padding:40px 5%;font-size:.72rem;line-height:2.2;}
-footer a{color:var(--gold);}
-.flinks{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;}
-.flinks a:hover{color:var(--cr);}
+.footer-note{background:var(--dark);color:rgba(244,240,234,.6);padding:50px 5%;}
+.footer-note .in{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;}
+.footer-note h2{color:var(--cream);font-size:2rem;margin-bottom:10px;}
+.footer-note p{font-size:.8rem;line-height:1.75;color:rgba(244,240,234,.52);margin-bottom:12px;}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;}
+.footer-links a{color:var(--gold2);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;}
+@media(max-width:800px){.footer-note .in{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<div class="proto-band">
-  The Satyug Collective 500 · Experience Prototype · Pre-DPR Concept &nbsp;·&nbsp;
-  <a href="../index.html">See the 5,000-Acre Full Vision →</a>
-</div>
+<div class="top">The Satyug Collective 500 · A small farm prototype before the big city · <a href="index.html">Back to 500-acre prototype</a></div>
 
 <nav>
-  <div class="nl">Satyug 500 · Experience</div>
-  <div class="nv">
-    <a href="index.html">Prototype</a>
-    <a href="#package">3N4D Package</a>
-    <a href="#locations">Uttarakhand</a>
-    <a href="#farm">Farm Life</a>
-    <a href="#mbhk">MBHK</a>
+  <div class="logo">Come See Satyug</div>
+  <div class="links">
+    <a href="#what">What is it?</a>
+    <a href="#days">4 Days</a>
+    <a href="#life">Life There</a>
+    <a href="#places">Uttarakhand</a>
+    <a href="#mother">Mother Care</a>
     <a href="wellness.html">Wellness</a>
-    <a href="app.html">App</a>
-    <a href="../index.html" class="nback">← Full City</a>
   </div>
-  <a class="nc" href="#apply">Apply to Visit</a>
+  <a class="cta" href="#visit">Visit</a>
 </nav>
 
-<header class="hero">
-  <div>
-    <div class="heye">For serious founding families · cooperative members · builders · doctors · creators</div>
-    <h1>Come live it<br><em>before you build it.</em></h1>
-    <p class="hero-sub">A proposed 3-night, 4-day Satyug immersion in Uttarakhand: farm living, AI work, music, cooking, painting, Advaita, wellness, and the first miniature of the 500-acre collective.</p>
-    <div class="hero-tags">
-      <span class="htag">3 Nights · 4 Days</span>
-      <span class="htag">Farm + Food + Family</span>
-      <span class="htag">AI + Art + Spirituality</span>
-      <span class="htag">Uttarakhand Miniature</span>
-      <span class="htag">Free for Pre-Qualified Founding Members</span>
+<header class="hero" id="what">
+  <div class="hero-in">
+    <div>
+      <div class="eyebrow">Simple answer first</div>
+      <h1>Come stay on<br><em>the Satyug farm.</em></h1>
+      <p class="hero-sub">Satyug means a shared village where families live closer to food, land, care, learning, and honest work. Before we build a 500-acre village, we first build a small real farm where people can come for 4 days and feel the life.</p>
+      <div class="hero-actions">
+        <a class="btn btn-main" href="#days">See the 4 days</a>
+        <a class="btn btn-soft" href="#see">What will I see?</a>
+      </div>
     </div>
-    <div class="hctas">
-      <a class="bp" href="#package">View the Experience</a>
-      <a class="bg" href="#locations">Why Uttarakhand</a>
+    <div class="answer-box">
+      <div class="answer">
+        <div class="answer-k">What is it?</div>
+        <div class="answer-v"><strong>A small working farm-village.</strong> Food grows there. People cook together. People who work on computers can use the internet work room. Evenings have music, silence, and family time.</div>
+      </div>
+      <div class="answer">
+        <div class="answer-k">Why come for 4 days?</div>
+        <div class="answer-v">Because nobody understands Satyug from a website. You must eat the food, walk the land, sit with the people, and ask: <strong>can my family live like this?</strong></div>
+      </div>
+      <div class="answer">
+        <div class="answer-k">What will I see and do?</div>
+        <div class="answer-v">Farm, kitchen, water, solar, yoga, music, painting, cooking, children’s learning, the internet work room, and the family rest cottage idea.</div>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="sec pkg-bg" id="package">
-  <div class="si">
-    <div class="stag">The 3 Nights · 4 Days Enrichment Package</div>
-    <h2 class="sh">Not a pitch deck.<br><em>A lived demonstration.</em></h2>
-    <p class="ssub">Anyone can describe a future city. The Satyug miniature must be felt. Qualified founding members and families are invited to spend four days inside the prototype: eating from the farm, working from the AI café, sitting in silence, learning with children, cooking with the kitchen team, and seeing how 15–20 people can live beautifully together.</p>
-    <div class="note"><strong>Proposed model:</strong> Free for serious pre-qualified founding members, families, doctors, educators, architects, organic farming operators, and long-horizon builders. This is not tourism. It is cooperative due diligence through lived experience. Cooperative memberships represent governance and shared baseline usage, not a registered security or guaranteed yield-producing asset.</div>
-
-    <div class="itinerary">
-      <div class="day">
-        <div class="day-num">01</div>
-        <div class="day-k">Arrival · Orientation</div>
-        <div class="day-p">Arrive, settle into a simple luxury farm stay, walk the land, eat the first farm meal, and sit for the opening circle: what does a life without survival anxiety actually require?</div>
+<section class="sec story" id="life">
+  <div class="in split">
+    <div>
+      <div class="kicker">Explain it to a farmer</div>
+      <h2>It is a village where people stop struggling alone.</h2>
+      <div class="big-card">
+        <p>In a normal life, every family pays separately for electricity, food, water, school, health, internet, repairs, and transport.</p>
+        <p>In Satyug, families try to share the cost of building and maintaining many of these things together as a community.</p>
+        <p>The farm gives food. The sun gives electricity. Rainwater is saved. Children learn. Mothers are cared for. People work online. Evenings become human again.</p>
       </div>
-      <div class="day">
-        <div class="day-num">02</div>
-        <div class="day-k">Farm · Food · Work</div>
-        <div class="day-p">Morning yoga, farm work, plant café breakfast, AI work block with 1 Gbps internet, cooking session, solar and water system walkthrough, evening music.</div>
-      </div>
-      <div class="day">
-        <div class="day-num">03</div>
-        <div class="day-k">AI · Art · Advaita</div>
-        <div class="day-p">Painting, baking, furniture workshop, music, Sanskrit and Greek reading circle, AI-enabled learning demo, silent Advaita session: not two — just one.</div>
-      </div>
-      <div class="day">
-        <div class="day-num">04</div>
-        <div class="day-k">Decision · Blueprint</div>
-        <div class="day-p">Share structure, cooperative governance, 500-acre model, 5,000-acre vision, location due diligence, and the real questions: can you build this with us?</div>
+    </div>
+    <div>
+      <div class="kicker">What the small farm proves</div>
+      <div class="simple-list">
+        <div class="row"><b>Food</b><span>Can the land feed the kitchen with clean vegetarian food?</span></div>
+        <div class="row"><b>Power</b><span>Can solar and batteries reduce monthly fear?</span></div>
+        <div class="row"><b>Work</b><span>Can people live in nature and still do computer work with fast internet and AI tools if they need them?</span></div>
+        <div class="row"><b>Care</b><span>Can mothers, children, elders, and workers feel held instead of alone?</span></div>
+        <div class="row"><b>Peace</b><span>Can 15–20 people live with music, farming, learning, silence, and respect?</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="locations">
-  <div class="si">
-    <div class="stag">Uttarakhand Miniature · Location Shortlist</div>
-    <h2 class="sh">The first Satyug should be<br><em>offbeat, fertile, sunny, and protected.</em></h2>
-    <p class="ssub">The 500-acre prototype and the smaller 15–20 person miniature both need low-density agricultural land, strong sun for solar, natural water channels, road access, privacy, and long-term growth without mass-tourism pressure. These regions are a shortlist for field verification — not final recommendations.</p>
+<section class="sec days" id="days">
+  <div class="in">
+    <div class="kicker">The 4-day visit</div>
+    <h2>Not a hotel stay.<br><em>A life test.</em></h2>
+    <p class="lead">You come for 3 nights and 4 days. You do not come to be sold something. You come to see if this life makes sense in your bones.</p>
+    <div class="day-grid">
+      <div class="day">
+        <div class="day-num">1</div>
+        <h3>Arrive and breathe</h3>
+        <p>Settle in. Eat the first farm meal. Walk the land. Understand the simple question: what if survival was not the whole life?</p>
+      </div>
+      <div class="day">
+        <div class="day-num">2</div>
+        <h3>Farm and work</h3>
+        <p>Morning yoga, farm walk, kitchen time, Internet work room, solar and water explanation, simple evening music.</p>
+      </div>
+      <div class="day">
+        <div class="day-num">3</div>
+        <h3>Create and learn</h3>
+        <p>Cooking, painting, baking, furniture, community learning, old books, languages, science, simple AI tools, and an Advaita session: not two, just one.</p>
+      </div>
+      <div class="day">
+        <div class="day-num">4</div>
+        <h3>Ask the real question</h3>
+        <p>Could we build this together? What land, money, people, rules, and patience would it take? Then you decide with a clear mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="sec" id="see">
+  <div class="in">
+    <div class="kicker">What you will actually see</div>
+    <h2>A small version of the future village.</h2>
+    <p class="lead">The point is not luxury decoration. The point is to show the basic systems of a better life, in a way a normal family can understand.</p>
     <div class="grid">
-      <div class="card loc-card">
-        <div class="card-k">01 · Nainital Foothills</div>
-        <div class="card-h">Kotabagh & Taliya Village</div>
-        <div class="card-p">A lush foothill valley outside crowded tourist cores. Strong fit for a first miniature because the terrain is friendlier for farms, rainwater harvesting, and low-impact structures. Lower elevation also helps reduce winter heating and server-cooling extremes.</div>
-        <div class="loc-meta"><span class="pill">Founder Visits</span><span class="pill">Farm Stay</span><span class="pill">Road Access</span></div>
-      </div>
-      <div class="card loc-card">
-        <div class="card-k">02 · Near Mukteshwar</div>
-        <div class="card-h">Ramgarh & Nathuakhan Valley</div>
-        <div class="card-p">The Fruit Bowl of Kumaon. Organic farming culture, sun-drenched valley character, wellness seekers, digital nomads, and strong visual identity. Good fit for the AI + slow-living + orchard version of Satyug.</div>
-        <div class="loc-meta"><span class="pill">Organic Farms</span><span class="pill">Solar</span><span class="pill">Slow Living</span></div>
-      </div>
-      <div class="card loc-card">
-        <div class="card-k">03 · Almora District</div>
-        <div class="card-h">Jageshwar & Artola Belt</div>
-        <div class="card-p">A spiritual and deodar-forest region with strong wellness resonance. Best fit if the prototype leans heavily into Ayurveda, silence, temple culture, spa, retreat, and holistic mothering.</div>
-        <div class="loc-meta"><span class="pill">Spiritual</span><span class="pill">Wellness</span><span class="pill">Retreat</span></div>
-      </div>
-      <div class="card loc-card">
-        <div class="card-k">04 · Champawat District</div>
-        <div class="card-h">Lohaghat</div>
-        <div class="card-p">Long-horizon land-banking candidate: quieter, more off-radar, potentially larger parcels, and deeper blank-canvas potential. Better for the 10-year 500-acre/5,000-acre arc than an immediate luxury visitor prototype.</div>
-        <div class="loc-meta"><span class="pill">10-Year Horizon</span><span class="pill">Large Parcels</span><span class="pill">Pristine</span></div>
-      </div>
-    </div>
-    <div class="note" style="margin-top:24px;font-size:.72rem;color:var(--dim);">
-      <strong>Regulatory compliance note:</strong> Any physical implementation or land acquisition in the listed Uttarakhand zones is subject to strict state-specific land laws, land ceiling limits, local land-use permissions, environmental clearances, and formal legal due diligence. This shortlist is for field research only.
+      <div class="card"><h3>Community kitchen</h3><p>Food cooked from real ingredients. People eating together. No one alone with the daily burden of cooking every meal.</p><small>Food as infrastructure</small></div>
+      <div class="card"><h3>Farm and soil</h3><p>Vegetables, herbs, fruit, grains where possible. Compost, water, seed, soil. The village begins from the earth.</p><small>Land as mother</small></div>
+      <div class="card"><h3>Internet work room</h3><p>Fast internet, desks, computer work, and simple AI tools for those who need them. People can live near nature without leaving modern work behind.</p><small>Internet with peace</small></div>
+      <div class="card"><h3>Music and making</h3><p>Painting, baking, furniture, instruments, poetry, and evening circles. Life should not be only bills and deadlines.</p><small>Time returned</small></div>
+      <div class="card"><h3>Children learning</h3><p>Books, nature, languages, AI tutors, elders, farms, and practical skills. Learning from every civilization, not just one syllabus.</p><small>Sanskrit · Greek · English</small></div>
+      <div class="card"><h3>Family rest care</h3><p>A gentle family rest cottage idea: a peaceful place where a mother can recover, eat well, rest, and be supported after clinical care happens through proper doctors and facilities.</p><small>Care with dignity</small></div>
     </div>
   </div>
 </section>
 
-<section class="sec life-bg" id="farm">
-  <div class="si">
-    <div class="stag">The First Miniature · 15–20 People</div>
-    <h2 class="sh">A farm big enough<br><em>for life to become whole.</em></h2>
-    <p class="ssub">Before 500 acres, there is one working farm. Before 5,000 acres, there are 15–20 people living in rhythm: food, work, music, AI, cooking, painting, spirituality, baking, furniture, farming, silence. Nothing forced. Everything available.</p>
-
+<section class="sec locations" id="places">
+  <div class="in">
+    <div class="kicker">Why Uttarakhand?</div>
+    <h2>Mountains, farms, water, sun, and silence.</h2>
+    <p class="lead">We are not saying these places are final. They are places to go, walk, ask, test water, test roads, understand land laws, and see where the first small Satyug farm could be born.</p>
     <div class="grid">
-      <div class="life-card">
-        <div class="card-k">Food</div>
-        <div class="card-h">Community Kitchen + Plant Café</div>
-        <div class="card-p">Fresh food from the farm, vegetarian, nutrient-dense, cooked together. Guests see how food can become infrastructure — not a monthly bill.</div>
-      </div>
-      <div class="life-card">
-        <div class="card-k">Work</div>
-        <div class="card-h">AI Studio + 1 Gbps Work Café</div>
-        <div class="card-p">A focused work zone for builders, founders, researchers, and husbands in the MBHK program. AI as companion, teacher, and economic engine.</div>
-      </div>
-      <div class="life-card">
-        <div class="card-k">Art</div>
-        <div class="card-h">Music · Painting · Baking · Furniture</div>
-        <div class="card-p">The miniature must prove that life is not just survival. People should make songs, paint walls, bake bread, build tables, and feel time return to them.</div>
-      </div>
-      <div class="life-card">
-        <div class="card-k">Spirit</div>
-        <div class="card-h">Advaita Vedanta</div>
-        <div class="card-p">Not two. Just one. Everything one. The philosophical ground of Satyug: the farm, the mother, the child, the server, the tree, the founding member, the worker — one field.</div>
-      </div>
+      <div class="card place"><h3>Kotabagh / Taliya</h3><p>A foothill valley. Easier farm feeling. Good for the first small sample where guests can come and understand the life.</p></div>
+      <div class="card place"><h3>Ramgarh / Nathuakhan</h3><p>Fruit, orchards, slow living, and wellness feeling. Good for families and people who want farm life with beauty.</p></div>
+      <div class="card place"><h3>Jageshwar / Artola</h3><p>More spiritual, forested, quiet. Good if the first farm leans toward Ayurveda, silence, mother care, and retreat.</p></div>
+      <div class="card place"><h3>Lohaghat</h3><p>More untouched and long-term. Maybe better for bigger land thinking later, not necessarily the first visitor farm.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec mbhk-bg" id="mbhk">
-  <div class="si">
-    <div class="stag" style="color:var(--rose);">MBHK · Mother BHK · Residential Care Concept</div>
-    <h2 class="sh" style="color:#2D1F2A;">Mothering should feel<br><em style="color:var(--rose);">like luxury and nature together.</em></h2>
-    <p class="ssub">The MBHK is proposed as a 51-day residential mothering environment within Satyug: final-month arrival, postnatal recovery, Ayurvedic malish, farm nutrition, new mother circles, baby photos, and a husband work zone. It is not a hospital. It follows your doctor’s plan.</p>
-
-    <div class="mbhk-panel">
+<section class="sec mbhk" id="mother">
+  <div class="in">
+    <div class="kicker">Family Rest Cottage, in simple words</div>
+    <h2>A new mother should not recover alone.</h2>
+    <div class="mother-card">
       <div>
-        <h3>30 + 21 = <em>51 days</em></h3>
-        <p>Come in the ninth month. Stay until at least 21 days after delivery. Your own licensed doctor leads clinical decisions. The Satyug team provides the environment: MBHK apartment, farm food, Ayurvedic care approved by your doctor, and a circle of other new mothers.</p>
-        <p>Proposed capacity begins with 10 mothers per month. Small enough that every mother is known by name. Large enough that no mother is alone.</p>
-        <div class="note"><strong>Medical framing:</strong> Any implementation requires licensed obstetric/neonatal oversight, registered facility partnerships, emergency transfer protocols, and compliance with all Indian medical regulations.</div>
+        <h3>A peaceful cottage around the family.</h3>
+        <p>A family may stay in a peaceful 1BHK-style cottage around the birth period. After the baby is born with licensed medical professionals at an appropriate facility, the mother rests in the cottage for at least 21 days.</p>
+        <p>Satyug does not replace doctors, nurses, midwives, or hospitals. This cottage provides only accommodation and environment: food, rest, doctor-approved malish, other mothers to talk to, and a husband zone so the family can stay together.</p>
       </div>
-      <div class="mlist">
-        <div class="mi"><strong>MBHK:</strong> a fully-loaded 1BHK residential suite you can decorate and live in with your baby.</div>
-        <div class="mi"><strong>Plant Café:</strong> farm-grown meals and cold-pressed juices following your doctor-advised diet.</div>
-        <div class="mi"><strong>Daily Malish:</strong> mother and baby Ayurvedic massage by trained practitioners, approved by your doctor.</div>
-        <div class="mi"><strong>Mother Circle:</strong> daily conversation with other new mothers — because new mothers should talk to each other.</div>
-        <div class="mi"><strong>Husband Zone:</strong> 5G/1 Gbps work café, standing desks, gym, protein bar, swimming, and quiet presence.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec phil-bg" id="philosophy">
-  <div class="si">
-    <div class="stag">Language · Literature · Learning</div>
-    <h2 class="sh">English is our time.<br><em>Sanskrit and Greek are our inheritance.</em></h2>
-    <p class="ssub">Satyug does not reject any book. It learns from every civilization. English is the language of our time; Sanskrit carries the depth of Advaita, yoga, Ayurveda, and Indian thought; Greek carries philosophy, logic, drama, politics, and the classical foundations of Western reason. AI lets every child access all of it.</p>
-
-    <div class="triad">
-      <div class="triad-card">
-        <div class="triad-title">Sanskrit</div>
-        <div class="triad-body">The language of Advaita, Upanishads, Yoga, Ayurveda, grammar, cosmology, and spiritual precision. Not museum knowledge — living knowledge.</div>
-      </div>
-      <div class="triad-card">
-        <div class="triad-title">Greek</div>
-        <div class="triad-body">The language of Plato, Aristotle, theatre, democracy, mathematics, medicine, and the Western philosophical archive.</div>
-      </div>
-      <div class="triad-card">
-        <div class="triad-title">English + AI</div>
-        <div class="triad-body">The current global interface. AI makes all literature available to every resident, in every language, with personalised learning paths.</div>
+      <div class="mother-list">
+        <div><strong>Family cottage:</strong> a warm private home-like space, not a hospital ward and not a medical facility.</div>
+        <div><strong>Food:</strong> farm meals and juices following her doctor's diet.</div>
+        <div><strong>Malish:</strong> Ayurvedic massage only if medically allowed by the family’s doctor.</div>
+        <div><strong>Other mothers:</strong> daily circles so no one feels alone.</div>
+        <div><strong>Husband zone:</strong> internet, work desk, gym, café, and presence.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec cta" id="apply">
-  <div class="si">
-    <h2>First the miniature.<br><em>Then 500 acres. Then 5,000.</em></h2>
-    <p>The direction is clear: build the smallest real version in Uttarakhand, invite the right people to live it for four days, prove the systems, then scale the 500-acre prototype into the full Satyug city.</p>
-    <div class="hctas">
-      <a class="bp" href="index.html#join">Register Interest</a>
-      <a class="bg" href="wellness.html#mbhk">Read MBHK Detail</a>
+<section class="sec philosophy" id="spirit">
+  <div class="in">
+    <div class="kicker">The soul of the place</div>
+    <div class="quote">Not two. Just one. The farm, the child, the mother, the worker, the tree, the computer, the village — one life.</div>
+    <p class="lead">This is Advaita in village language. It does not mean everyone must follow one religion. It means we build with respect. We learn from Sanskrit, Greek, English, science, Ayurveda, AI, farming, music, and every useful book we can find.</p>
+  </div>
+</section>
+
+<section class="sec" id="visit">
+  <div class="in split">
+    <div>
+      <div class="kicker">Who should come?</div>
+      <h2>People who may actually help build it.</h2>
+      <p class="lead">Families, farmers, doctors, architects, teachers, builders, cooks, artists, computer/AI people, and serious future cooperative members. The visit is for people who want to understand by living, not by scrolling.</p>
+      <a class="btn btn-main" href="index.html#join">Register interest</a>
+    </div>
+    <div class="big-card">
+      <p><strong>If you come, come honestly.</strong></p>
+      <p>Walk the land. Eat the food. Ask hard questions. Look at the numbers. Meet the people. See what is real and what is still a dream.</p>
+      <p>Then decide if you want to be part of building Satyug from a small farm into a 500-acre prototype and eventually a 5,000-acre city.</p>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="flinks">
-    <a href="index.html">Satyug 500 Home</a>
-    <a href="wellness.html">Wellness Centre</a>
-    <a href="app.html">The App</a>
-    <a href="../index.html">5,000-Acre City</a>
-    <a href="../prospectus.html">Prospectus</a>
-    <a href="../blueprint.html">Blueprint</a>
-    <a href="https://github.com/originaonxi/surya-nagari-railway">GitHub</a>
+<section class="footer-note">
+  <div class="in">
+    <div>
+      <h2>Small clear notes</h2>
+      <p>This page explains a proposed concept in simple language. It is not a securities offer, not a promise of income, and not an invitation to buy land without legal due diligence.</p>
+      <p>Any Uttarakhand land work must follow state land laws, land ceiling rules, land-use permissions, environmental clearances, and proper legal checks.</p>
+      <p>The family rest cottage is not a hospital. No medical, midwifery, nursing, or delivery services are provided on-site unless separately licensed under law. Birth and clinical decisions must be handled by licensed doctors and registered clinical facilities. Satyug only describes accommodation, food, rest, and the surrounding care environment.</p>
+    </div>
+    <div>
+      <h2>Links</h2>
+      <div class="footer-links">
+        <a href="index.html">500 Home</a>
+        <a href="wellness.html#mbhk">Mother Care Detail</a>
+        <a href="app.html">The App</a>
+        <a href="../index.html">Full City</a>
+        <a href="https://github.com/originaonxi/surya-nagari-railway">GitHub</a>
+      </div>
+    </div>
   </div>
-  <div>
-    The Satyug Collective 500 · Experience Prototype · Uttarakhand shortlist · India · 2026<br>
-    All location and financial details are indicative pre-DPR concepts · Not a securities offering<br>
-    <span style="color:rgba(242,247,244,.1);">Designed by Anmol · Built with Claude, Codex & Gemini · Come live it before you build it.</span>
-  </div>
-</footer>
+</section>
 
 </body>
 </html>
